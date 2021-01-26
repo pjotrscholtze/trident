@@ -60,7 +60,7 @@ extern bool checkMachineConstraints();
 //Implemented in main_sparql.cpp
 extern void execNativeQuery(ProgramArgs &vm, Querier *q, KB &kb, bool silent);
 extern void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
-        bool disableBifocalSampling, bool resultslookup);
+        bool disableBifocalSampling, bool resultslookup, string query);
 
 //Implemented in main_ml.cpp
 extern void launchML(KB &kb, string op, string algo, string paramsLearn,
@@ -292,6 +292,26 @@ void mineFrequentPatterns(string kbdir, int minLen, int maxLen, int64_t minSuppo
     miner.getFrequentPatterns(minLen, maxLen, minSupport);
 }
 #endif
+void doQuery(int queryIndex, string query, ProgramArgs vm, string kbDir) {
+    LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY_INDEX: " << queryIndex++;
+    LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY: " << query;
+
+    KBConfig config;
+    std::vector<string> locUpdates;
+    KB kb(kbDir.c_str(), true, false, true, config, locUpdates);
+    TridentLayer layer(kb);
+    layer.getQuerier()->resetCounters();
+    callRDF3X(layer, vm["query"].as<string>(), vm["explain"].as<bool>(),
+            vm["disbifsampl"].as<bool>(), false, query);
+    string jsonBuilder = "{\"index\":{";
+    for (int i = 0; i < 6; i++) {
+        jsonBuilder += to_string(i) + ":" + to_string(layer.getQuerier()->getIndexCounter(i)) + ",";
+        // LOG(INFOL) << "BENCHMARK-TRIDENT:INDEX:" << i << ":COUNT: " << layer.getQuerier()->getIndexCounter(i);
+    }
+    LOG(INFOL) << "BENCHMARK-TRIDENT:JSON:" << jsonBuilder << "},\"queryIndex\":" << queryIndex << "}";
+    
+    
+}
 
 int main(int argc, const char** argv) {
     //Check some constraints
@@ -339,7 +359,7 @@ int main(int argc, const char** argv) {
         KB kb(kbDir.c_str(), true, false, true, config, locUpdates);
         TridentLayer layer(kb);
         callRDF3X(layer, vm["query"].as<string>(), vm["explain"].as<bool>(),
-                vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>());
+                vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>(), "");
 
         int repeatQuery = vm["repeatQuery"].as<int>();
         ofstream file("/dev/null");
@@ -347,7 +367,7 @@ int main(int argc, const char** argv) {
         cout.rdbuf(file.rdbuf());
         while (repeatQuery > 0 && !vm["explain"].as<bool>()) {
             callRDF3X(layer, vm["query"].as<string>(), false,
-                    vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>());
+                    vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>(), "");
             repeatQuery--;
         }
         cout.rdbuf(strm_buffer);
@@ -378,6 +398,39 @@ int main(int argc, const char** argv) {
         LOG(ERRORL) << "Trident is not compiled with support to advanced SPARQL querying. Add -DSPARQL=1 to cmake";
         return EXIT_FAILURE;
 #endif
+    } else if (cmd == "benchmark") {
+// #ifdef SPARQL
+        string queryFileName = vm["query_file"].as<string>();
+        std::fstream inFile;
+        inFile.open(queryFileName);//open the input file
+
+        std::string line;
+        int queryBufferLength = 0, queryIndex = 0;
+        const int queryBufferSize = 2;
+        string queryBuffer[queryBufferSize];
+        while(std::getline(inFile, line))
+        {
+            queryBuffer[queryBufferLength] = line;
+            queryBufferLength++;
+            for (int i = 0; i < (queryBufferLength == queryBufferSize) * queryBufferLength; i++) {
+                doQuery(queryIndex++, queryBuffer[i], vm, kbDir);
+            }
+            
+            queryBufferLength *= (queryBufferLength != queryBufferSize);
+        }
+        inFile.close();
+        for (int i = 0; i < queryBufferLength * (queryBufferLength > 0); i++) {
+            doQuery(queryIndex++, queryBuffer[i], vm, kbDir);
+        }
+
+
+        // LOG(INFOL) << "test from benchmark!";
+        // LOG(INFOL) << "file: " << queryFileName;
+        // LOG(INFOL) << "type: " << vm["query_type"].as<string>();
+// #else
+//         LOG(ERRORL) << "Trident is not compiled with support to advanced SPARQL querying. Add -DSPARQL=1 to cmake";
+//         return EXIT_FAILURE;
+// #endif
     } else if (cmd == "lookup") {
         KBConfig config;
         KB kb(kbDir.c_str(), true, false, true, config);

@@ -39,6 +39,7 @@ void printHelp(const char *programName, string section,
         cout << "lookup\t\t\t lookup for values in the dictionary." << endl;
         cout << "info\t\t\t print some information about the KB." << endl;
         cout << "dump\t\t\t dump the graph on files." << endl;
+        cout << "benchmark\t\t\t benchmark a list of queries." << endl;
 
 #ifdef ANALYTICS
         cout << "analytics\t\t perform analytical operations on the graph." << endl;
@@ -81,6 +82,7 @@ bool checkParams(ProgramArgs &vm, int argc, const char** argv,
             && cmd != "query_native"
             && cmd != "info"
             && cmd != "add"
+            && cmd != "benchmark"
             && cmd != "rm"
             && cmd != "merge"
 #ifdef ANALYTICS
@@ -137,6 +139,23 @@ bool checkParams(ProgramArgs &vm, int argc, const char** argv,
                 printErrorMsg(
                         (string("The file ") + queryFile
                          + string(" doesn't exist.")).c_str());
+                return false;
+            }
+        } else if (cmd == "benchmark") {
+            string queryFile = vm["query_file"].as<string>();
+            if (queryFile == "") {
+                printErrorMsg("Query file is required");
+                return false;
+            }
+            if (!Utils::exists(queryFile)) {
+                printErrorMsg(
+                        (string("The file ") + queryFile
+                         + string(" doesn't exist.")).c_str());
+                return false;
+            }
+            string queryType = vm["query_type"].as<string>();
+            if (queryType != "query" && queryType != "query_native") {
+                printErrorMsg("Invalid query type given, can only be: [query|query_native]...");
                 return false;
             }
         } else if (cmd == "lookup") {
@@ -396,6 +415,12 @@ bool initParams(int argc, const char** argv, ProgramArgs &vm) {
     subeval_options.add<string>("", "binEmbDir", "",
             "The directory that contains the binarized embeddings of subgraphs, entities and relations.", false);
 #endif
+    ProgramArgs::GroupArgs& benchmark_options = *vm.newGroup("Options for <benchmark>");
+    benchmark_options.add<string>("", "query_file", "",
+            "The path of the file containing the queries", true);
+    benchmark_options.add<string>("", "query_type", "",
+            "The type of queries to run, can either by query, or query_native",
+            true);
 
     /***** GENERAL OPTIONS *****/
     ProgramArgs::GroupArgs& cmdline_options = *vm.newGroup("General options");
@@ -406,13 +431,14 @@ bool initParams(int argc, const char** argv, ProgramArgs &vm) {
     cmdline_options.add<string>("", "logfile","",
             "Set if you want to store the logs in a file", false);
 
-    sections.insert(make_pair("general",&cmdline_options));
-    sections.insert(make_pair("query",&query_options));
-    sections.insert(make_pair("lookup",&lookup_options));
-    sections.insert(make_pair("load",&load_options));
-    sections.insert(make_pair("test",&test_options));
-    sections.insert(make_pair("add",&update_options));
-    sections.insert(make_pair("rm",&update_options));
+    sections.insert(make_pair("general", &cmdline_options));
+    sections.insert(make_pair("query", &query_options));
+    sections.insert(make_pair("lookup", &lookup_options));
+    sections.insert(make_pair("load", &load_options));
+    sections.insert(make_pair("test", &test_options));
+    sections.insert(make_pair("add", &update_options));
+    sections.insert(make_pair("benchmark", &benchmark_options));
+    sections.insert(make_pair("rm", &update_options));
 #ifdef ANALYTICS
     sections.insert(make_pair("analytics",&ana_options));
 #endif

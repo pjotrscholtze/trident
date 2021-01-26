@@ -24,7 +24,7 @@ using namespace std;
 
 DDLEXPORT void execNativeQuery(ProgramArgs &vm, Querier *q, KB &kb, bool silent);
 DDLEXPORT void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
-        bool disableBifocalSampling, bool resultslookup);
+        bool disableBifocalSampling, bool resultslookup, string query);
 
 std::unique_ptr<Query> createQueryFromRF3XQueryGraph(SPARQLParser &parser,
         QueryGraph &graph) {
@@ -100,25 +100,28 @@ void parseQuery(bool &success,
     success = true;
     return;
 }
-
 void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
-        bool disableBifocalSampling, bool resultslookup) {
+        bool disableBifocalSampling, bool resultslookup, string query) {
     QueryDict queryDict(db.getNextId());
     bool parsingOk;
 
     // Parse the query
     string queryContent = "";
-    if (queryFileName == "") {
-        //Read it from STDIN
-        cout << "SPARQL Query:" << endl;
-        getline(cin, queryContent);
-        cout << "QUERY " << queryContent << endl;
+    if (query == "") {
+        if (queryFileName == "") {
+            //Read it from STDIN
+            cout << "SPARQL Query:" << endl;
+            getline(cin, queryContent);
+            cout << "QUERY " << queryContent << endl;
+        } else {
+            std::fstream inFile;
+            inFile.open(queryFileName);//open the input file
+            std::stringstream strStream;
+            strStream << inFile.rdbuf();//read the file
+            queryContent = strStream.str();
+        }
     } else {
-        std::fstream inFile;
-        inFile.open(queryFileName);//open the input file
-        std::stringstream strStream;
-        strStream << inFile.rdbuf();//read the file
-        queryContent = strStream.str();
+        queryContent = query;
     }
 
     SPARQLLexer lexer(queryContent);

@@ -94,6 +94,7 @@ class Querier {
         Factory<NewColumnTable> ncFactory;
         FactoryNewRowTable nrFactory;
         FactoryNewClusterTable ncluFactory;
+        uint64_t indexCounter[6];
 
         StorageStrat strat;
 
@@ -142,6 +143,9 @@ class Querier {
         DDLEXPORT PairItr *summaryAddDiff();
 
         DDLEXPORT PairItr *summaryRmDiff();
+        
+        uint64_t getIndexCounter(int i);
+        void resetIndexCounter();
 
         bool existKey(int perm, int64_t key);
 

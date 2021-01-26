@@ -59,6 +59,7 @@ Querier::Querier(Root* tree, DictMgmt *dict, TableStorage** files,
     nTablesPerPartition(nTablesPerPartition),
     nFirstTablesPerPartition(nFirstTablesPerPartition), nindices(nindices),
     diffIndices(diffIndices), present(present) {
+        this->resetIndexCounter();
         this->tree = tree;
         this->dict = dict;
         this->files = files;
@@ -733,6 +734,15 @@ PairItr *Querier::summaryRmDiff() {
     return newitr;
 }
 
+uint64_t Querier::getIndexCounter(int i) {
+    return this->indexCounter[i];
+}
+void Querier::resetIndexCounter() {
+    for (int i = 0; i < 6; i++) {
+        this->indexCounter[i] = 0;
+    }
+ }
+
 PairItr *Querier::summaryDiff(const int perm, DiffIndex::TypeUpdate tp) {
 
     PairItr *finalItr = NULL;
@@ -808,6 +818,7 @@ PairItr *Querier::get(const int idx, TermCoordinates &value,
         const int64_t key, const int64_t v1,
         const int64_t v2, const bool cons) {
 
+    this->indexCounter[idx]++;
     if (value.exists(idx)) {
         if (StorageStrat::isAggregated(value.getStrategy(idx))) {
             aggrIndices++;
@@ -883,6 +894,7 @@ PairItr *Querier::get(const int perm,
         const int64_t v2,
         const bool constrain,
         const bool noAggr) {
+    this->indexCounter[fileIdx]++;
     PairItr *itr = strat.getBinaryTable(strategy);
     initNewIterator(files[perm], fileIdx, mark, (PairItr*) itr, v1, v2, constrain);
     if (StorageStrat::isAggregated(strategy) && !noAggr) {
@@ -899,6 +911,7 @@ PairItr *Querier::get(const int perm,
 
 PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int64_t o,
         const bool cons) {
+    this->indexCounter[idx]++;
     PairItr *out = NULL;
     int64_t first, second, third;
     first = second = third = 0;
