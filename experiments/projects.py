@@ -1,6 +1,5 @@
 import json
 from glob import glob
-from typing import List, Dict
 import os
 import logging
 import monitor
@@ -20,7 +19,7 @@ def telegram_inform(message: str):
 
 
 class Project:
-    def __init__(self, name: str, description: str, script: List[str]):
+    def __init__(self, name: str, description: str, script):
         self.name = name
         self.description = description
         self.script = script
@@ -44,7 +43,7 @@ class Project:
         return stdout
 
 
-def get_projects() -> List[Project]:
+def get_projects():
     names = []
     for p in glob("experiments/projects/*.json"):
         with open(p, "r") as f:
