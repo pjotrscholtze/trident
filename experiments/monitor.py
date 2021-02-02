@@ -20,13 +20,13 @@ class Job:
     def update(self, job):
         res = []
         if self.state != job.state:
-            res.append("state", self.state, job.state)
+            res.append(("state", self.state, job.state))
             self.state = job.state
         if self.nodes != job.nodes:
-            res.append("nodes", self.nodes, job.nodes)
+            res.append(("nodes", self.nodes, job.nodes))
             self.nodes = job.nodes
         if self.nodelist != job.nodelist:
-            res.append("nodelist", self.nodelist, job.nodelist)
+            res.append(("nodelist", self.nodelist, job.nodelist))
             self.nodelist = job.nodelist
         return res
 
