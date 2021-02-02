@@ -1,0 +1,9 @@
+{
+    "name": "doing-something",
+    "description": "example_project",
+    "script": [
+        "#!/bin/bash -e",
+        "#SBATCH -t 1:00 -N 1 -n 8 --mem=1600M",
+        "sleep 5"
+    ]
+}
