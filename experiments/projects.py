@@ -6,7 +6,7 @@ import monitor
 import subprocess
 import urllib.request    
 import urllib.parse    
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 CONFIG = {}
 with open("config.json", "r") as f: CONFIG = json.load(f)

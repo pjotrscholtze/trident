@@ -4,7 +4,7 @@ import subprocess
 import os.path
 import logging
 from glob import glob
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 def squeue():
     return subprocess.getoutput("squeue -l")
