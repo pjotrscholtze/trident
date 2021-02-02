@@ -118,8 +118,7 @@ class JobMonitor:
 
         if self._itt_count == 600:
             self._itt_count = 0
-            if not res:
-                res.append("Still monitoring _%d_ jobs" % job_count)
+            res.append("Still monitoring _%d_ jobs" % job_count)
         self._itt_count += 1
         return "\n".join(res)
 
