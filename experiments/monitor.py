@@ -2,7 +2,10 @@ import threading
 import time
 import subprocess
 import os.path
+import logging
 from glob import glob
+logging.basicConfig(level=logging.INFO)
+
 def squeue():
     return subprocess.getoutput("squeue -l")
 
@@ -88,7 +91,9 @@ class JobMonitor:
                     just_finished_jobs.append(name)
 
             msg = self._make_message(updates, new_jobs, job_count, just_finished_jobs)
-            if msg: self.message_callback(msg)
+            if msg:
+                self.message_callback(msg)
+                logging.info(msg)
             logging.info("Still checking round #%d" % self._itt_count)
             time.sleep(1)
             self._itt_count += 1
