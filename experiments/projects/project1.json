@@ -5,6 +5,13 @@
         "#!/bin/bash -e",
         "#SBATCH -t 1:00 -N 1 -n 8 --mem=1600M",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
-        "sleep 5"
+        "date",
+        "sleep 1",
+        "date",
+        "sleep 1",
+        "date",
+        "sleep 1",
+        "date",
+        "sleep 1"
     ]
 }
