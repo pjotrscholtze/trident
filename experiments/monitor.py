@@ -47,6 +47,7 @@ def get_jobs_of_user(data, username):
 class JobMonitor:
     def __init__(self, message_callback):
         self.jobs = {}
+        self._finished = []
         self.message_callback = message_callback
         self._itt_count = 0
 
@@ -58,7 +59,9 @@ class JobMonitor:
             updates = [] # type: (str, List[(str, str, str)])
             new_jobs = [] # type: List[Job]
             job_count = 0
+            job_names = []
             for job in get_jobs_of_user(squeue(), "pse740"):
+                job_names.append(job.name)
                 job_count += 1
                 if job.name not in self.jobs:
                     self.jobs[job.name] = job
@@ -66,12 +69,18 @@ class JobMonitor:
                 else:
                     changes = self.jobs[job.name].update(job)
                     if changes: updates.append((job.name, changes))
+            
+            just_finished_jobs = []
+            for name in self.jobs:
+                if name not in self._finished and name not in job_names:
+                    self._finished.append(name)
+                    just_finished_jobs.append(name)
 
-            msg = self._make_message(updates, new_jobs, job_count)
+            msg = self._make_message(updates, new_jobs, job_count, just_finished_jobs)
             if msg: self.message_callback(msg)
             time.sleep(1)
 
-    def _make_message(self, updates: (str, any), new_jobs, job_count):
+    def _make_message(self, updates: (str, any), new_jobs, job_count, just_finished_jobs):
         res = []
         if new_jobs:
             res.append("*New jobs:*")
@@ -83,6 +92,12 @@ class JobMonitor:
             for job in updates:
                 for change in job[1]:
                     res.append("- %s ['%s': '%s' -> '%s']" % (job[0], change[0], change[1], change[2]))
+        if just_finished_jobs:
+            if res: res.append(" ")
+            res.append("*Just finished:*")
+            for jobname in just_finished_jobs:
+                res.append("- %s" % jobname)
+
         if self._itt_count == 600:
             self._itt_count = 0
             if not res:

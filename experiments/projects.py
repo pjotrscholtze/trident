@@ -39,13 +39,13 @@ class Project:
         sbatch_output_file = self._project_path() + "/slurm-%j.out"
         os.mkdir(self._project_path())
         with open(sbatch_file, "w") as f:
-            f.writelines("\n".join(self.script))
+            f.writelines("\n".join(self.script).replace("$PROJECT_PATH", self._project_path()))
         cmd = "sbatch %s -o %s" % (sbatch_file, sbatch_output_file)
         stdout = subprocess.getoutput(cmd)
         with open(self._project_path() + "/job_id", "w") as f:
             f.writelines([stdout])
 
-        return stdout
+        return stdout[len("Submitted batch job "):]
 
 
 def get_projects():
