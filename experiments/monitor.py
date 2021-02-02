@@ -1,6 +1,8 @@
 import threading
 import time
 import subprocess
+import os.path
+from glob import glob
 def squeue():
     return subprocess.getoutput("squeue -l")
 
@@ -29,6 +31,15 @@ class Job:
             res.append(("nodelist", self.nodelist, job.nodelist))
             self.nodelist = job.nodelist
         return res
+
+    def get_experiment_dir(self):
+        found = None
+        for job_id_file in glob("/var/scratch/pse740/*/job_id"):
+            with open(job_id_file, "r") as f:
+                if f.readline() == "Submitted batch job %s" % self.jobid:
+                    found = os.path.dirname(job_id_file)
+                    break
+        return found
 
     @staticmethod
     def prase_row(row):
@@ -96,7 +107,14 @@ class JobMonitor:
             if res: res.append(" ")
             res.append("*Just finished:*")
             for jobname in just_finished_jobs:
-                res.append("- %s" % jobname)
+                dir = self.jobs[jobname].get_experiment_dir()
+                if dir:
+                    res.append("- %s | last few lines:```" % jobname)
+                    stdout = subprocess.getoutput("tail %s/slurm_*.out -n 10" % dir)
+                    res += stdout.split("\n")
+                    res.append("```")
+                else:
+                    res.append("- %s" % jobname)
 
         if self._itt_count == 600:
             self._itt_count = 0
