@@ -89,7 +89,9 @@ class JobMonitor:
 
             msg = self._make_message(updates, new_jobs, job_count, just_finished_jobs)
             if msg: self.message_callback(msg)
+            logging.info("Still checking round #%d" % self._itt_count)
             time.sleep(1)
+            self._itt_count += 1
 
     def _make_message(self, updates: (str, any), new_jobs, job_count, just_finished_jobs):
         res = []
@@ -116,9 +118,7 @@ class JobMonitor:
                 else:
                     res.append("- %s" % jobname)
 
-        if self._itt_count == 600:
-            self._itt_count = 0
+        if self._itt_count % 10 == 0:
             res.append("Still monitoring _%d_ jobs" % job_count)
-        self._itt_count += 1
         return "\n".join(res)
 
