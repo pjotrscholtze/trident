@@ -4,19 +4,24 @@ import os
 import logging
 import monitor
 import subprocess
-import requests
+import urllib.request    
+import urllib.parse    
 logging.basicConfig(level=logging.INFO)
 
 CONFIG = {}
 with open("config.json", "r") as f: CONFIG = json.load(f)
 
 def telegram_inform(message: str):
-    requests.post("https://api.telegram.org/bot%s/sendMessage" % CONFIG["secret"], {
+    params = {
         "parse_mode": "markdown",
         "text": message,
         "chat_id": CONFIG["chat_id"]
-    })
+    }
+    query_string = urllib.parse.urlencode(params)
+    data = query_string.encode("ascii")
+    url = "https://api.telegram.org/bot%s/sendMessage" % CONFIG["secret"]
 
+    with urllib.request.urlopen(url, data) as response: response.read()
 
 class Project:
     def __init__(self, name: str, description: str, script):
