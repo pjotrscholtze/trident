@@ -11,7 +11,7 @@ def squeue():
 
 class Job:
     def __init__(self, jobid, partition, name, user, state, time, time_limi,
-        nodes, nodelist):
+        nodes, nodelist, **kwargs):
         self.jobid = jobid
         self.partition = partition
         self.name = name
