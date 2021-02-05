@@ -37,16 +37,16 @@ class Project:
         return os.path.exists(self._project_path())
     
     def _setup_git(self, github_url, project_path, checkout):
-        subprocess.run("git clone '%s' '%s'" % (github_url, project_path), shell=True)
-        subprocess.run("git checkout %s" % checkout, cwd=project_path, shell=True)
+        subprocess.call("git clone '%s' '%s'" % (github_url, project_path), shell=True)
+        subprocess.call("git checkout %s" % checkout, cwd=project_path, shell=True)
 
     def get_commit_hash(self): return subprocess.getoutput("git rev-parse HEAD")
 
     def build_trident(self, project_path):
         if os.path.exists("%s/build" % project_path):
             os.rmdir("%s/build" % project_path)
-        subprocess.run("cmake . -DSPARQL=1", cwd=project_path, shell=True)
-        subprocess.run("make", cwd=project_path, shell=True)
+        subprocess.call("cmake . -DSPARQL=1", cwd=project_path, shell=True)
+        subprocess.call("make", cwd=project_path, shell=True)
 
     def submit(self) -> str:
         sbatch_file = self._project_path() + "/sbatch.sh"
