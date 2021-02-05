@@ -11,7 +11,7 @@
         "time $PROJECT_PATH/trident/trident load -i $PROJECT_PATH/db -f /var/scratch/pse740/latest-lexemes.nt.gz",
         "du -h -d0 $PROJECT_PATH/db",
         "tar xvf $PROJECT_PATH/trident/experiments/queries/chunked_queries.tar.gz -C $PROJECT_PATH/trident/experiments/queries",
-        "$PROJECT_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+        "$PROJECT_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
         "rm -rf $PROJECT_PATH/db"
     ]
 }
