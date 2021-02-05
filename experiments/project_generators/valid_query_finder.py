@@ -7,7 +7,7 @@ base_raw = """
     "github_checkout": "master",
     "script": [
         "#!/bin/bash -e",
-        "#SBATCH -t 75:00 -N 1 -n 8 --mem=16000M",
+        "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "rm -rf $PROJECT_PATH/db",
         "time $PROJECT_PATH/trident/trident load -i $PROJECT_PATH/db -f /var/scratch/pse740/latest-lexemes.nt.gz",
