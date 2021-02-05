@@ -55,10 +55,15 @@ class Project:
         os.mkdir(self._project_path())
         with open(sbatch_file, "w") as f:
             f.writelines("\n".join(self.script).replace("$PROJECT_PATH", self._project_path()))
+        
+        telegram_inform("Setting up git for %s (%s @ %s)" % (self.name, self.github_url, self.github_checkout))
         self._setup_git(self.github_url, self._project_path() + "/trident", self.github_checkout)
 
         with open(project_commit_hash_file, "w") as f: f.writelines([self.get_commit_hash()])
+
+        telegram_inform("Building trident for %s" % self.name)
         self.build_trident(self._project_path() + "/trident")
+        telegram_inform("Finished building trident for %s" % self.name)
 
         cmd = "sbatch %s -o %s" % (sbatch_file, sbatch_output_file)
         stdout = subprocess.getoutput(cmd)
