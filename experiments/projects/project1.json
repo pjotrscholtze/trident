@@ -5,11 +5,14 @@
     "github_checkout": "master",
     "script": [
         "#!/bin/bash -e",
-        "#SBATCH -t 1:00 -N 1 -n 8 --mem=1600M",
+        "#SBATCH -t 75:00 -N 1 -n 8 --mem=1600M",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "rm -rf $PROJECT_PATH/db",
-        "time $PROJECT_PATH/trident/build/trident load -i $PROJECT_PATH/db -f /var/scratch/pse740/latest-lexemes.nt.gz",
+        "time $PROJECT_PATH/trident/trident load -i $PROJECT_PATH/db -f /var/scratch/pse740/latest-lexemes.nt.gz",
         "du -h -d0 $PROJECT_PATH/db",
+        "cd $PROJECT_PATH/trident/experiments",
+        "tar xvf ./chunked_queries.tar.gz",
+        "$PROJECT_PATH/trident/trident benchmark -i $PROJECT_PATH/db/ --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
         "rm -rf $PROJECT_PATH/db"
     ]
 }
