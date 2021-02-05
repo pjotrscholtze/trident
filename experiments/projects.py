@@ -9,7 +9,7 @@ import urllib.parse
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 CONFIG = {}
-with open("../config.json", "r") as f: CONFIG = json.load(f)
+with open("./config.json", "r") as f: CONFIG = json.load(f)
 
 def telegram_inform(message: str):
     params = {
@@ -84,16 +84,16 @@ def get_projects():
                     names.append(p.name)
                     yield p
 
-# jm = monitor.JobMonitor(telegram_inform)
-# jm.start()
+jm = monitor.JobMonitor(telegram_inform)
+jm.start()
 
-# projects = list(get_projects())
-# logging.info("Found %d experiments to check" % len(projects))
-# for project in projects:
-#     logging.info("Project '%s' %s" % (project.name,
-#         "has been submitted before" if project.exists() else \
-#                 "has not yet been submitted"))
-#     if not project.exists():
-#         logging.info("Submitting now...")
-#         job_id = project.submit()
-#         logging.info("Done running on job id: %s" % job_id)
+projects = list(get_projects())
+logging.info("Found %d experiments to check" % len(projects))
+for project in projects:
+    logging.info("Project '%s' %s" % (project.name,
+        "has been submitted before" if project.exists() else \
+                "has not yet been submitted"))
+    if not project.exists():
+        logging.info("Submitting now...")
+        job_id = project.submit()
+        logging.info("Done running on job id: %s" % job_id)
