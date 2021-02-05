@@ -12,7 +12,7 @@
         "du -h -d0 $PROJECT_PATH/db",
         "cd $PROJECT_PATH/trident/experiments",
         "tar xvf ./chunked_queries.tar.gz",
-        "$PROJECT_PATH/trident/trident benchmark -i $PROJECT_PATH/db/ --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+        "$PROJECT_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
         "rm -rf $PROJECT_PATH/db"
     ]
 }
