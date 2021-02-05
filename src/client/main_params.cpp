@@ -142,6 +142,11 @@ bool checkParams(ProgramArgs &vm, int argc, const char** argv,
                 return false;
             }
         } else if (cmd == "benchmark") {
+            string results_file = vm["results_file"].as<string>();
+            if (results_file == "") {
+                printErrorMsg("Results file is required");
+                return false;
+            }
             string queryFile = vm["query_file"].as<string>();
             if (queryFile == "") {
                 printErrorMsg("Query file is required");
@@ -421,6 +426,10 @@ bool initParams(int argc, const char** argv, ProgramArgs &vm) {
     benchmark_options.add<string>("", "query_type", "",
             "The type of queries to run, can either by query, or query_native",
             true);
+    benchmark_options.add<string>("", "results_file", "",
+            "The path to the file for storing the results", true);
+    benchmark_options.add<int>("","repetitions",
+            0, "Repeat the query <arg> times. If the argument is not specified, then the query will not be repeated.", false);
 
     /***** GENERAL OPTIONS *****/
     ProgramArgs::GroupArgs& cmdline_options = *vm.newGroup("General options");

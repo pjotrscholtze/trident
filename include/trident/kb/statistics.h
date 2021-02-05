@@ -49,4 +49,30 @@ public:
     }
 };
 
+class QueryStats {
+public:
+    unsigned long hash;
+    int relativeQueryNumber;
+    int repetition;
+    double queryopti;
+    double queryexec;
+    double totalexec;
+    uint64_t nResultingRows;
+    uint64_t indexCounter[6];
+    bool finished;
+    // struct Counters {
+        int64_t statsRow;
+        int64_t statsColumn;
+        int64_t statsCluster;
+        int64_t aggrIndices;
+        int64_t notAggrIndices;
+        int64_t cacheIndices;
+        int64_t spo, ops, pos, sop, osp, pso;
+    // };
+    bool internalErrorPlanGenerationFailed;
+    bool parseError;
+    bool semanticError;
+    bool emptyResultKnownEmpty;
+};
+
 #endif

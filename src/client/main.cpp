@@ -60,7 +60,7 @@ extern bool checkMachineConstraints();
 //Implemented in main_sparql.cpp
 extern void execNativeQuery(ProgramArgs &vm, Querier *q, KB &kb, bool silent);
 extern void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
-        bool disableBifocalSampling, bool resultslookup, string query);
+        bool disableBifocalSampling, bool resultslookup, string query, QueryStats *info);
 
 //Implemented in main_ml.cpp
 extern void launchML(KB &kb, string op, string algo, string paramsLearn,
@@ -258,6 +258,7 @@ void printStats(KB &kb, Querier *q) {
     LOG(DEBUGL) << "# Read Index Blocks = " << kb.getStats().getNReadIndexBlocks();
     LOG(DEBUGL) << " Read Index Bytes from disk = " << kb.getStats().getNReadIndexBytes();
     Querier::Counters c = q->getCounters();
+
     LOG(DEBUGL) << "RowLayouts: " << c.statsRow << " ClusterLayouts: " << c.statsCluster << " ColumnLayouts: " << c.statsColumn;
     LOG(DEBUGL) << "AggrIndices: " << c.aggrIndices << " NotAggrIndices: " << c.notAggrIndices << " CacheIndices: " << c.cacheIndices;
     LOG(DEBUGL) << "Permutations: spo " << c.spo << " ops " << c.ops << " pos " << c.pos << " sop " << c.sop << " osp " << c.osp << " pso " << c.pso;
@@ -292,9 +293,53 @@ void mineFrequentPatterns(string kbdir, int minLen, int maxLen, int64_t minSuppo
     miner.getFrequentPatterns(minLen, maxLen, minSupport);
 }
 #endif
-void doQuery(int queryIndex, string query, ProgramArgs vm, string kbDir) {
-    LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY_INDEX: " << queryIndex++;
-    LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY: " << query;
+
+// http://www.cse.yorku.ca/~oz/hash.html
+unsigned long queryHash(char *str) {
+    unsigned long hash = 0;
+    int c;
+
+    while ((c = *str++) > 0) {
+        hash = c + (hash << 6) + (hash << 16) - hash;
+    }
+    return hash;
+}
+string statsToJsonString(QueryStats *info) {
+    string indexCounter = "[";
+    indexCounter += to_string(info->indexCounter[0]) + ",";
+    indexCounter += to_string(info->indexCounter[1]) + ",";
+    indexCounter += to_string(info->indexCounter[2]) + ",";
+    indexCounter += to_string(info->indexCounter[3]) + ",";
+    indexCounter += to_string(info->indexCounter[4]) + ",";
+    indexCounter += to_string(info->indexCounter[5]) + "]";
+
+    return "{\"hash\": " + to_string(info->hash) +"," +
+        "\"relativeQueryNumber\": " + to_string(info->relativeQueryNumber) +"," +
+        "\"queryopti\": " + to_string(info->queryopti) +"," +
+        "\"queryexec\": " + to_string(info->queryexec) +"," +
+        "\"totalexec\": " + to_string(info->totalexec) +"," +
+        "\"nResultingRows\": " + to_string(info->nResultingRows) +"," +
+        "\"indexCounter\": " + indexCounter +"," +
+        "\"finished\": " + to_string(info->finished) +"," +
+        "\"statsRow\": " + to_string(info->statsRow) +"," +
+        "\"statsColumn\": " + to_string(info->statsColumn) +"," +
+        "\"statsCluster\": " + to_string(info->statsCluster) +"," +
+        "\"aggrIndices\": " + to_string(info->aggrIndices) +"," +
+        "\"notAggrIndices\": " + to_string(info->notAggrIndices) +"," +
+        "\"cacheIndices\": " + to_string(info->cacheIndices) +"," +
+        "\"spo\": " + to_string(info->spo) +"," +
+        "\"ops\": " + to_string(info->ops) +"," +
+        "\"pos\": " + to_string(info->pos) +"," +
+        "\"sop\": " + to_string(info->sop) +"," +
+        "\"osp\": " + to_string(info->osp) +"," +
+        "\"pso\": " + to_string(info->pso) +"}";
+}
+
+void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info) {
+    // LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY_INDEX: " << queryIndex++;
+    // LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY: " << query;
+    info->hash = queryHash((char*) query.c_str());
+
 
     KBConfig config;
     std::vector<string> locUpdates;
@@ -302,15 +347,47 @@ void doQuery(int queryIndex, string query, ProgramArgs vm, string kbDir) {
     TridentLayer layer(kb);
     layer.getQuerier()->resetCounters();
     callRDF3X(layer, vm["query"].as<string>(), vm["explain"].as<bool>(),
-            vm["disbifsampl"].as<bool>(), false, query);
-    string jsonBuilder = "{\"index\":{";
+            vm["disbifsampl"].as<bool>(), false, query, info);
+    // LOG(INFOL) << "Max mem (MB) " << Utils::get_max_mem();
+    // LOG(INFOL) << "# Read Index Blocks = " << kb.getStats().getNReadIndexBlocks();
+    // LOG(INFOL) << " Read Index Bytes from disk = " << kb.getStats().getNReadIndexBytes();
+    Querier::Counters c = layer.getQuerier()->getCounters();
+
+    info->statsRow = c.statsRow;
+    info->statsCluster = c.statsCluster;
+    info->statsColumn = c.statsColumn;
+    info->aggrIndices = c.aggrIndices;
+    info->notAggrIndices = c.notAggrIndices;
+    info->cacheIndices = c.cacheIndices;
+    info->spo = c.spo;
+    info->ops = c.ops;
+    info->pos = c.pos;
+    info->sop = c.sop;
+    info->osp = c.osp;
+    info->pso = c.pso;
+
     for (int i = 0; i < 6; i++) {
-        jsonBuilder += to_string(i) + ":" + to_string(layer.getQuerier()->getIndexCounter(i)) + ",";
-        // LOG(INFOL) << "BENCHMARK-TRIDENT:INDEX:" << i << ":COUNT: " << layer.getQuerier()->getIndexCounter(i);
+        info->indexCounter[i] = layer.getQuerier()->getIndexCounter(i);
     }
-    LOG(INFOL) << "BENCHMARK-TRIDENT:JSON:" << jsonBuilder << "},\"queryIndex\":" << queryIndex << "}";
+    info->finished = true;
+
+    // string jsonBuilder = "{\"index\":{";
+    // for (int i = 0; i < 6; i++) {
+    //     jsonBuilder += to_string(i) + ":" + to_string(layer.getQuerier()->getIndexCounter(i)) + ",";
+    //     // LOG(INFOL) << "BENCHMARK-TRIDENT:INDEX:" << i << ":COUNT: " << layer.getQuerier()->getIndexCounter(i);
+    // }
+    // LOG(INFOL) << "BENCHMARK-TRIDENT:JSON:" << jsonBuilder << "},\"queryIndex\":" << queryIndex << "}";
     
-    
+    // int64_t nblocks = 0;
+    // int64_t nbytes = 0;
+    // for (int i = 0; i < kb.getNDictionaries(); ++i) {
+    //     nblocks = kb.getStatsDict()[i].getNReadIndexBlocks();
+    //     nbytes = kb.getStatsDict()[i].getNReadIndexBytes();
+    // }
+    // LOG(INFOL) << "# Read Dictionary Blocks = " << nblocks;
+    // LOG(INFOL) << "# Read Dictionary Bytes from disk = " << nbytes;
+    // LOG(INFOL) << "Process IO Read bytes = " << Utils::getIOReadBytes();
+    // LOG(INFOL) << "Process IO Read char = " << Utils::getIOReadChars();
 }
 
 int main(int argc, const char** argv) {
@@ -359,7 +436,7 @@ int main(int argc, const char** argv) {
         KB kb(kbDir.c_str(), true, false, true, config, locUpdates);
         TridentLayer layer(kb);
         callRDF3X(layer, vm["query"].as<string>(), vm["explain"].as<bool>(),
-                vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>(), "");
+                vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>(), "", NULL);
 
         int repeatQuery = vm["repeatQuery"].as<int>();
         ofstream file("/dev/null");
@@ -367,7 +444,7 @@ int main(int argc, const char** argv) {
         cout.rdbuf(file.rdbuf());
         while (repeatQuery > 0 && !vm["explain"].as<bool>()) {
             callRDF3X(layer, vm["query"].as<string>(), false,
-                    vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>(), "");
+                    vm["disbifsampl"].as<bool>(), vm["decodeoutput"].as<bool>(), "", NULL);
             repeatQuery--;
         }
         cout.rdbuf(strm_buffer);
@@ -401,28 +478,52 @@ int main(int argc, const char** argv) {
     } else if (cmd == "benchmark") {
 // #ifdef SPARQL
         string queryFileName = vm["query_file"].as<string>();
+        string resultsFileName = vm["results_file"].as<string>();
+        
         std::fstream inFile;
         inFile.open(queryFileName);//open the input file
 
         std::string line;
-        int queryBufferLength = 0, queryIndex = 0;
-        const int queryBufferSize = 2;
-        string queryBuffer[queryBufferSize];
-        while(std::getline(inFile, line))
-        {
-            queryBuffer[queryBufferLength] = line;
-            queryBufferLength++;
-            for (int i = 0; i < (queryBufferLength == queryBufferSize) * queryBufferLength; i++) {
-                doQuery(queryIndex++, queryBuffer[i], vm, kbDir);
-            }
-            
-            queryBufferLength *= (queryBufferLength != queryBufferSize);
+        // int queryBufferLength = 0, queryIndex = 0;
+        // const int queryBufferSize = 5001; // Complete chunk.
+        // string queryBuffer[queryBufferSize];
+        // QueryStats info = QueryStats();
+        int queryBufferSize = 0;
+        while(std::getline(inFile, line)) {
+            queryBufferSize++;
         }
         inFile.close();
-        for (int i = 0; i < queryBufferLength * (queryBufferLength > 0); i++) {
-            doQuery(queryIndex++, queryBuffer[i], vm, kbDir);
+        string queryBuffer[queryBufferSize];
+        QueryStats queryStats[queryBufferSize];
+        int queryBufferLength = 0;
+        inFile.open(queryFileName);//open the input file
+        while(std::getline(inFile, line)) {
+            queryBuffer[queryBufferLength] = line;
+            queryStats[queryBufferLength] = QueryStats();
+            queryStats[queryBufferLength].finished = false;
+            queryStats[queryBufferLength].relativeQueryNumber = queryBufferLength;
+            queryBufferLength++;
         }
-
+        inFile.close();
+        int repetitions = vm["repetitions"].as<int>();
+        if (repetitions < 1) repetitions = 1;
+        LOG(INFOL) << "Loaded queries: " << queryBufferSize;
+        for (int i = 0; i < queryBufferSize; i++) {
+            LOG(INFOL) <<  i << "/" << queryBufferSize;
+            for (int j = 0; j < repetitions; j++) {
+                queryStats[i].repetition = j;
+                doQuery(queryBuffer[i], vm, kbDir, &queryStats[i]);
+            }
+        }
+        LOG(INFOL) << "Writing results to: " << resultsFileName;
+        std::fstream outFile;
+        outFile.open(resultsFileName, std::fstream::out);//open the input file
+        for (int i = 0; i < queryBufferSize; i++) {
+            outFile << statsToJsonString(&queryStats[i]) + "\n";
+            // LOG(INFOL) << "result:" << statsToJsonString(&queryStats[i]);
+        }
+        outFile.close();
+        // statsToJsonString
 
         // LOG(INFOL) << "test from benchmark!";
         // LOG(INFOL) << "file: " << queryFileName;

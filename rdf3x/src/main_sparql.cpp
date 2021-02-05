@@ -1,6 +1,6 @@
 #include <trident/sparql/query.h>
 #include <trident/sparql/plan.h>
-
+#include <trident/kb/statistics.h>
 #include <kognac/progargs.h>
 
 //RDF3X dependencies
@@ -24,7 +24,7 @@ using namespace std;
 
 DDLEXPORT void execNativeQuery(ProgramArgs &vm, Querier *q, KB &kb, bool silent);
 DDLEXPORT void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
-        bool disableBifocalSampling, bool resultslookup, string query);
+        bool disableBifocalSampling, bool resultslookup, string query, QueryStats *info);
 
 std::unique_ptr<Query> createQueryFromRF3XQueryGraph(SPARQLParser &parser,
         QueryGraph &graph) {
@@ -70,13 +70,17 @@ void parseQuery(bool &success,
         SPARQLParser &parser,
         std::shared_ptr<QueryGraph> &queryGraph,
         QueryDict &queryDict,
-        TridentLayer &db) {
+        TridentLayer &db, QueryStats *info) {
 
     //Sometimes the query introduces new constants which need an ID
     try {
         parser.parse();
     } catch (const SPARQLParser::ParserException& e) {
-        cerr << "parse error: " << e.message << endl;
+        if (info) {
+            info->parseError = true;
+        } else {
+            cerr << "parse error: " << e.message << endl;
+        }
         success = false;
         return;
     }
@@ -87,12 +91,20 @@ void parseQuery(bool &success,
         SemanticAnalysis semana(db, queryDict);
         semana.transform(parser, *queryGraph.get());
     } catch (const SemanticAnalysis::SemanticException& e) {
-        cerr << "semantic error: " << e.message << endl;
+        if (info) {
+            info->semanticError = true;
+        } else {
+            cerr << "semantic error: " << e.message << endl;
+        }
         success = false;
         return;
     }
     if (queryGraph->knownEmpty()) {
-        cout << "<empty result -- known empty>" << endl;
+        if (info) {
+            info->emptyResultKnownEmpty = true;
+        } else {
+            cout << "<empty result -- known empty>" << endl;
+        }
         success = false;
         return;
     }
@@ -101,7 +113,7 @@ void parseQuery(bool &success,
     return;
 }
 void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
-        bool disableBifocalSampling, bool resultslookup, string query) {
+        bool disableBifocalSampling, bool resultslookup, string query, QueryStats *info) {
     QueryDict queryDict(db.getNextId());
     bool parsingOk;
 
@@ -130,13 +142,20 @@ void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
 
     std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
     parseQuery(parsingOk, parser, queryGraph,
-            queryDict, db);
+            queryDict, db, info);
     if (!parsingOk) {
         std::chrono::duration<double> duration = std::chrono::system_clock::now() - start;
-        LOG(INFOL) << "Runtime queryopti: 0ms.";
-        LOG(INFOL) << "Runtime queryexec: 0ms.";
-        LOG(INFOL) << "Runtime totalexec: " << duration.count() * 1000 << "ms.";
-        LOG(INFOL) << "# rows = 0";
+        if (info) {
+            info->queryopti = 0;
+            info->queryexec = 0;
+            info->totalexec = duration.count() * 1000;
+            info->nResultingRows = 0;
+        } else {
+            LOG(INFOL) << "Runtime queryopti: 0ms.";
+            LOG(INFOL) << "Runtime queryexec: 0ms.";
+            LOG(INFOL) << "Runtime totalexec: " << duration.count() * 1000 << "ms.";
+            LOG(INFOL) << "# rows = 0";
+        }
         return;
     }
 
@@ -151,7 +170,11 @@ void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
     }
 
     if (!plan) {
-        cerr << "internal error plan generation failed" << endl;
+        if (info) {
+            info->internalErrorPlanGenerationFailed = true;
+        } else {
+            cerr << "internal error plan generation failed" << endl;
+        }
         return;
     }
     std::chrono::duration<double> durationO = std::chrono::system_clock::now() - start;
@@ -172,12 +195,19 @@ void callRDF3X(TridentLayer &db, const string &queryFileName, bool explain,
         }
         std::chrono::duration<double> durationQ = std::chrono::system_clock::now() - startQ;
         std::chrono::duration<double> duration = std::chrono::system_clock::now() - start;
-        LOG(INFOL) << "Runtime queryopti: " << durationO.count() * 1000 << "ms.";
-        LOG(INFOL) << "Runtime queryexec: " << durationQ.count() * 1000 << "ms.";
-        LOG(INFOL) << "Runtime totalexec: " << duration.count() * 1000 << "ms.";
         ResultsPrinter *p = (ResultsPrinter*) operatorTree;
         uint64_t nElements = p->getPrintedRows();
-        LOG(INFOL) << "# rows = " << nElements;
+        if (info) {
+            info->queryopti = durationO.count() * 1000;
+            info->queryexec = durationQ.count() * 1000;
+            info->totalexec = duration.count() * 1000;
+            info->nResultingRows = nElements;
+        } else {
+            LOG(INFOL) << "Runtime queryopti: " << durationO.count() * 1000 << "ms.";
+            LOG(INFOL) << "Runtime queryexec: " << durationQ.count() * 1000 << "ms.";
+            LOG(INFOL) << "Runtime totalexec: " << duration.count() * 1000 << "ms.";
+            LOG(INFOL) << "# rows = " << nElements;
+        }
         delete operatorTree;
     }
 }
@@ -203,7 +233,7 @@ void execNativeQuery(ProgramArgs &vm, Querier *q, KB &kb, bool silent) {
 
     std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
 
-    parseQuery(parsingOk, parser, queryGraph, queryDict, db);
+    parseQuery(parsingOk, parser, queryGraph, queryDict, db, NULL);
     if (!parsingOk) {
         std::chrono::duration<double> duration = std::chrono::system_clock::now() - start;
         LOG(INFOL) << "Runtime queryopti: 0ms.";
