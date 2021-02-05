@@ -9,7 +9,7 @@ import urllib.parse
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 CONFIG = {}
-with open("config.json", "r") as f: CONFIG = json.load(f)
+with open("../config.json", "r") as f: CONFIG = json.load(f)
 
 def telegram_inform(message: str):
     params = {
@@ -24,22 +24,41 @@ def telegram_inform(message: str):
     with urllib.request.urlopen(url, data) as response: response.read()
 
 class Project:
-    def __init__(self, name: str, description: str, script):
+    def __init__(self, name: str, description: str, script, github_url: str, github_checkout: str):
         self.name = name
         self.description = description
         self.script = script
+        self.github_url = github_url
+        self.github_checkout = github_checkout
 
     def _project_path(self) -> str: return "/var/scratch/pse740/" + self.name
 
     def exists(self) -> bool:
         return os.path.exists(self._project_path())
+    
+    def _setup_git(self, github_url, project_path, checkout):
+        subprocess.run("git clone '%s' '%s'" % (github_url, project_path), shell=True)
+        subprocess.run("git checkout %s" % checkout, cwd=project_path, shell=True)
+
+    def get_commit_hash(self): return subprocess.getoutput("git rev-parse HEAD")
+
+    def build_trident(self, project_path):
+        if os.path.exists("%s/build" % project_path):
+            os.rmdir("%s/build" % project_path)
+        subprocess.run("cmake . -DSPARQL=1", cwd=project_path, shell=True)
+        subprocess.run("make", cwd=project_path, shell=True)
 
     def submit(self) -> str:
         sbatch_file = self._project_path() + "/sbatch.sh"
+        project_commit_hash_file = self._project_path() + "/project-commit-hash.txt"
         sbatch_output_file = self._project_path() + "/slurm-%j.out"
         os.mkdir(self._project_path())
         with open(sbatch_file, "w") as f:
             f.writelines("\n".join(self.script).replace("$PROJECT_PATH", self._project_path()))
+        self._setup_git(self.github_url, self._project_path() + "/trident", self.github_checkout)
+
+        with open(project_commit_hash_file, "w") as f: f.writelines([self.get_commit_hash()])
+
         cmd = "sbatch %s -o %s" % (sbatch_file, sbatch_output_file)
         stdout = subprocess.getoutput(cmd)
         with open(self._project_path() + "/job_id", "w") as f:
@@ -65,16 +84,16 @@ def get_projects():
                     names.append(p.name)
                     yield p
 
-jm = monitor.JobMonitor(telegram_inform)
-jm.start()
+# jm = monitor.JobMonitor(telegram_inform)
+# jm.start()
 
-projects = list(get_projects())
-logging.info("Found %d experiments to check" % len(projects))
-for project in projects:
-    logging.info("Project '%s' %s" % (project.name,
-        "has been submitted before" if project.exists() else \
-                "has not yet been submitted"))
-    if not project.exists():
-        logging.info("Submitting now...")
-        job_id = project.submit()
-        logging.info("Done running on job id: %s" % job_id)
+# projects = list(get_projects())
+# logging.info("Found %d experiments to check" % len(projects))
+# for project in projects:
+#     logging.info("Project '%s' %s" % (project.name,
+#         "has been submitted before" if project.exists() else \
+#                 "has not yet been submitted"))
+#     if not project.exists():
+#         logging.info("Submitting now...")
+#         job_id = project.submit()
+#         logging.info("Done running on job id: %s" % job_id)
