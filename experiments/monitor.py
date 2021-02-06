@@ -74,8 +74,10 @@ class JobMonitor:
             new_jobs = [] # type: List[Job]
             job_count = 0
             job_names = []
+            job_ids = []
             for job in get_jobs_of_user(squeue(), "pse740"):
                 job_names.append(job.name)
+                job_ids.append(job.jobid)
                 job_count += 1
                 if job.jobid not in self.jobs:
                     self.jobs[job.jobid] = job
@@ -86,7 +88,7 @@ class JobMonitor:
             
             just_finished_jobs = []
             for name in self.jobs:
-                if name not in self._finished and name not in job_names:
+                if name not in self._finished and name not in job_ids:
                     self._finished.append(name)
                     just_finished_jobs.append(name)
 
