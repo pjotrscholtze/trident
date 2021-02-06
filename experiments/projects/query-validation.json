@@ -9,7 +9,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -23,7 +23,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_1.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_1.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -37,7 +37,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_2.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_2.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -51,7 +51,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_3.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_3.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -65,7 +65,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_4.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_4.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -79,7 +79,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_5.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_5.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -93,7 +93,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_6.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_6.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -107,7 +107,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_7.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_7.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -121,7 +121,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_8.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_8.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -135,7 +135,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_9.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_9.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -149,7 +149,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_10.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_10.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -163,7 +163,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_11.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_11.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -177,7 +177,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_12.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_12.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -191,7 +191,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_13.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_13.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -205,7 +205,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_14.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_14.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -219,7 +219,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_15.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_15.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -233,7 +233,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_16.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_16.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -247,7 +247,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_17.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_17.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -261,7 +261,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_18.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_18.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -275,7 +275,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_19.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_19.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -289,7 +289,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_20.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_20.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -303,7 +303,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_21.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_21.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -317,7 +317,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_22.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_22.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -331,7 +331,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_23.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_23.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -345,7 +345,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_24.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_24.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -359,7 +359,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_25.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_25.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -373,7 +373,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_26.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_26.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -387,7 +387,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_27.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_27.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -401,7 +401,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_28.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_28.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -415,7 +415,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_29.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_29.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -429,7 +429,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_30.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_30.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -443,7 +443,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_31.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_31.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -457,7 +457,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_32.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_32.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -471,7 +471,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_33.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_33.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -485,7 +485,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_34.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_34.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -499,7 +499,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_35.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_35.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -513,7 +513,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_36.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_36.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -527,7 +527,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_37.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_37.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -541,7 +541,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_38.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_38.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -555,7 +555,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_39.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_39.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -569,7 +569,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_40.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_40.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -583,7 +583,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_41.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_41.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -597,7 +597,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_42.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_42.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -611,7 +611,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_43.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_43.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -625,7 +625,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_44.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_44.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -639,7 +639,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_45.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_45.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -653,7 +653,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_46.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_46.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -667,7 +667,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_47.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_47.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -681,7 +681,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_48.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_48.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -695,7 +695,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_49.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_49.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -709,7 +709,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_50.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_50.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -723,7 +723,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_51.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_51.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -737,7 +737,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_52.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_52.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -751,7 +751,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_53.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_53.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -765,7 +765,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_54.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_54.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -779,7 +779,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_55.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_55.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -793,7 +793,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_56.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_56.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -807,7 +807,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_57.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_57.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -821,7 +821,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_58.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_58.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -835,7 +835,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_59.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_59.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -849,7 +849,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_60.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_60.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -863,7 +863,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_61.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_61.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -877,7 +877,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_62.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_62.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -891,7 +891,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_63.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_63.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -905,7 +905,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_64.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_64.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -919,7 +919,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_65.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_65.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -933,7 +933,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_66.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_66.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -947,7 +947,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_67.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_67.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -961,7 +961,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_68.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_68.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -975,7 +975,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_69.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_69.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -989,7 +989,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_70.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_70.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1003,7 +1003,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_71.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_71.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1017,7 +1017,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_72.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_72.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1031,7 +1031,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_73.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_73.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1045,7 +1045,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_74.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_74.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1059,7 +1059,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_75.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_75.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1073,7 +1073,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_76.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_76.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1087,7 +1087,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_77.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_77.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1101,7 +1101,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_78.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_78.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1115,7 +1115,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_79.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_79.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1129,7 +1129,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_80.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_80.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1143,7 +1143,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_81.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_81.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1157,7 +1157,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_82.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_82.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1171,7 +1171,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_83.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_83.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1185,7 +1185,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_84.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_84.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1199,7 +1199,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_85.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_85.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1213,7 +1213,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_86.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_86.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1227,7 +1227,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_87.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_87.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1241,7 +1241,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_88.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_88.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1255,7 +1255,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_89.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_89.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1269,7 +1269,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_90.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_90.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   },
@@ -1283,7 +1283,7 @@
       "#SBATCH -t 120:00 -N 1 -n 8 --mem=16000M",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/latest-lexemes",
-      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $PROJECT_PATH/trident/experiments/queries/queries/query_chunk_91.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $PROJECT_PATH/db --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries/query_chunk_91.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
       "rm -rf $PROJECT_PATH/trident"
     ]
   }
