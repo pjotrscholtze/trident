@@ -57,8 +57,8 @@ class Project:
         os.mkdir(self._project_path())
         with open(sbatch_file, "w") as f:
             f.writelines("\n".join(self.script). \
-                replace("$PROJECT_PATH", self._project_path())). \
-                replace("$BUILD_CACHE_PATH", self._build_cache_path())). \
+                replace("$PROJECT_PATH", self._project_path()). \
+                replace("$BUILD_CACHE_PATH", self._build_cache_path()). \
                 replace("$DATABASE_PATH", self._database_path()))
         
         telegram_inform("Setting up git for %s (%s @ %s)" % (self.name, self.github_url, self.github_checkout))
