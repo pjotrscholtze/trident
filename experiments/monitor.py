@@ -64,9 +64,18 @@ class JobMonitor:
         self._finished = []
         self.message_callback = message_callback
         self._itt_count = 0
+        self._running_lock = threading.Lock()
+        self._running_amount = 999999999
 
     def start(self):
         threading.Thread(target = self._start).start()
+
+    def get_job_count(self):
+        amount = 999999999
+        self._running_lock.acquire()
+        amount = self._running_amount
+        self._running_lock.release()
+        return amount
 
     def _start(self):
         while True:
@@ -91,6 +100,11 @@ class JobMonitor:
                 if name not in self._finished and name not in job_ids:
                     self._finished.append(name)
                     just_finished_jobs.append(name)
+
+            self._running_lock.acquire()
+            self._running_amount = len(self.jobs) - len(self._finished)
+            self._running_lock.release()
+
 
             msg = self._make_message(updates, new_jobs, job_count, just_finished_jobs)
             if msg:

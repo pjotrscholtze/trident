@@ -5,10 +5,12 @@ import logging
 import monitor
 import subprocess
 import urllib.request    
+import time
 import urllib.parse    
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 CONFIG = {}
+JOB_LIMIT = 4
 with open("./config.json", "r") as f: CONFIG = json.load(f)
 
 def telegram_inform(message: str):
@@ -99,6 +101,10 @@ jm.start()
 projects = list(get_projects())
 logging.info("Found %d experiments to check" % len(projects))
 for project in projects:
+    while jm.get_job_count() > JOB_LIMIT:
+        logging.info("Job limit reached, waiting until, a job finished to continue...")
+        time.sleep(10)
+
     logging.info("Project '%s' %s" % (project.name,
         "has been submitted before" if project.exists() else \
                 "has not yet been submitted"))
