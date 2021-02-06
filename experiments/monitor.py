@@ -77,11 +77,11 @@ class JobMonitor:
             for job in get_jobs_of_user(squeue(), "pse740"):
                 job_names.append(job.name)
                 job_count += 1
-                if job.name not in self.jobs:
-                    self.jobs[job.name] = job
+                if job.jobid not in self.jobs:
+                    self.jobs[job.jobid] = job
                     new_jobs.append(job)
                 else:
-                    changes = self.jobs[job.name].update(job)
+                    changes = self.jobs[job.jobid].update(job)
                     if changes: updates.append((job.name, changes))
             
             just_finished_jobs = []

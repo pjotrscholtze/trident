@@ -32,6 +32,8 @@ class Project:
         self.github_checkout = github_checkout
 
     def _project_path(self) -> str: return "/var/scratch/pse740/" + self.name
+    def _build_cache_path(self) -> str: return "/var/scratch/pse740/cache/"
+    def _database_path(self) -> str: return "/var/scratch/pse740/db/"
 
     def exists(self) -> bool:
         return os.path.exists(self._project_path())
@@ -54,7 +56,10 @@ class Project:
         sbatch_output_file = self._project_path() + "/slurm-%j.out"
         os.mkdir(self._project_path())
         with open(sbatch_file, "w") as f:
-            f.writelines("\n".join(self.script).replace("$PROJECT_PATH", self._project_path()))
+            f.writelines("\n".join(self.script). \
+                replace("$PROJECT_PATH", self._project_path())). \
+                replace("$BUILD_CACHE_PATH", self._build_cache_path())). \
+                replace("$DATABASE_PATH", self._database_path()))
         
         telegram_inform("Setting up git for %s (%s @ %s)" % (self.name, self.github_url, self.github_checkout))
         self._setup_git(self.github_url, self._project_path() + "/trident", self.github_checkout)
