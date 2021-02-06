@@ -120,7 +120,7 @@ class JobMonitor:
         if new_jobs:
             res.append("*New jobs:*")
             for job in new_jobs:
-                res.append("- %s [%s]" % (job.name, job.state))
+                res.append("- %s [%s] id: %s" % (job.name, job.state, job.jobid))
         if updates:
             if res: res.append(" ")
             res.append("*Job updates:*")
