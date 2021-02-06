@@ -315,6 +315,7 @@ string statsToJsonString(QueryStats *info) {
 
     return "{\"hash\": " + to_string(info->hash) +"," +
         "\"relativeQueryNumber\": " + to_string(info->relativeQueryNumber) +"," +
+        "\"repetition\": " + to_string(info->repetition) +"," +
         "\"queryopti\": " + to_string(info->queryopti) +"," +
         "\"queryexec\": " + to_string(info->queryexec) +"," +
         "\"totalexec\": " + to_string(info->totalexec) +"," +
@@ -493,8 +494,11 @@ int main(int argc, const char** argv) {
             queryBufferSize++;
         }
         inFile.close();
+        int repetitions = vm["repetitions"].as<int>();
+        if (repetitions < 1) repetitions = 1;
+
         string queryBuffer[queryBufferSize];
-        QueryStats queryStats[queryBufferSize];
+        QueryStats queryStats[queryBufferSize * repetitions];
         int queryBufferLength = 0;
         inFile.open(queryFileName);//open the input file
         while(std::getline(inFile, line)) {
@@ -505,20 +509,18 @@ int main(int argc, const char** argv) {
             queryBufferLength++;
         }
         inFile.close();
-        int repetitions = vm["repetitions"].as<int>();
-        if (repetitions < 1) repetitions = 1;
         LOG(INFOL) << "Loaded queries: " << queryBufferSize;
         for (int i = 0; i < queryBufferSize; i++) {
             LOG(INFOL) <<  i << "/" << queryBufferSize;
             for (int j = 0; j < repetitions; j++) {
-                queryStats[i].repetition = j;
-                doQuery(queryBuffer[i], vm, kbDir, &queryStats[i]);
+                queryStats[(i * repetitions) + j].repetition = j;
+                doQuery(queryBuffer[i], vm, kbDir, &queryStats[(i * repetitions) + j]);
             }
         }
         LOG(INFOL) << "Writing results to: " << resultsFileName;
         std::fstream outFile;
         outFile.open(resultsFileName, std::fstream::out);//open the input file
-        for (int i = 0; i < queryBufferSize; i++) {
+        for (int i = 0; i < queryBufferSize * repetitions; i++) {
             outFile << statsToJsonString(&queryStats[i]) + "\n";
             // LOG(INFOL) << "result:" << statsToJsonString(&queryStats[i]);
         }
