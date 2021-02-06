@@ -38,15 +38,13 @@ class Project:
     def exists(self) -> bool:
         return os.path.exists(self._project_path())
     
-    def _setup_git(self, github_url, project_path, checkout):
-        subprocess.call("git clone '%s' '%s'" % (github_url, project_path), shell=True)
+    def _setup_git(self, project_path, checkout):
+        subprocess.call("git pull", cwd=project_path, shell=True)
         subprocess.call("git checkout %s" % checkout, cwd=project_path, shell=True)
 
     def get_commit_hash(self): return subprocess.getoutput("git rev-parse HEAD")
 
     def build_trident(self, project_path):
-        if os.path.exists("%s/build" % project_path):
-            os.rmdir("%s/build" % project_path)
         subprocess.call("cmake . -DSPARQL=1", cwd=project_path, shell=True)
         subprocess.call("make", cwd=project_path, shell=True)
 
@@ -62,12 +60,12 @@ class Project:
                 replace("$DATABASE_PATH", self._database_path()))
         
         telegram_inform("Setting up git for %s (%s @ %s)" % (self.name, self.github_url, self.github_checkout))
-        self._setup_git(self.github_url, self._project_path() + "/trident", self.github_checkout)
+        self._setup_git(self._project_path() + "/trident", self.github_checkout)
 
         with open(project_commit_hash_file, "w") as f: f.writelines([self.get_commit_hash()])
 
         telegram_inform("Building trident for %s" % self.name)
-        self.build_trident(self._project_path() + "/trident")
+        self.build_trident(self._build_cache_path() + "/trident")
         telegram_inform("Finished building trident for %s" % self.name)
 
         cmd = "sbatch %s -o %s" % (sbatch_file, sbatch_output_file)
