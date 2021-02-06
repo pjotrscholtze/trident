@@ -60,7 +60,7 @@ class Project:
                 replace("$DATABASE_PATH", self._database_path()))
         
         telegram_inform("Setting up git for %s (%s @ %s)" % (self.name, self.github_url, self.github_checkout))
-        self._setup_git(self._project_path() + "/trident", self.github_checkout)
+        self._setup_git(self._build_cache_path() + "/trident", self.github_checkout)
 
         with open(project_commit_hash_file, "w") as f: f.writelines([self.get_commit_hash()])
 
