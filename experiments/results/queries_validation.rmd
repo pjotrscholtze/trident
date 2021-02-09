@@ -1,0 +1,154 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+```{r setup}
+library(dplyr)
+```
+```{r}
+data <- read.csv("/storage/wdps/first_run_on_das/res.csv", header=TRUE)
+# <!-- ``` -->
+
+```{r}
+completedChunks<- function() {
+  t <- data[data$repetition == max(data$repetition),]
+  nrow(t[t$relativeQueryNumber == max(t$relativeQueryNumber),])
+}
+print(c("completedChunks", completedChunks()))
+print(c("Query count", nrow(data %>% group_by(hash*30+repetition)%>%summarize())))
+```
+
+```{r}
+t <- data %>% group_by(hash)%>%summarize(min_exec=min(totalexec), max_exec=max(totalexec), mean_exec=mean(totalexec), var_exec=var(totalexec))
+par(mfrow=c(1,4))
+plot(t$min_exec)
+plot(t$max_exec)
+plot(t$mean_exec)
+plot(t$var_exec)
+```
+
+```{r}
+print(c("Total exec time in seconds", sum(data$totalexec) / 1000))
+print(c("Total resulting rows", sum(data$nResultingRows)))
+print(c("Total number of rows", sum(data$finished)))
+print(c("Times spo was touched", sum(data$spo)))
+print(c("Times ops was touched", sum(data$ops)))
+print(c("Times pos was touched", sum(data$pos)))
+print(c("Times sop was touched", sum(data$sop)))
+print(c("Times osp was touched", sum(data$osp)))
+print(c("Times pso was touched", sum(data$pso)))
+print(c("Times index counter 0 was touched", sum(data$indexCounter_0)))
+print(c("Times index counter 1 was touched", sum(data$indexCounter_1)))
+print(c("Times index counter 2 was touched", sum(data$indexCounter_2)))
+print(c("Times index counter 3 was touched", sum(data$indexCounter_3)))
+print(c("Times index counter 4 was touched", sum(data$indexCounter_4)))
+print(c("Times index counter 5 was touched", sum(data$indexCounter_5)))
+```
+
+```{r}
+summary(data)
+```
+```{r}
+plot(data$hash)
+```
+
+```{r}
+plot(data$relativeQueryNumber)
+```
+
+```{r}
+plot(data$queryopti)
+```
+
+```{r}
+plot(data$queryexec)
+```
+
+```{r}
+plot(data$totalexec)
+```
+
+```{r}
+plot(data$nResultingRows)
+```
+
+```{r}
+plot(data$finished)
+```
+
+```{r}
+plot(data$statsRow)
+```
+
+```{r}
+plot(data$statsColumn)
+```
+
+```{r}
+plot(data$statsCluster)
+```
+
+```{r}
+plot(data$aggrIndices)
+```
+
+```{r}
+plot(data$notAggrIndices)
+```
+
+```{r}
+plot(data$cacheIndices)
+```
+
+```{r}
+plot(data$spo)
+```
+
+```{r}
+plot(data$ops)
+```
+
+```{r}
+plot(data$pos)
+```
+
+```{r}
+plot(data$sop)
+```
+
+```{r}
+plot(data$osp)
+```
+
+```{r}
+plot(data$pso)
+```
+
+```{r}
+plot(data$indexCounter_0)
+```
+
+```{r}
+plot(data$indexCounter_1)
+```
+
+```{r}
+plot(data$indexCounter_2)
+```
+
+```{r}
+plot(data$indexCounter_3)
+```
+
+```{r}
+plot(data$indexCounter_4)
+```
+
+```{r}
+plot(data$indexCounter_5)
+```
+
