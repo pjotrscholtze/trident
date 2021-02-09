@@ -7,7 +7,8 @@ base_raw = """
     "github_checkout": "master",
     "script": [
         "#!/bin/bash -e",
-        "#SBATCH -t 15:00 -N 1 --mem=16000M -C fatnode",
+        "#SBATCH -t 15:00 -N 1 -n 8 --mem=16000M",
+        "#SLURM -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "du -h -d0 $DATABASE_PATH/latest-lexemes-skipTables",
         "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/latest-lexemes-skipTables- --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries-500/query_chunk_0.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30",
