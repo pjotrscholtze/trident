@@ -23,5 +23,5 @@ for i in range(0, 913):
     data["script"][4] = "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/latest-lexemes-skipTables --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries-500/query_chunk_%d.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 30" % i
     res.append(data)
 
-with open("projects/base-query-skiptables.json", "w") as f:
+with open("projects/base-query-skiptables-500.json", "w") as f:
     f.writelines([json.dumps(res, indent=2)])
