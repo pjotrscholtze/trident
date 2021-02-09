@@ -50,10 +50,10 @@ def make_chunked_archives(chunk_size = 5000):
     for id, chunk in queries_into_chunks(chunk_size):
         with open("queries/query_chunk_%s.sparql" % id, "w") as f: 
             f.writelines(chunk)
-    subprocess.run("tar -czf ./queries/chunked_queries.tar.gz ./queries/query_chunk_*.sparql", shell=True)
+    subprocess.run("tar -czf ./queries/chunked_queries_500.tar.gz ./queries/query_chunk_*.sparql", shell=True)
     subprocess.run("rm ./queries/query_chunk_*.sparql", shell=True)
 
-make_chunked_archives(5000)
+make_chunked_archives(500)
 
 # total_lines = 0
 # hashes = set()
