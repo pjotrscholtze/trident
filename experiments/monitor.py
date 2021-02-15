@@ -7,6 +7,34 @@ from glob import glob
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 def squeue():
+    return """
+Wed Feb 10 21:51:12 2021
+             JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
+           2952042      defq kernel-r mverstra  PENDING       0:00     30:00      1 (ReqNodeNotAvail, UnavailableNodes:node[028,054,074,079-084])
+           2953155      defq run_expe jvandijk  PENDING       0:00     15:00      6 (Resources)
+           2947637      proq synthlp.   wwe300  RUNNING 1-11:34:27 5-00:00:00      1 node069
+           2947638      proq synthlp.   wwe300  RUNNING 1-11:34:20 5-00:00:00      1 node071
+           2951761      defq Pretrain   hcl700  RUNNING    3:51:12  15:00:00      3 node[050-052]
+           2951833      defq HMQA-tes dknguyen  RUNNING   11:20:22 1-12:00:00      4 node[046-049]
+           2951937      defq Pretrain   rwr850  RUNNING    3:51:12  15:00:00      5 node[001-005]
+           2952148      defq prun-job thegeman  RUNNING    8:05:11  14:01:00      1 node058
+           2952458      defq prun-job   lvs215  RUNNING    5:58:33 1-00:01:00      5 node[060-064]
+           2952500      knlq  am+.job   wwe300  RUNNING    5:43:15 7-00:00:00      1 node076
+           2952502      knlq  am+.job   wwe300  RUNNING    5:43:09 7-00:00:00      1 node077
+           2952833      defq  am+.job   wwe300  RUNNING    3:50:35  15:00:00      1 node053
+           2952834      defq  am+.job   wwe300  RUNNING    3:50:31  15:00:00      1 node059
+           2952835      defq  am+.job   wwe300  RUNNING    3:50:31  15:00:00      1 node055
+           2952836      defq  am+.job   wwe300  RUNNING      21:00  15:00:00      1 node056
+           2952837      defq  am+.job   wwe300  RUNNING    3:50:28  15:00:00      1 node057
+           2952838      defq  am+.job   wwe300  RUNNING    3:50:28  15:00:00      1 node065
+           2953161      defq prun-job   ias460  RUNNING      58:27   4:01:00      1 node066
+           2953162      defq prun-job   ias460  RUNNING      58:27   4:01:00      1 node067
+           2953163      defq prun-job   ias460  RUNNING      58:27   4:01:00      1 node068
+           2953227      defq prun-job   ias460  RUNNING       2:27   3:01:00      1 node030
+           2953228      defq kernel-r mverstra  RUNNING       1:27   8:00:00      1 node027
+           2953231     longq sbatch.s   pse740  RUNNING       1:02     15:00      1 node075
+           2953232     longq sbatch.s   pse740  RUNNING       1:00     15:00      1 node072
+           2953233     longq sbatch.s   pse740  RUNNING       0:57     15:00      1 node073"""
     return subprocess.getoutput("squeue -l")
 
 class Job:
