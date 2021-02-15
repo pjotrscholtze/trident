@@ -7,7 +7,7 @@ import subprocess
 import urllib.request    
 import time
 import urllib.parse    
-from scheduler import Scheduler
+import scheduler
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 CONFIG = {}
@@ -101,7 +101,7 @@ jm.start()
 
 projects = list(get_projects())
 logging.info("Found %d experiments to check" % len(projects))
-s = Scheduler(jm)
+s = scheduler.Scheduler(jm)
 # for i in range(0,5):
 #     s.add_job(Project("t", "desc",[], "",""))
 
