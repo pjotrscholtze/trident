@@ -7,6 +7,7 @@ import subprocess
 import urllib.request    
 import time
 import urllib.parse    
+from scheduler import Scheduler
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%d-%b-%y %H:%M:%S")
 
 CONFIG = {}
@@ -100,16 +101,22 @@ jm.start()
 
 projects = list(get_projects())
 logging.info("Found %d experiments to check" % len(projects))
+s = Scheduler(jm)
+# for i in range(0,5):
+#     s.add_job(Project("t", "desc",[], "",""))
+
 for project in projects:
-    job_count = jm.get_job_count()
-    while job_count > JOB_LIMIT:
-        logging.info("Job limit reached, waiting until, a job finished to continue... (%d)" % job_count)
-        time.sleep(10)
+    # job_count = jm.get_job_count()
+    # while job_count > JOB_LIMIT:
+    #     logging.info("Job limit reached, waiting until, a job finished to continue... (%d)" % job_count)
+    #     time.sleep(10)
 
     logging.info("Project '%s' %s" % (project.name,
         "has been submitted before" if project.exists() else \
                 "has not yet been submitted"))
     if not project.exists():
-        logging.info("Submitting now...")
-        job_id = project.submit()
-        logging.info("Done running on job id: %s" % job_id)
+        logging.info("Adding job...")
+        s.add_job(project)
+        # job_id = project.submit()
+        # logging.info("Done running on job id: %s" % job_id)
+s.start()
