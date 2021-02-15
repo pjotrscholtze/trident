@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 CONFIG = {}
 JOB_LIMIT = 1
-with open("../config.json", "r") as f: CONFIG = json.load(f)
+with open("./config.json", "r") as f: CONFIG = json.load(f)
 
 def telegram_inform(message: str):
     params = {
