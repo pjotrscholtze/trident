@@ -1,5 +1,5 @@
 {
-    "name": "Prepare-database-lexemes",
+    "name": "Prepare-database-lexemes-new",
     "description": "Prepare the Lexemes database from Wikidata without skiptables enabled",
     "github_url": "https://github.com/pjotrscholtze/trident.git",
     "github_checkout": "master",
