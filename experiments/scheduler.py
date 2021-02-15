@@ -1,5 +1,5 @@
 import time
-from projects import Project
+# from projects import Project
 from monitor import JobMonitor, Job
 import logging
 import datetime
@@ -21,7 +21,7 @@ class Scheduler:
         self._jobs = []
         self._last_update = -1
 
-    def add_job(self, project: Project):
+    def add_job(self, project):
         logging.info("Adding project: '%s'" %project.name)
         self._jobs.append(project)
 
@@ -66,12 +66,12 @@ class Scheduler:
                 self.jm.message_callback(msg)
             time.sleep(1)
 
-if __name__ == "__main__":
-    jm = JobMonitor(lambda x: x+"")
-    jm.start()
+# if __name__ == "__main__":
+#     jm = JobMonitor(lambda x: x+"")
+#     jm.start()
 
-    s = Scheduler(jm)
-    for i in range(0,5):
-        s.add_job(Project("t", "desc",[], "",""))
+#     s = Scheduler(jm)
+#     for i in range(0,5):
+#         s.add_job(Project("t", "desc",[], "",""))
 
-    s.start()
+#     s.start()
