@@ -24,7 +24,7 @@ def telegram_inform(message: str):
     data = query_string.encode("ascii")
     url = "https://api.telegram.org/bot%s/sendMessage" % CONFIG["secret"]
 
-    # with urllib.request.urlopen(url, data) as response: response.read()
+    with urllib.request.urlopen(url, data) as response: response.read()
 
 class Project:
     def __init__(self, name: str, description: str, script, github_url: str, github_checkout: str):
