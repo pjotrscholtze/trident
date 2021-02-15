@@ -101,8 +101,9 @@ jm.start()
 projects = list(get_projects())
 logging.info("Found %d experiments to check" % len(projects))
 for project in projects:
-    while jm.get_job_count() > JOB_LIMIT:
-        logging.info("Job limit reached, waiting until, a job finished to continue...")
+    job_count = jm.get_job_count()
+    while job_count > JOB_LIMIT:
+        logging.info("Job limit reached, waiting until, a job finished to continue... (%d)" % job_count)
         time.sleep(10)
 
     logging.info("Project '%s' %s" % (project.name,
