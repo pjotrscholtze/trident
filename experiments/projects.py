@@ -51,13 +51,14 @@ class Project:
         subprocess.call("cmake . -DSPARQL=1", cwd=project_path, shell=True)
         subprocess.call("make", cwd=project_path, shell=True)
 
-    def submit(self) -> str:
+    def submit(self, partition) -> str:
         sbatch_file = self._project_path() + "/sbatch.sh"
         project_commit_hash_file = self._project_path() + "/project-commit-hash.txt"
         sbatch_output_file = self._project_path() + "/slurm-%j.out"
         os.mkdir(self._project_path())
         with open(sbatch_file, "w") as f:
             f.writelines("\n".join(self.script). \
+                replace("#SBATCH -p longq", "#SLURM -p %s" % partition). \
                 replace("$PROJECT_PATH", self._project_path()). \
                 replace("$BUILD_CACHE_PATH", self._build_cache_path()). \
                 replace("$DATABASE_PATH", self._database_path()))

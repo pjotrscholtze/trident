@@ -6,7 +6,7 @@
     "script": [
         "#!/bin/bash -e",
         "#SBATCH -t 75:00 -N 1 -n 8 --mem=16000M",
-        "#SLURM -p longq",
+        "#SBATCH -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "rm -rf $DATABASE_PATH/latest-lexemes",
         "time $BUILD_CACHE_PATH/trident/trident load -i $DATABASE_PATH/latest-lexemes -f /var/scratch/pse740/latest-lexemes.nt.gz",

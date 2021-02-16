@@ -52,14 +52,17 @@ class Scheduler:
         while True:
             limit = self.get_limit()
             longq_count, defq_count = self.get_job_counts()
-            
+            partition = "longq"
+            if limit.defq_limit - defq_count > 0:
+                partition = "defq"
             new_jobs_count = min((limit.defq_limit - defq_count) + (limit.longq_limit - longq_count), len(self._jobs))
             if new_jobs_count:
                 new_jobs = self._jobs[0: new_jobs_count]
                 self._jobs = self._jobs[new_jobs_count:]
                 logging.info("Submitting %d jobs %d jobs left" % (new_jobs_count, len(self._jobs)))
+                # #SBATCH -p longq
                 for job in new_jobs:
-                    job.submit()
+                    job.submit(partition)
                 msg = "Max eta: %d" % self.max_eta()
                 logging.info(msg)
                 self.jm.message_callback(msg)
