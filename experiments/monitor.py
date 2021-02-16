@@ -21,6 +21,7 @@ class Job:
         self.time_limi = time_limi
         self.nodes = nodes
         self.nodelist = nodelist
+        self.finished = False
     
     def update(self, job):
         res = []
@@ -98,6 +99,7 @@ class JobMonitor:
             just_finished_jobs = []
             for name in self.jobs:
                 if name not in self._finished and name not in job_ids:
+                    self.jobs[name].finished = True
                     self._finished.append(name)
                     just_finished_jobs.append(name)
 

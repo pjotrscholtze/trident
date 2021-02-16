@@ -36,8 +36,8 @@ class Scheduler:
         longq = 0
         defq = 0
         for job in self.jm.jobs:
-            longq += int(self.jm.jobs[job].partition == "longq")
-            defq += int(self.jm.jobs[job].partition == "deqf")
+            longq += int((not self.jm.jobs[job].finished) and self.jm.jobs[job].partition == "longq")
+            defq += int((not self.jm.jobs[job].finished) and self.jm.jobs[job].partition == "deqf")
         return longq, defq
 
     def max_eta(self):
