@@ -120,4 +120,6 @@ for project in projects:
         s.add_job(project)
         # job_id = project.submit()
         # logging.info("Done running on job id: %s" % job_id)
+
+time.sleep(10)
 s.start()

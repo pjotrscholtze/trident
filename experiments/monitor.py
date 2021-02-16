@@ -112,8 +112,10 @@ class JobMonitor:
                 logging.info(msg)
             if self._itt_count % 10 == 0:
                 logging.info("Still checking round #%d" % self._itt_count)
-            time.sleep(1)
+            if self._itt_count == 0:
+                logging.info("Finished getting first queue list")
             self._itt_count += 1
+            time.sleep(1)
 
     def _make_message(self, updates: (str, any), new_jobs, job_count, just_finished_jobs):
         res = []

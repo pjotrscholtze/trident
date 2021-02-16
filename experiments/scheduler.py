@@ -33,10 +33,6 @@ class Scheduler:
         return limit
     
     def get_job_counts(self):
-        while self._last_update == self.jm._itt_count:
-            time.sleep(1)
-        self._last_update = self.jm._itt_count
-        
         longq = 0
         defq = 0
         for job in self.jm.jobs:
