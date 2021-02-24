@@ -58,6 +58,14 @@ struct StoredNodesKeyCmp {
 };
 
 #define NODE_SIZE 25
+#define NODE_MANAGER_FILE_ACCESS_STATS_SIZE 65535
+
+class NodeManagerStats {
+public:
+    unsigned int fileTouches[NODE_MANAGER_FILE_ACCESS_STATS_SIZE];
+    void increment(short index);
+    unsigned int getMaxIndex();
+};
 
 class NodeManager {
 private:
@@ -89,6 +97,8 @@ private:
 public:
     NodeManager(TreeContext *context, int nodeMinBytes, int fileMaxSize,
                 int maxNFiles, int64_t cacheMaxSize, std::string path);
+
+    static NodeManagerStats getStats();
 
     char* get(CachedNode *node);
 

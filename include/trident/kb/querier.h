@@ -54,6 +54,21 @@ class DictMgmt;
 class CacheIdx;
 class KB;
 
+struct MultiLevelCountersStrategy {
+    int64_t statsRow;       // Bin table
+    int64_t statsColumn;    // Bin table
+    int64_t statsCluster;   // Bin table
+};
+struct MultiLevelCounters {
+    MultiLevelCountersStrategy spoStats;
+    MultiLevelCountersStrategy opsStats;
+    MultiLevelCountersStrategy posStats;
+    MultiLevelCountersStrategy sopStats;
+    MultiLevelCountersStrategy ospStats;
+    MultiLevelCountersStrategy psoStats;
+};
+
+
 class Querier {
     private:
         Root* tree;
@@ -113,13 +128,14 @@ class Querier {
                 const bool setConstraints);
 
         PairItr *summaryDiff(const int perm, DiffIndex::TypeUpdate tp);
+        MultiLevelCounters multiLevelCounters;
 
     public:
 
         struct Counters {
-            int64_t statsRow;
-            int64_t statsColumn;
-            int64_t statsCluster;
+            int64_t statsRow;       // Bin table
+            int64_t statsColumn;    // Bin table
+            int64_t statsCluster;   // Bin table
             int64_t aggrIndices;
             int64_t notAggrIndices;
             int64_t cacheIndices;
@@ -143,6 +159,10 @@ class Querier {
         DDLEXPORT PairItr *summaryAddDiff();
 
         DDLEXPORT PairItr *summaryRmDiff();
+
+        void updateMultiLevelCounters(int perm, char strategy);
+        void updateMultiLevelCountersStrategy(MultiLevelCountersStrategy *mlcs, char strategy);
+        MultiLevelCounters *getMultiLevelCounters();
         
         uint64_t getIndexCounter(int i);
         void resetIndexCounter();

@@ -59,6 +59,15 @@ Querier::Querier(Root* tree, DictMgmt *dict, TableStorage** files,
     nTablesPerPartition(nTablesPerPartition),
     nFirstTablesPerPartition(nFirstTablesPerPartition), nindices(nindices),
     diffIndices(diffIndices), present(present) {
+        this->multiLevelCounters = MultiLevelCounters {
+            MultiLevelCountersStrategy{0, 0, 0},
+            MultiLevelCountersStrategy{0, 0, 0},
+            MultiLevelCountersStrategy{0, 0, 0},
+
+            MultiLevelCountersStrategy{0, 0, 0},
+            MultiLevelCountersStrategy{0, 0, 0},
+            MultiLevelCountersStrategy{0, 0, 0},
+        };
         this->resetIndexCounter();
         this->tree = tree;
         this->dict = dict;
@@ -817,9 +826,10 @@ TermItr *Querier::getKBTermList(const int perm, const bool enforcePerm) {
 PairItr *Querier::get(const int idx, TermCoordinates &value,
         const int64_t key, const int64_t v1,
         const int64_t v2, const bool cons) {
-
+    // LOG(INFOL) << "FILTERME perm: " << idx <<" strategy: " << value.getStrategy(idx);
     this->indexCounter[idx]++;
     if (value.exists(idx)) {
+        this->updateMultiLevelCounters(idx, StorageStrat::getStorageType(value.getStrategy(idx)));
         if (StorageStrat::isAggregated(value.getStrategy(idx))) {
             aggrIndices++;
             AggrItr *itr = factory4.get();
@@ -884,6 +894,48 @@ const char *Querier::getTable(const int perm,
     std::pair<const char*, const char*> coord = files[perm]->getTable(fileIdx, mark);
     return coord.first;
 }
+void Querier::updateMultiLevelCountersStrategy(MultiLevelCountersStrategy *mlcs, char strategy) {
+    switch (strategy) {
+        case NEWCLUSTER_ITR:
+            mlcs->statsCluster++;
+        break;
+        case NEWCOLUMN_ITR:
+            mlcs->statsColumn++;
+        break;
+        case NEWROW_ITR:
+            mlcs->statsRow++;
+        break;
+    }
+}
+MultiLevelCounters *Querier::getMultiLevelCounters() {
+    return &this->multiLevelCounters;
+};
+
+void Querier::updateMultiLevelCounters(int perm, char strategy) {
+    switch (perm) {
+        case IDX_SPO:
+            this->updateMultiLevelCountersStrategy(&this->multiLevelCounters.spoStats, strategy);
+            break;
+        case IDX_OPS:
+            this->updateMultiLevelCountersStrategy(&this->multiLevelCounters.opsStats, strategy);
+            break;
+        case IDX_POS:
+            this->updateMultiLevelCountersStrategy(&this->multiLevelCounters.posStats, strategy);
+            break;
+        case IDX_SOP:
+            this->updateMultiLevelCountersStrategy(&this->multiLevelCounters.sopStats, strategy);
+            break;
+        case IDX_OSP:
+            this->updateMultiLevelCountersStrategy(&this->multiLevelCounters.ospStats, strategy);
+            break;
+        case IDX_PSO:
+            this->updateMultiLevelCountersStrategy(&this->multiLevelCounters.psoStats, strategy);
+            break;
+        default:
+            LOG(INFOL) << "FILTERME >>> unkown perm <<<< " << perm;
+        break;
+    }
+}
 
 PairItr *Querier::get(const int perm,
         const int64_t key,
@@ -894,6 +946,11 @@ PairItr *Querier::get(const int perm,
         const int64_t v2,
         const bool constrain,
         const bool noAggr) {
+    this->updateMultiLevelCounters(perm, StorageStrat::getStorageType(strategy));
+    // LOG(INFOL) << "FILTERME perm: " << perm << " strategy: " << strategy;
+            // perm the index
+            // fileIdx just points to the file
+            // strategy what type of bin table
     this->indexCounter[fileIdx]++;
     PairItr *itr = strat.getBinaryTable(strategy);
     initNewIterator(files[perm], fileIdx, mark, (PairItr*) itr, v1, v2, constrain);
@@ -911,6 +968,8 @@ PairItr *Querier::get(const int perm,
 
 PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int64_t o,
         const bool cons) {
+    // idx here is perm as above
+    // LOG(INFOL) << "FILTERME perm" << idx;
     this->indexCounter[idx]++;
     PairItr *out = NULL;
     int64_t first, second, third;
@@ -965,7 +1024,14 @@ PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int
             out = &emptyItr;
         }
     } else {
-        ScanItr *itr = factory3.get();
+        // All bin tables one by one.
+        this->updateMultiLevelCounters(idx, NEWCLUSTER_ITR);
+        this->updateMultiLevelCounters(idx, NEWCOLUMN_ITR);
+        this->updateMultiLevelCounters(idx, NEWROW_ITR);
+        // LOG(INFOL) << "FILTERME perm: " << idx << " strategy: " << StorageStrat::getStorageType(NEWCLUSTER_ITR) << "(all)";
+        // LOG(INFOL) << "FILTERME perm: " << idx << " strategy: " << StorageStrat::getStorageType(NEWCOLUMN_ITR) << "(all)";
+        // LOG(INFOL) << "FILTERME perm: " << idx << " strategy: " << StorageStrat::getStorageType(NEWROW_ITR) << "(all)";
+        ScanItr *itr = factory3.get(); // Lets check how this works
         itr->init(idx, this);
         out = itr;
     }

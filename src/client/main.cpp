@@ -26,6 +26,7 @@
 #include <trident/kb/inserter.h>
 #include <trident/kb/updater.h>
 #include <trident/kb/kbconfig.h>
+#include <trident/tree/nodemanager.h>
 #include <trident/kb/querier.h>
 #include <trident/mining/miner.h>
 #include <trident/tests/common.h>
@@ -335,8 +336,34 @@ string statsToJsonString(QueryStats *info) {
         "\"osp\": " + to_string(info->osp) +"," +
         "\"pso\": " + to_string(info->pso) +"}";
 }
+string makeHistogramJson(QueryStats *info, int statsCount, NodeManagerStats nms) {
+            // NodeManagerStats nms = NodeManager::getStats();
 
-void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info) {
+    int64_t spo = 0, ops = 0, pos = 0, sop = 0, osp = 0, pso = 0;
+
+    for (int i = 0; i < statsCount; i++) {
+        spo += info[i].spo;
+        ops += info[i].ops;
+        pos += info[i].pos;
+        sop += info[i].sop;
+        osp += info[i].osp;
+        pso += info[i].pso;
+    }
+    string index = "\"spo\": " + to_string(spo) + ", \"ops\": " + to_string(ops) + ", \"pos\": " + to_string(pos) + ", \"sop\": " + to_string(sop) + ", \"osp\": " + to_string(osp) + ", \"pso\": " + to_string(pso);
+
+
+    string files = "";
+    for (int i = 0; i < nms.getMaxIndex(); i++) {
+        if (nms.fileTouches[i] > 0) {
+            files += "\"file_" + to_string(i) + "\": " + to_string(nms.fileTouches[i]) + ", ";
+        }
+    }
+
+    return "{" + files + index + "}";
+}
+
+
+void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info, MultiLevelCounters *mlcStats) {
     // LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY_INDEX: " << queryIndex++;
     // LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY: " << query;
     info->hash = queryHash((char*) query.c_str());
@@ -353,6 +380,31 @@ void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info) {
     // LOG(INFOL) << "# Read Index Blocks = " << kb.getStats().getNReadIndexBlocks();
     // LOG(INFOL) << " Read Index Bytes from disk = " << kb.getStats().getNReadIndexBytes();
     Querier::Counters c = layer.getQuerier()->getCounters();
+    MultiLevelCounters *mlc = layer.getQuerier()->getMultiLevelCounters();
+
+    mlcStats->spoStats.statsRow     += mlc->spoStats.statsRow;
+    mlcStats->spoStats.statsColumn  += mlc->spoStats.statsColumn;
+    mlcStats->spoStats.statsCluster += mlc->spoStats.statsCluster;
+
+    mlcStats->opsStats.statsRow     += mlc->opsStats.statsRow;
+    mlcStats->opsStats.statsColumn  += mlc->opsStats.statsColumn;
+    mlcStats->opsStats.statsCluster += mlc->opsStats.statsCluster;
+
+    mlcStats->posStats.statsRow     += mlc->posStats.statsRow;
+    mlcStats->posStats.statsColumn  += mlc->posStats.statsColumn;
+    mlcStats->posStats.statsCluster += mlc->posStats.statsCluster;
+
+    mlcStats->sopStats.statsRow     += mlc->sopStats.statsRow;
+    mlcStats->sopStats.statsColumn  += mlc->sopStats.statsColumn;
+    mlcStats->sopStats.statsCluster += mlc->sopStats.statsCluster;
+
+    mlcStats->ospStats.statsRow     += mlc->ospStats.statsRow;
+    mlcStats->ospStats.statsColumn  += mlc->ospStats.statsColumn;
+    mlcStats->ospStats.statsCluster += mlc->ospStats.statsCluster;
+
+    mlcStats->psoStats.statsRow     += mlc->psoStats.statsRow;
+    mlcStats->psoStats.statsColumn  += mlc->psoStats.statsColumn;
+    mlcStats->psoStats.statsCluster += mlc->psoStats.statsCluster;
 
     info->statsRow = c.statsRow;
     info->statsCluster = c.statsCluster;
@@ -378,7 +430,6 @@ void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info) {
     //     // LOG(INFOL) << "BENCHMARK-TRIDENT:INDEX:" << i << ":COUNT: " << layer.getQuerier()->getIndexCounter(i);
     // }
     // LOG(INFOL) << "BENCHMARK-TRIDENT:JSON:" << jsonBuilder << "},\"queryIndex\":" << queryIndex << "}";
-    
     // int64_t nblocks = 0;
     // int64_t nbytes = 0;
     // for (int i = 0; i < kb.getNDictionaries(); ++i) {
@@ -480,6 +531,14 @@ int main(int argc, const char** argv) {
 // #ifdef SPARQL
         string queryFileName = vm["query_file"].as<string>();
         string resultsFileName = vm["results_file"].as<string>();
+
+        string histogramFile = vm["histogram_file"].as<string>();
+        string histogramMode = vm["histogram_mode"].as<string>();
+
+        if (histogramMode == "load") {
+            // @todo: load histogram data here.
+        }
+
         
         std::fstream inFile;
         inFile.open(queryFileName);//open the input file
@@ -509,12 +568,13 @@ int main(int argc, const char** argv) {
             queryBufferLength++;
         }
         inFile.close();
+        MultiLevelCounters mlcStats;
         LOG(INFOL) << "Loaded queries: " << queryBufferSize;
         for (int i = 0; i < queryBufferSize; i++) {
             LOG(INFOL) <<  i << "/" << queryBufferSize;
             for (int j = 0; j < repetitions; j++) {
                 queryStats[(i * repetitions) + j].repetition = j;
-                doQuery(queryBuffer[i], vm, kbDir, &queryStats[(i * repetitions) + j]);
+                doQuery(queryBuffer[i], vm, kbDir, &queryStats[(i * repetitions) + j], &mlcStats);
             }
         }
         LOG(INFOL) << "Writing results to: " << resultsFileName;
@@ -522,10 +582,20 @@ int main(int argc, const char** argv) {
         outFile.open(resultsFileName, std::fstream::out);//open the input file
         for (int i = 0; i < queryBufferSize * repetitions; i++) {
             outFile << statsToJsonString(&queryStats[i]) + "\n";
-            // LOG(INFOL) << "result:" << statsToJsonString(&queryStats[i]);
         }
         outFile.close();
-        // statsToJsonString
+
+        if (histogramMode == "generate") {
+            string hisogram = "{\"spoStats.statsRow\": " + to_string(mlcStats.spoStats.statsRow) +", \"spoStats.statsColumn\": " + to_string(mlcStats.spoStats.statsColumn) +", \"spoStats.statsCluster\": " + to_string(mlcStats.spoStats.statsCluster) +", \"opsStats.statsRow\": " + to_string(mlcStats.opsStats.statsRow) +", \"opsStats.statsColumn\": " + to_string(mlcStats.opsStats.statsColumn) +", \"opsStats.statsCluster\": " + to_string(mlcStats.opsStats.statsCluster) +", \"posStats.statsRow\": " + to_string(mlcStats.posStats.statsRow) +", \"posStats.statsColumn\": " + to_string(mlcStats.posStats.statsColumn) +", \"posStats.statsCluster\": " + to_string(mlcStats.posStats.statsCluster) +", \"sopStats.statsRow\": " + to_string(mlcStats.sopStats.statsRow) +", \"sopStats.statsColumn\": " + to_string(mlcStats.sopStats.statsColumn) +", \"sopStats.statsCluster\": " + to_string(mlcStats.sopStats.statsCluster) +", \"ospStats.statsRow\": " + to_string(mlcStats.ospStats.statsRow) +", \"ospStats.statsColumn\": " + to_string(mlcStats.ospStats.statsColumn) +", \"ospStats.statsCluster\": " + to_string(mlcStats.ospStats.statsCluster) +", \"psoStats.statsRow\": " + to_string(mlcStats.psoStats.statsRow) +", \"psoStats.statsColumn\": " + to_string(mlcStats.psoStats.statsColumn) +", \"psoStats.statsCluster\": " + to_string(mlcStats.psoStats.statsCluster) + "}";
+            LOG(INFOL) << hisogram;
+            LOG(INFOL) << makeHistogramJson(queryStats, queryBufferSize * repetitions, NodeManager::getStats());
+            LOG(INFOL) << "Writing histogram to: " << histogramFile;
+            std::fstream histOutFile;
+            histOutFile.open(histogramFile, std::fstream::out);//open the input file
+            histOutFile << hisogram;
+            histOutFile.close();
+        }
+
 
         // LOG(INFOL) << "test from benchmark!";
         // LOG(INFOL) << "file: " << queryFileName;

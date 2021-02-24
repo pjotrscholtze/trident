@@ -28,6 +28,18 @@
 
 char one[1] = { 1 };
 char zero[1] = { 0 };
+NodeManagerStats stats = *(new NodeManagerStats());
+void NodeManagerStats::increment(short index) {
+    this->fileTouches[index]++;
+}
+
+NodeManagerStats NodeManager::getStats() {
+    return stats;
+}
+
+unsigned int NodeManagerStats::getMaxIndex(){
+    return NODE_MANAGER_FILE_ACCESS_STATS_SIZE;
+}
 
 NodeManager::NodeManager(TreeContext *context, int nodeMinBytes,
         int fileMaxSize, int maxNFiles, int64_t cacheMaxSize, std::string path) :
@@ -123,6 +135,10 @@ int NodeManager::serializeTo(CachedNode *node, char *buffer) {
 }
 
 char* NodeManager::get(CachedNode *node) {
+    // LOG(INFOL) << "NodeManager::get ~ node->id" << node->id;
+    // LOG(INFOL) << "NodeManager" << node->fileIndex;
+    // stats.fileTouches[node->fileIndex]++;
+    stats.increment(node->fileIndex);
     uint64_t len = node->nodeSize;
     return manager->getBuffer(node->fileIndex, node->posIndex, &len);
 }
@@ -135,13 +151,21 @@ CachedNode *NodeManager::getCachedNode(int64_t id) {
             unserializeNodeFrom(readOnlyStoredNodes + id, rawInput, pos);
             nodesLoaded[id] = true;
         }
-        return readOnlyStoredNodes + id;
+        CachedNode *res = readOnlyStoredNodes + id;
+        // NodeManager::fileAccesses[res->fileIndex]++;
+        stats.increment(res->fileIndex);
+        // LOG(INFOL) << "NodeManager" << res->fileIndex;
+        return res;
     } else {
         auto itr = storedNodes.find(id);
-        if (itr != storedNodes.end())
+        if (itr != storedNodes.end()) {
+            stats.increment(itr->second->fileIndex);
+            // NodeManager::fileAccesses[itr->second->fileIndex]++;
+            // LOG(INFOL) << "NodeManager" << itr->second->fileIndex;
             return itr->second;
-        else
+        } else {
             return NULL;
+        }
     }
 }
 

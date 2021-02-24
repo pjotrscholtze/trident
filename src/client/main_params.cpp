@@ -158,6 +158,34 @@ bool checkParams(ProgramArgs &vm, int argc, const char** argv,
                          + string(" doesn't exist.")).c_str());
                 return false;
             }
+
+            if ((vm.count("histogram_mode") && !vm.count("histogram_file")) || 
+                (!vm.count("histogram_mode") && vm.count("histogram_file"))) {
+                if (vm.count("histogram_mode")) {
+                    if (vm["histogram_mode"].as<string>() != "off") {
+                        printErrorMsg("The parameter --histogram_mode requires the use of --histogram_file too.");
+                        return false;
+                    }
+                } else {
+                    printErrorMsg("The parameter --histogram_file requires the use of --histogram_mode too.");
+                    return false;
+                }
+            }
+
+            if (vm.count("histogram_file") && vm["histogram_file"].as<string>() == "load" &&
+                !Utils::exists(vm["histogram_file"].as<string>())) {
+                printErrorMsg("The parameter --histogram_file points to a file that does not exist.");
+                return false;
+            }
+            if (vm.count("histogram_mode")) {
+                string histogramMode = vm["histogram_mode"].as<string>();
+                if (histogramMode != "generate" && histogramMode != "load" && 
+                    histogramMode != "off") {
+                    printErrorMsg("The parameter --histogram_mode is set and has an illegal value, legal values are: generate, load, or off.");
+                    return false;
+                }
+            }
+
             string queryType = vm["query_type"].as<string>();
             if (queryType != "query" && queryType != "query_native") {
                 printErrorMsg("Invalid query type given, can only be: [query|query_native]...");
@@ -424,8 +452,14 @@ bool initParams(int argc, const char** argv, ProgramArgs &vm) {
     benchmark_options.add<string>("", "query_file", "",
             "The path of the file containing the queries", true);
     benchmark_options.add<string>("", "query_type", "",
-            "The type of queries to run, can either by query, or query_native",
+            "The type of queries to run, can either by query, or query_native.",
             true);
+    benchmark_options.add<string>("", "histogram_file", "",
+            "The location to store or read the histogram statistics.",
+            false);
+    benchmark_options.add<string>("", "histogram_mode", "off",
+            "Histogram mode can either be generate, load, or off. In load mode the histogram is used for index prediction.",
+            false);
     benchmark_options.add<string>("", "results_file", "",
             "The path to the file for storing the results", true);
     benchmark_options.add<int>("","repetitions",
