@@ -8,7 +8,7 @@ base_raw = """
     "script": [
         "#!/bin/bash -e",
         "#SBATCH -t 15:00 -N 1 -n 8 --mem=16000M",
-        "#SLURM -p longq",
+        "#SBATCH -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "du -h -d0 $DATABASE_PATH/latest-lexemes-skipTables",
         "__REPLACED_BELOW__"
