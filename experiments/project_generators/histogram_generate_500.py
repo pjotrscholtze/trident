@@ -1,7 +1,7 @@
 import json
 base_raw = """
 {
-    "name": "histogram-generate-500",
+    "name": "histogram-generate-%d-500",
     "description": "Generate histogram/counters for index and table usage, repetition will be 5 times",
     "github_url": "https://github.com/pjotrscholtze/trident.git",
     "github_checkout": "master",
@@ -19,7 +19,7 @@ base_raw = """
 res = []
 for i in range(0, 913):
     data = json.loads(base_raw)
-    data["name"] = "base-query-%d-skiptables-500" % i
+    data["name"] = data["name"] % i
     data["script"][5] = "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/latest-lexemes-skipTables --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries/queries-500/query_chunk_%d.sparql --results_file $PROJECT_PATH/res.json.lines --repetitions 5" % i
     res.append(data)
 
