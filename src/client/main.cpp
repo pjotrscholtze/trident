@@ -558,6 +558,7 @@ int main(int argc, const char** argv) {
 
         string queryBuffer[queryBufferSize];
         QueryStats queryStats[queryBufferSize * repetitions];
+        MultiLevelCounters mlcStats[queryBufferSize * repetitions];
         int queryBufferLength = 0;
         inFile.open(queryFileName);//open the input file
         while(std::getline(inFile, line)) {
@@ -568,13 +569,12 @@ int main(int argc, const char** argv) {
             queryBufferLength++;
         }
         inFile.close();
-        MultiLevelCounters mlcStats;
         LOG(INFOL) << "Loaded queries: " << queryBufferSize;
         for (int i = 0; i < queryBufferSize; i++) {
             LOG(INFOL) <<  i << "/" << queryBufferSize;
             for (int j = 0; j < repetitions; j++) {
                 queryStats[(i * repetitions) + j].repetition = j;
-                doQuery(queryBuffer[i], vm, kbDir, &queryStats[(i * repetitions) + j], &mlcStats);
+                doQuery(queryBuffer[i], vm, kbDir, &queryStats[(i * repetitions) + j], &mlcStats[(i * repetitions) + j]);
             }
         }
         LOG(INFOL) << "Writing results to: " << resultsFileName;
@@ -586,8 +586,10 @@ int main(int argc, const char** argv) {
         outFile.close();
 
         if (histogramMode == "generate") {
-            string hisogram = "{\"spoStats.statsRow\": " + to_string(mlcStats.spoStats.statsRow) +", \"spoStats.statsColumn\": " + to_string(mlcStats.spoStats.statsColumn) +", \"spoStats.statsCluster\": " + to_string(mlcStats.spoStats.statsCluster) +", \"opsStats.statsRow\": " + to_string(mlcStats.opsStats.statsRow) +", \"opsStats.statsColumn\": " + to_string(mlcStats.opsStats.statsColumn) +", \"opsStats.statsCluster\": " + to_string(mlcStats.opsStats.statsCluster) +", \"posStats.statsRow\": " + to_string(mlcStats.posStats.statsRow) +", \"posStats.statsColumn\": " + to_string(mlcStats.posStats.statsColumn) +", \"posStats.statsCluster\": " + to_string(mlcStats.posStats.statsCluster) +", \"sopStats.statsRow\": " + to_string(mlcStats.sopStats.statsRow) +", \"sopStats.statsColumn\": " + to_string(mlcStats.sopStats.statsColumn) +", \"sopStats.statsCluster\": " + to_string(mlcStats.sopStats.statsCluster) +", \"ospStats.statsRow\": " + to_string(mlcStats.ospStats.statsRow) +", \"ospStats.statsColumn\": " + to_string(mlcStats.ospStats.statsColumn) +", \"ospStats.statsCluster\": " + to_string(mlcStats.ospStats.statsCluster) +", \"psoStats.statsRow\": " + to_string(mlcStats.psoStats.statsRow) +", \"psoStats.statsColumn\": " + to_string(mlcStats.psoStats.statsColumn) +", \"psoStats.statsCluster\": " + to_string(mlcStats.psoStats.statsCluster) + "}";
-            LOG(INFOL) << hisogram;
+            string hisogram = "";
+            for (int i = 0; i < queryBufferSize * repetitions; i++) {
+                hisogram += "{\"spoStats.statsRow\": " + to_string(mlcStats[i].spoStats.statsRow) +", \"spoStats.statsColumn\": " + to_string(mlcStats[i].spoStats.statsColumn) +", \"spoStats.statsCluster\": " + to_string(mlcStats[i].spoStats.statsCluster) +", \"opsStats.statsRow\": " + to_string(mlcStats[i].opsStats.statsRow) +", \"opsStats.statsColumn\": " + to_string(mlcStats[i].opsStats.statsColumn) +", \"opsStats.statsCluster\": " + to_string(mlcStats[i].opsStats.statsCluster) +", \"posStats.statsRow\": " + to_string(mlcStats[i].posStats.statsRow) +", \"posStats.statsColumn\": " + to_string(mlcStats[i].posStats.statsColumn) +", \"posStats.statsCluster\": " + to_string(mlcStats[i].posStats.statsCluster) +", \"sopStats.statsRow\": " + to_string(mlcStats[i].sopStats.statsRow) +", \"sopStats.statsColumn\": " + to_string(mlcStats[i].sopStats.statsColumn) +", \"sopStats.statsCluster\": " + to_string(mlcStats[i].sopStats.statsCluster) +", \"ospStats.statsRow\": " + to_string(mlcStats[i].ospStats.statsRow) +", \"ospStats.statsColumn\": " + to_string(mlcStats[i].ospStats.statsColumn) +", \"ospStats.statsCluster\": " + to_string(mlcStats[i].ospStats.statsCluster) +", \"psoStats.statsRow\": " + to_string(mlcStats[i].psoStats.statsRow) +", \"psoStats.statsColumn\": " + to_string(mlcStats[i].psoStats.statsColumn) +", \"psoStats.statsCluster\": " + to_string(mlcStats[i].psoStats.statsCluster) + "}\n";
+            }
             LOG(INFOL) << makeHistogramJson(queryStats, queryBufferSize * repetitions, NodeManager::getStats());
             LOG(INFOL) << "Writing histogram to: " << histogramFile;
             std::fstream histOutFile;
