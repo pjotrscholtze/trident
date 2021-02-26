@@ -1,0 +1,14 @@
+{
+    "name": "Prepare-database-lexemes-skiptables",
+    "description": "Prepare the Lexemes database from Wikidata with skiptables enabled",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+        "#!/bin/bash -e",
+        "#SBATCH -t 75:00 -N 1 -n 8 --mem=16000M",
+        "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+        "rm -rf $DATABASE_PATH/latest-lexemes",
+        "time $BUILD_CACHE_PATH/trident/trident load -i $DATABASE_PATH/latest-lexemes-skipTables -f /var/scratch/pse740/latest-lexemes.nt.gz --skipTables true",
+        "du -h -d0 $DATABASE_PATH/latest-lexemes"
+    ]
+}
