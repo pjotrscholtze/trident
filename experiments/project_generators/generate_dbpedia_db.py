@@ -7,7 +7,7 @@ base_raw = """
     "github_checkout": "master",
     "script": [
         "#!/bin/bash -e",
-        "#SBATCH -t 15:00 -N 1 -n 8 --mem=16000M",
+        "#SBATCH -t 150:00 -N 1 -n 8 --mem=64000M",
         "#SBATCH -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "time $BUILD_CACHE_PATH/trident/trident load -i $DATABASE_PATH/dbpedia -f /var/scratch/pse740/db/dbpedia_raw/file.nt.gz -l debug  2>&1",
