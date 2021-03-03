@@ -1015,6 +1015,9 @@ void Loader::mergeDiskFragments(ParamsMergeDiskFragments params) {
 }
 
 void Loader::insert(ParamInsert params) {
+    // @todo
+    std::chrono::system_clock::time_point startClock = std::chrono::system_clock::now();
+
     int permutation = params.permutation;
     int parallelProcesses = params.parallelProcesses;
     string inputDir = params.inputDir;
@@ -1221,6 +1224,8 @@ void Loader::insert(ParamInsert params) {
         Utils::remove_all(inputDir);
     }
     LOG(DEBUGL) << "...completed. Added " << count << " triples out of " << countInput;
+    std::chrono::duration<double> duration = std::chrono::system_clock::now() - startClock;
+    LOG(INFOL) << "Insert time: " << duration.count() * 1000 << "ms.";
 }
 
 void Loader::insertDictionary(const int part, DictMgmt *dict, string
