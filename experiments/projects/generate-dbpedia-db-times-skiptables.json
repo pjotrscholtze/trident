@@ -1,0 +1,16 @@
+[
+  {
+    "name": "generate-dbpedia-db-times-skiptables",
+    "description": "Generate dbpedia, get times for tables, with skiptables",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 150:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "time $BUILD_CACHE_PATH/trident/trident load -i $DATABASE_PATH/dbpedia-times-skiptables -f /var/scratch/pse740/db/dbpedia_raw/file.nt.gz -l debug --skipTables true --thresholdSkipTable 0  2>&1",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-skiptables"
+    ]
+  }
+]
