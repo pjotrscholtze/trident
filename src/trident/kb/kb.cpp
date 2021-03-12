@@ -236,7 +236,7 @@ KB::KB(const char *path,
         }
 
         //Initialize the storage partitions
-        for (int i = 0; i < nindices; ++i) {
+        for (int i = 0; i < permutations.size(); ++i) {
             stringstream is;
             is << path << DIR_SEP << "p" << permutations[i];
             if (readOnly) {
@@ -658,7 +658,7 @@ void KB::createSingleUpdate(DiffIndex::TypeUpdate type, PairItr *itr, std::strin
         std::vector<uint64_t> del_p;
         std::vector<uint64_t> del_o;
 
-        PairItr *kbitr = q->get(IDX_SPO, -1, -1, -1);
+        PairItr *kbitr = q->getIterator(IDX_SPO, -1, -1, -1);
         if (kbitr->hasNext()) {
             kbitr->next();
         } else {

@@ -1976,7 +1976,7 @@ void Loader::loadKB(KB &kb,
     string *sTreeWriters = new string[6];
     TreeWriter **treeWriters = new TreeWriter*[6];
     for (int i = 0; i < 6; ++i) {
-        if (signaturePerms & (1 << i)) {
+        if ((signaturePerms & (1 << i)) || (aggrIndices && (i == 2 || (nindices == 6 && i == 5)))) {
             sTreeWriters[i] = tmpDir + DIR_SEP + string("tmpTree" ) + to_string(i);
             treeWriters[i] = new TreeWriter(sTreeWriters[i]);
         } else {
@@ -2652,7 +2652,7 @@ void Loader::createIndices(
         lastIdx = IDX_OSP;
     }
 
-    if (permDirs[IDX_POS] != "") {
+    if (permDirs[IDX_POS] != "" || aggrIndices) {
         if (!aggrIndices) {
             if (createIndicesInBlocks) {
                 generateNewPermutation(permDirs[IDX_POS],
@@ -2729,7 +2729,7 @@ void Loader::createIndices(
         lastIdx = IDX_POS;
     }
 
-    if (permDirs[IDX_PSO] != "") {
+    if (permDirs[IDX_PSO] != "" || (aggrIndices && nindices == 6)) {
         if (!aggrIndices) {
             if (createIndicesInBlocks) {
                 generateNewPermutation(permDirs[IDX_PSO],

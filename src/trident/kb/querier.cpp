@@ -26,6 +26,8 @@
 #include <trident/binarytables/tableshandler.h>
 #include <trident/iterators/emptyitr.h>
 #include <trident/iterators/compositetermitr.h>
+#include <trident/iterators/reorderitr.h>
+#include <trident/iterators/reordertermitr.h>
 
 #include <kognac/factory.h>
 
@@ -50,6 +52,9 @@ int PERM_SOP[] = { 0, 2, 1 };
 int INV_PERM_SOP[] = { 0, 2, 1 };
 EmptyItr emptyItr;
 
+// The assumption through-out this code seems to be:
+// It cannot happen that for perm = 0, 1, 2: perm+3 exists but perm does not.
+
 Querier::Querier(Root* tree, DictMgmt *dict, TableStorage** files,
         const int64_t inputSize, const int64_t nTerms, const int nindices,
         const int64_t *nTablesPerPartition,
@@ -57,7 +62,8 @@ Querier::Querier(Root* tree, DictMgmt *dict, TableStorage** files,
         std::vector<std::unique_ptr<DiffIndex>> &diffIndices, bool *present)
     : inputSize(inputSize), nTerms(nTerms),
     nTablesPerPartition(nTablesPerPartition),
-    nFirstTablesPerPartition(nFirstTablesPerPartition), nindices(nindices),
+    nFirstTablesPerPartition(nFirstTablesPerPartition),
+    // nindices(nindices),
     diffIndices(diffIndices), present(present) {
         this->multiLevelCounters = MultiLevelCounters {
             MultiLevelCountersStrategy{0, 0, 0},
@@ -144,7 +150,7 @@ uint64_t Querier::getCardOnIndex(const int idx, const int64_t first, const int64
     }
 
     //The first term is a constant.
-    PairItr *itr = get(idx, first, second, third);
+    PairItr *itr = getIterator(idx, first, second, third);
     if (itr->getTypeItr() != EMPTY_ITR && itr->hasNext()) {
         int countUnbound = 0;
         if (first < 0) countUnbound++;
@@ -157,12 +163,18 @@ uint64_t Querier::getCardOnIndex(const int idx, const int64_t first, const int64
                 releaseItr(itr);
                 return card;
             } else {
-                releaseItr(itr);
-
                 int64_t nElements = 0;
                 int idx2 = idx;
                 if (idx2 > 2)
                     idx2 -= 3;
+
+                if (! present[idx2]) {
+                    uint64_t card = itr->getCardinality();
+                    releaseItr(itr);
+                    return card;
+                }
+
+                releaseItr(itr);
                 if (lastKeyFound && currentValue.exists(idx2)) {
                     nElements += currentValue.getNElements(idx2);
                 }
@@ -206,7 +218,7 @@ int64_t Querier::getCard(const int64_t s, const int64_t p, const int64_t o, uint
 
     //At least one variable is bound. Thus "pos" must refer to another one
     int idx = getIndex(s, p, o);
-    PairItr *itr = get(idx, s, p, o);
+    PairItr *itr = getIterator(idx, s, p, o);
     if (itr->getTypeItr() != EMPTY_ITR && itr->hasNext()) {
         int countUnbound = 0;
         if (s < 0) countUnbound++;
@@ -242,7 +254,7 @@ int64_t Querier::getCard(const int64_t s, const int64_t p, const int64_t o, uint
             }
             if (idx != idx2) {
                 releaseItr(itr);
-                itr = get(idx2, s, p, o);
+                itr = getIterator(idx2, s, p, o);
             }
 
             itr->ignoreSecondColumn();
@@ -380,7 +392,7 @@ uint64_t Querier::estCardOnIndex(const int idx, const int64_t first, const int64
     if (countUnbound == 0) {
         return 1;
     } else if (countUnbound == 1 && key2 >= 0) {
-        PairItr *itr = get(idx, first, second, third);
+        PairItr *itr = getIterator(idx, first, second, third);
         int64_t card = itr->estCardinality();
         releaseItr(itr);
         return card;
@@ -418,7 +430,7 @@ int64_t Querier::estCard(const int64_t s, const int64_t p, const int64_t o) {
         return 1;
     } else if (countUnbound == 1) {
         int perm = getIndex(s, p, o);
-        PairItr *itr = get(perm, s, p, o);
+        PairItr *itr = getIterator(perm, s, p, o);
         int64_t card = itr->estCardinality();
         releaseItr(itr);
         return card;
@@ -488,7 +500,7 @@ int64_t Querier::getCard(const int64_t s, const int64_t p, const int64_t o) {
     }
 
     //Two or three constants
-    PairItr *itr = get(idx, s, p, o);
+    PairItr *itr = getIterator(idx, s, p, o);
     if (itr->getTypeItr() != EMPTY_ITR && itr->hasNext()) {
         if (countUnbound == 0) {
             releaseItr(itr);
@@ -508,7 +520,7 @@ int64_t Querier::getCard(const int64_t s, const int64_t p, const int64_t o) {
 //Check whether a triple exists
 bool Querier::exists(const int64_t s, const int64_t p, const int64_t o) {
     int idx = getIndex(s, p, o);
-    PairItr *itr = get(idx, s, p, o);
+    PairItr *itr = getIterator(idx, s, p, o);
     //Use the POS index ... but we don't know that it is present.
     // PairItr *itr = get(IDX_POS, s, p, o);
     if (itr->getTypeItr() != EMPTY_ITR) {
@@ -538,7 +550,7 @@ bool Querier::isEmpty(const int64_t s, const int64_t p, const int64_t o) {
     }
 
     int idx = getIndex(s, p, o);
-    PairItr *itr = get(idx, s, p, o);
+    PairItr *itr = getIterator(idx, s, p, o);
     if (itr->getTypeItr() != EMPTY_ITR) {
         const bool resp = itr->hasNext();
         releaseItr(itr);
@@ -548,21 +560,12 @@ bool Querier::isEmpty(const int64_t s, const int64_t p, const int64_t o) {
     }
 }
 
+// Note: getIndex may return an index that is actually not present.
 int Querier::getIndex(const int64_t s, const int64_t p, const int64_t o) {
-    return Querier::getIndex_s(6, s, p, o);
-}
-
-int Querier::getIndex_s(int nindices, const int64_t s, const int64_t p, const int64_t o) {
-
-    // Note: IDX_SPO is always present.
-
-    if (nindices == 1) {
-        return IDX_SPO;
-    }
 
     if (s >= 0) {
         //SPO or SOP
-        if (p >= 0 || (p == -2 && o < 0) || ! present[IDX_SOP]) {
+        if (p >= 0 || (p == -2 && o < 0)) {
             return IDX_SPO;
         } else {
             return IDX_SOP;
@@ -570,47 +573,43 @@ int Querier::getIndex_s(int nindices, const int64_t s, const int64_t p, const in
     }
 
     if (o >= 0) {
-        //OPS or OSP, if present
+        //OPS or OSP.
         //We know that s < 0 here.
-        if (present[IDX_OPS] || present[IDX_OSP]) {
-            if (p >= 0 || p == -2 || ! present[IDX_OSP]) {
-                return IDX_OPS;
-            } else {
-                return IDX_OSP;
-            }
-        }
-    }
-
-    if (p >= 0) {
-        //POS or PSO
-        if (present[IDX_POS] || present[IDX_PSO]) {
-            if (o >= 0 || o == -2 || ! present[IDX_PSO]) {
-                return IDX_POS;
-            } else {
-                return IDX_PSO;
-            }
-        }
-    }
-
-    //No constant on the pattern. Either they are all -1, or there is a join
-    if (s == -2) {
-        if (p != -1 || o == -1 || ! present[IDX_SOP]) {
-            return IDX_SPO;
-        } else {
-            return IDX_SOP;
-        }
-    }
-
-    if (o == -2 && (present[IDX_OPS] || present[IDX_OSP])) {
-        if (p != -1 || s == -1 || ! present[IDX_OSP]) {
+        if (p >= 0 || p == -2) {
             return IDX_OPS;
         } else {
             return IDX_OSP;
         }
     }
 
-    if (p == -2 && (present[IDX_POS] || present[IDX_PSO])) {
-        if (o != -1 || s == -1 || ! present[IDX_PSO]) {
+    if (p >= 0) {
+        //POS or PSO
+        if (o >= 0 || o == -2) {
+            return IDX_POS;
+        } else {
+            return IDX_PSO;
+        }
+    }
+
+    //No constant on the pattern. Either they are all -1, or there is a join
+    if (s == -2) {
+        if (p != -1 || o == -1) {
+            return IDX_SPO;
+        } else {
+            return IDX_SOP;
+        }
+    }
+
+    if (o == -2) {
+        if (p != -1 || s == -1) {
+            return IDX_OPS;
+        } else {
+            return IDX_OSP;
+        }
+    }
+
+    if (p == -2) {
+        if (o != -1 || s == -1) {
             return IDX_POS;
         } else {
             return IDX_PSO;
@@ -665,20 +664,40 @@ void Querier::initNewIterator(TableStorage *storage,
 }
 
 PairItr *Querier::getPermuted(const int idx, const int64_t el1, const int64_t el2,
+        const int64_t el3) {
+    switch (idx) {
+        case IDX_SPO:
+            return getIterator(idx, el1, el2, el3);
+        case IDX_SOP:
+            return getIterator(idx, el1, el3, el2);
+        case IDX_POS:
+            return getIterator(idx, el3, el1, el2);
+        case IDX_PSO:
+            return getIterator(idx, el2, el1, el3);
+        case IDX_OSP:
+            return getIterator(idx, el2, el3, el1);
+        case IDX_OPS:
+            return getIterator(idx, el3, el2, el1);
+    }
+    LOG(ERRORL) << "Idx " << idx << " not known";
+    throw 10;
+}
+
+PairItr *Querier::getPermuted(const int idx, const int64_t el1, const int64_t el2,
         const int64_t el3, const bool constrain) {
     switch (idx) {
         case IDX_SPO:
-            return get(idx, el1, el2, el3, constrain);
+            return getIterator(idx, el1, el2, el3, constrain);
         case IDX_SOP:
-            return get(idx, el1, el3, el2, constrain);
+            return getIterator(idx, el1, el3, el2, constrain);
         case IDX_POS:
-            return get(idx, el3, el1, el2, constrain);
+            return getIterator(idx, el3, el1, el2, constrain);
         case IDX_PSO:
-            return get(idx, el2, el1, el3, constrain);
+            return getIterator(idx, el2, el1, el3, constrain);
         case IDX_OSP:
-            return get(idx, el2, el3, el1, constrain);
+            return getIterator(idx, el2, el3, el1, constrain);
         case IDX_OPS:
-            return get(idx, el3, el2, el1, constrain);
+            return getIterator(idx, el3, el2, el1, constrain);
     }
     LOG(ERRORL) << "Idx " << idx << " not known";
     throw 10;
@@ -686,6 +705,15 @@ PairItr *Querier::getPermuted(const int idx, const int64_t el1, const int64_t el
 
 PairItr *Querier::getTermList(const int perm) {
     PairItr *finalItr = getKBTermList(perm, false);
+
+    if (finalItr == NULL) {
+        assert(perm != IDX_SPO && perm != IDX_SOP);
+    
+        PairItr *helper = getIterator(IDX_SPO, -1, -1, -1);
+        assert(helper != NULL);
+
+        return new ReOrderTermItr(helper, perm, this);
+    }
 
     //Add differential updates
     for (size_t i = 0; i < diffIndices.size(); ++i) {
@@ -808,19 +836,20 @@ bool Querier::existKey(int perm, int64_t key) {
 }
 
 TermItr *Querier::getKBTermList(const int perm, const bool enforcePerm) {
-    TableStorage *storage;
-    if (perm > 2 && !enforcePerm) {
-        storage = files[perm - 3];
+    TableStorage *storage = files[perm];
+    if (perm > 2 && ! enforcePerm) {
+	// Note: this is essential if the skipTables option is used when generating the db.
+	storage = files[perm - 3];
     } else {
-        storage = files[perm];
+	storage = files[perm];
     }
     if (storage != NULL) {
         TermItr *itr = factory7.get();
         itr->init(storage, nTablesPerPartition[perm], perm, tree);
         return itr;
-    } else {
-        return NULL;
     }
+
+    return NULL;
 }
 
 PairItr *Querier::get(const int idx, TermCoordinates &value,
@@ -849,12 +878,20 @@ PairItr *Querier::get(const int idx, TermCoordinates &value,
                     false);
             return itr;
         }
-    } else if (idx - 3 >= 0 && value.exists(idx - 3)) {
+    } else if (idx >= 3 && value.exists(idx - 3)) {
         PairItr *itr = get(idx - 3, value, key, -1, -1, cons);
         PairItr *itr2 = newItrOnReverse(itr, v1, v2);
         itr2->setKey(key);
         releaseItr(itr);
         return itr2;
+    /*
+    } else if (idx < 3 && value.exists(idx + 3)) {
+        PairItr *itr = get(idx + 3, value, key, -1, -1, cons);
+        PairItr *itr2 = newItrOnReverse(itr, v1, v2);
+        itr2->setKey(key);
+        releaseItr(itr);
+        return itr2;
+    */
     } else {
         return &emptyItr;
     }
@@ -937,7 +974,7 @@ void Querier::updateMultiLevelCounters(int perm, char strategy) {
     }
 }
 
-PairItr *Querier::get(const int perm,
+PairItr *Querier::getIterator(const int perm,
         const int64_t key,
         const short fileIdx,
         const int64_t mark,
@@ -966,7 +1003,7 @@ PairItr *Querier::get(const int perm,
 }
 
 
-PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int64_t o,
+PairItr *Querier::getIterator(const int idx, const int64_t s, const int64_t p, const int64_t o,
         const bool cons) {
     // idx here is perm as above
     // LOG(INFOL) << "FILTERME perm" << idx;
@@ -974,6 +1011,11 @@ PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int
     PairItr *out = NULL;
     int64_t first, second, third;
     first = second = third = 0;
+
+    if (! (present[idx] || (idx >= 3 && present[idx - 3]) /* || (idx < 3 && present[idx + 3]) */)) {
+        return NULL;
+    }
+
     switch (idx) {
         case IDX_SPO:
             spo++;
@@ -1033,6 +1075,17 @@ PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int
         // LOG(INFOL) << "FILTERME perm: " << idx << " strategy: " << StorageStrat::getStorageType(NEWROW_ITR) << "(all)";
         ScanItr *itr = factory3.get(); // Lets check how this works
         itr->init(idx, this);
+        /* ScanItr does not support constraints ...
+         * Note that this only is a problem if not all indices are present, in which case we need
+         * a ScanItr over SPO to emulate iterators over other indices. In this case, second and/or third
+         * may be >= 0.
+        if (second >= 0) {
+            itr->setConstraint1(second);
+        }
+        if (third >= 0) {
+            itr->setConstraint2(third);
+        }
+        */
         out = itr;
     }
 
@@ -1160,6 +1213,26 @@ PairItr *Querier::get(const int idx, const int64_t s, const int64_t p, const int
     return out;
 }
 
+PairItr *Querier::getIterator(const int idx, const int64_t s, const int64_t p, const int64_t o) {
+
+    // LOG(DEBUGL) << "getIterator(" << idx << ", " << s << ", " << p << ", " << o << ")";
+
+    PairItr *itr = getIterator(idx, s, p, o, true);
+    if (itr != NULL) {
+        return itr;
+    }
+
+    assert(idx != IDX_SPO && idx != IDX_SOP);
+    
+    PairItr *helper = getIterator(IDX_SPO, s, p, o);
+    assert(helper != NULL);
+
+    // Now, we have to create an iterator behaving like an iterator over idx.
+    // Note: helper may not obey p and/or o, since it probably is a ScanItr.
+
+    return new ReOrderItr(helper, idx, this, p, o);
+}
+
 PairItr *Querier::newItrOnReverse(PairItr * oldItr, const int64_t v1, const int64_t v2) {
     std::shared_ptr<Pairs> tmpVector = std::shared_ptr<Pairs>(new Pairs());
     while (oldItr->hasNext()) {
@@ -1276,6 +1349,10 @@ void Querier::releaseItr(PairItr * itr) {
             releaseItr(((RmCompositeTermItr*)itr)->getMainItr());
             releaseItr(((RmCompositeTermItr*)itr)->getRmItr());
             factory15.release((RmCompositeTermItr*)itr);
+            break;
+        case REORDERTERM_ITR:
+        case REORDER_ITR:
+            delete itr;
             break;
         case COMPOSITETERM_ITR:
         case COMPOSITE_ITR:
