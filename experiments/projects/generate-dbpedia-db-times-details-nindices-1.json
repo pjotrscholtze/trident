@@ -1,0 +1,17 @@
+[
+  {
+    "name": "generate-dbpedia-db-times-details-nindices-1",
+    "description": "Generate dbpedia, get times for tables, details all indices",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 300:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "mkdir -p $PROJECT_PATH/times",
+      "time $BUILD_CACHE_PATH/trident/trident load -i $DATABASE_PATH/dbpedia-times-details-nindices-1 -f /var/scratch/pse740/db/dbpedia_raw/file.nt.gz -l debug   --timingLocation $PROJECT_PATH/times --nindices 1 2>&1",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1"
+    ]
+  }
+]
