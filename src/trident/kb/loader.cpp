@@ -19,7 +19,7 @@
  * under the License.
  **/
 
-
+#include <stdio.h>
 #include <trident/loader.h>
 #include <trident/kb/memoryopt.h>
 #include <trident/kb/kb.h>
@@ -1013,10 +1013,36 @@ void Loader::mergeDiskFragments(ParamsMergeDiskFragments params) {
     } while (true);
     LOG(DEBUGL) << "Stop merging disk fragments";
 }
+void writeTimingChunkToDisk(double *durations, long size, ParamInsert params, int itter) {
+    LOG(INFOL) << "writeTimingChunkToDisk: " << itter << " time: " << durations[0] << "ms. (reset) size: " << size;
+    string path = params.timingLocation + "/perm" + to_string(params.permutation) + "_itter" + to_string(itter) + ".json";
+    LOG(INFOL) << "location: " << path;
+    string data = "";
+    for (long i = 0; i < size; i++) {
+        // Create an output string stream
+        std::ostringstream streamObj3;
+        // Set Fixed -Point Notation
+        streamObj3 << std::fixed;
+        // Set precision to 2 digits
+        streamObj3 << std::setprecision(33);
+        //Add double to stream
+        streamObj3 << durations[i];
+        // Get string from output string stream
+        std::string strObj3 = streamObj3.str();
+        data += strObj3 + "\n";
+        // sprintf(&data, "%s\n%.100f", durations[i]);
+    }
+    std::fstream outFile;
+    outFile.open(path, std::fstream::out);//open the input file
+    outFile << data;
+    outFile.close();
+}
 
 void Loader::insert(ParamInsert params) {
     // @todo
     std::chrono::system_clock::time_point startClock = std::chrono::system_clock::now();
+    LOG(INFOL) << "with insert: " << params.timingLocation;
+    // params.timingLocation = timingLocation;
 
     int permutation = params.permutation;
     int parallelProcesses = params.parallelProcesses;
@@ -1032,6 +1058,11 @@ void Loader::insert(ParamInsert params) {
     bool printstats = params.printstats;
     bool removeInput = params.removeInput;
     bool deletePreviousExt = params.deletePreviousExt;
+
+    int durationsSize = 1000000;
+    int durationIndex = 0;
+    int durationRound = 0;
+    double *durations = new double[durationsSize];
 
     SimpleTripleWriter *posWriter = NULL;
     if (POSoutputDir != NULL) {
@@ -1058,7 +1089,8 @@ void Loader::insert(ParamInsert params) {
     bool first = true;
 
     if (parallelProcesses > 1) {
-        LOG(DEBUGL) << "Parallel insert";
+
+        LOG(INFOL) << "Parallel insert";
         std::mutex m_buffers;
         std::condition_variable cond_buffers;
         std::vector<int64_t*> buffers;
@@ -1085,6 +1117,7 @@ void Loader::insert(ParamInsert params) {
                     &exchangeBuffers,
                     &m_exchange,
                     &cond_exchange));
+        std::chrono::system_clock::time_point startClockItter;
 
         //I read the stream and process it
         int countrandom = 0;
@@ -1112,6 +1145,7 @@ void Loader::insert(ParamInsert params) {
                 }
 
                 if (o != po || p != pp || s != ps) {
+                    startClockItter = std::chrono::system_clock::now();
                     count++;
                     ins->insert(permutation, s, p, o, countt, posWriter,
                             treeWriter,
@@ -1134,7 +1168,18 @@ void Loader::insert(ParamInsert params) {
                         }
                         countrandom = (countrandom + 1) % 100;
                     }
+                    std::chrono::duration<double> duration = std::chrono::system_clock::now() - startClockItter;
+                    durations[durationIndex] = duration.count();
+                    durationIndex++;
+                    if (durationIndex == durationsSize) {
+                        writeTimingChunkToDisk(durations, durationIndex, params, durationRound);
+                        durationIndex = 0;
+                        durationRound++;
+                    }
                 }
+            }
+            if (durationIndex > 0) {
+                writeTimingChunkToDisk(durations, durationIndex, params, durationRound);
             }
 
             //Release the buffer
@@ -1158,6 +1203,7 @@ void Loader::insert(ParamInsert params) {
         }
 
     } else {
+        LOG(INFOL) << "Seq";
         LOG(DEBUGL) << "Sequential insert";
         int countrandom = 0;
         while (!merger.isEmpty()) {
@@ -1226,6 +1272,7 @@ void Loader::insert(ParamInsert params) {
     LOG(DEBUGL) << "...completed. Added " << count << " triples out of " << countInput;
     std::chrono::duration<double> duration = std::chrono::system_clock::now() - startClock;
     LOG(INFOL) << "Insert time: " << duration.count() * 1000 << "ms.";
+    delete[] durations;
 }
 
 void Loader::insertDictionary(const int part, DictMgmt *dict, string
@@ -1938,7 +1985,6 @@ void Loader::loadKB(KB &kb,
         string *fileNameDictionaries,
         bool storeDicts,
         bool relsOwnIDs) {
-
     //Init params
     string tmpDir = p.tmpDir;
     const string kbDir = p.kbDir;
@@ -2028,7 +2074,7 @@ void Loader::loadKB(KB &kb,
             remoteLocation,
             limitSpace,
             totalCount,
-            nidx);
+            nidx, p.timingLocation);
 
     for (int i = 0; i < N_PARTITIONS; ++i) {
         if (treeWriters[i] != NULL) {
@@ -2486,7 +2532,8 @@ void Loader::createIndices(
         string remotePath,
         int64_t limitSpace,
         int64_t estimatedSize,
-        int nindices) {
+        int nindices,
+        string timingLocation) {
 
     int posS = 0;
     int posP = 1;
@@ -2534,6 +2581,7 @@ void Loader::createIndices(
     params.printstats = printStats;
     params.removeInput = false;
     params.deletePreviousExt = false;
+    params.timingLocation = timingLocation;
 
     insert(params);
 
@@ -2671,6 +2719,7 @@ void Loader::createIndices(
             LOG(DEBUGL) << "Memory used so far: " << Utils::getUsedMemory();
 
             ParamInsert params;
+            params.timingLocation = timingLocation;
             params.parallelProcesses = parallelProcesses;
             params.permutation = IDX_POS;
             params.inputDir = permDirs[IDX_POS];
@@ -2695,6 +2744,7 @@ void Loader::createIndices(
             moveData(remotePath, outputDirs[lastIdx], limitSpace);
             LOG(DEBUGL) << "Memory used so far: " << Utils::getUsedMemory();
             ParamInsert params;
+            params.timingLocation = timingLocation;
             params.parallelProcesses = parallelProcesses;
             params.permutation = IDX_POS;
             params.inputDir = aggr1Dir;
@@ -2747,6 +2797,7 @@ void Loader::createIndices(
             ins->stopInserts(lastIdx);
 
             ParamInsert params;
+            params.timingLocation = timingLocation;
             params.parallelProcesses = parallelProcesses;
             params.permutation = IDX_PSO;
             params.inputDir = permDirs[IDX_PSO];
@@ -2770,6 +2821,7 @@ void Loader::createIndices(
 
         } else {
             ParamInsert params;
+            params.timingLocation = timingLocation;
 
             ins->stopInserts(lastIdx);
 

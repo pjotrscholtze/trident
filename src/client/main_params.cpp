@@ -356,6 +356,7 @@ bool initParams(int argc, const char** argv, ProgramArgs &vm) {
     load_options.add<bool>("","storeplainlist", p.storePlainList, "Next to the indices, stores also a dump of all the input in a single file. This improves scan queries. Default is DISABLED", false);
     load_options.add<bool>("","storedicts", p.storeDicts, "Should I also store the dictionaries? (Maybe I don't need it, since I only want to do graph analytics. Default is ENABLED", false);
     load_options.add<int>("","nindices", p.nindices, "Set the number of indices to use. Can be 1,3,4,6. Default is '6'", false);
+    load_options.add<string>("", "timingLocation", "", "Location to store the time it took to insert information into the knowledge base", false);
     load_options.add<bool>("","incrindices", p.createIndicesInBlocks, "Create the indices a few at the time (saves space). Default is 'false'", false);
     load_options.add<bool>("","aggrIndices", p.aggrIndices, "Use aggredated indices. Default is 'false'", false);
     load_options.add<bool>("","enableFixedStrat", p.enableFixedStrat, "Should we store the tables with a fixed layout?. Default is 'false'", false);

@@ -646,6 +646,11 @@ int main(int argc, const char** argv) {
         }
 
         ParamsLoad p;
+        p.timingLocation = "";
+        if (!vm["timingLocation"].empty()) {
+            p.timingLocation = vm["timingLocation"].as<string>();
+        }
+
         p.inputformat = vm["inputformat"].as<string>();
         p.onlyCompress = vm["onlyCompress"].as<bool>();
         p.inputCompressed = inputCompressed;

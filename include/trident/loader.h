@@ -222,6 +222,7 @@ struct ParamInsert {
     bool printstats;
     bool removeInput;
     bool deletePreviousExt;
+    string timingLocation;
 };
 
 class L_Triple {
@@ -382,6 +383,7 @@ struct ParamsLoad {
     string dictDir_rel;
     string tmpDir;
     string kbDir;
+    string timingLocation;
     string dictMethod;
     int sampleMethod;
     int sampleArg;
@@ -613,7 +615,8 @@ class Loader {
                 string remoteLocation,
                 int64_t limitSpace,
                 int64_t estimatedSize,
-                int nindices);
+                int nindices, 
+                string timingLocation);
 
         void loadKB_createSamples(string kbDir,
                 string sampleDir,
