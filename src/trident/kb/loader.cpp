@@ -1024,7 +1024,7 @@ void writeTimingChunkToDisk(double *durations, long size, ParamInsert params, in
         // Set Fixed -Point Notation
         streamObj3 << std::fixed;
         // Set precision to 2 digits
-        streamObj3 << std::setprecision(33);
+        streamObj3 << std::setprecision(9);
         //Add double to stream
         streamObj3 << durations[i];
         // Get string from output string stream
