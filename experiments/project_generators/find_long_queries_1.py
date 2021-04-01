@@ -20,7 +20,7 @@ res = []
 for i in range(0, 9128):
     data = json.loads(base_raw)
     data["name"] = data["name"] % i
-    data["script"][5] = "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_type query_native --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min/query_chunk_%d.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1" % i
+    data["script"][5] = "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min/query_chunk_%d.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1" % i
     res.append(data)
 
 with open("projects/find_long_queries_1.json", "w") as f:
