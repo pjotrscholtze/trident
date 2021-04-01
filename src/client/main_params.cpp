@@ -186,11 +186,6 @@ bool checkParams(ProgramArgs &vm, int argc, const char** argv,
                 }
             }
 
-            string queryType = vm["query_type"].as<string>();
-            if (queryType != "query" && queryType != "query_native") {
-                printErrorMsg("Invalid query type given, can only be: [query|query_native]...");
-                return false;
-            }
         } else if (cmd == "lookup") {
             if (!vm.count("text") && !vm.count("number")) {
                 printErrorMsg(
@@ -452,9 +447,6 @@ bool initParams(int argc, const char** argv, ProgramArgs &vm) {
     ProgramArgs::GroupArgs& benchmark_options = *vm.newGroup("Options for <benchmark>");
     benchmark_options.add<string>("", "query_file", "",
             "The path of the file containing the queries", true);
-    benchmark_options.add<string>("", "query_type", "",
-            "The type of queries to run, can either by query, or query_native.",
-            true);
     benchmark_options.add<string>("", "histogram_file", "",
             "The location to store or read the histogram statistics.",
             false);
