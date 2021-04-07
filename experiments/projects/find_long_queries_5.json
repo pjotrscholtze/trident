@@ -1,0 +1,282 @@
+[
+  {
+    "name": "find_long_queries_5-8077",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_8077.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-7030",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_7030.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-6314",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_6314.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-7402",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_7402.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-4450",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_4450.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-2865",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_2865.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-2976",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_2976.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-2878",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_2878.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-1876",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_1876.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-4372",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_4372.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-8140",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_8140.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-5956",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_5956.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-948",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_948.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-894",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_894.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-4329",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_4329.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-4495",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_4495.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-3471",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_3471.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-3728",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_3728.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-824",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_824.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  },
+  {
+    "name": "find_long_queries_5-3549",
+    "description": "find_long_queries first itteration of this, using a single repitition, database generated with a single index. These jobs run longer then normal, watch this with the scheduler. Round 5.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 30:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "$BUILD_CACHE_PATH/trident/trident benchmark -i $DATABASE_PATH/dbpedia-times-details-nindices-1 --query_file $BUILD_CACHE_PATH/trident/experiments/queries_full_small_chunks_max_2min_v5/query_chunk_3549.sparql --results_file $PROJECT_PATH/res.json.lines --histogram_mode generate --histogram_file $PROJECT_PATH/temp.json --repetitions 1"
+    ]
+  }
+]
