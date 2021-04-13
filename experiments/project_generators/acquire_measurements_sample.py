@@ -11,7 +11,9 @@ base_raw = """
         "#SBATCH -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-        "__REPLACED_BELOW__"
+        "__REPLACED_BELOW__",
+        "7z a $PROJECT_PATH/res.json.lines.7z $PROJECT_PATH/res.json.lines",
+        "rm $PROJECT_PATH/res.json.lines"
     ]
 }
 """
