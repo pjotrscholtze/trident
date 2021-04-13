@@ -47,7 +47,7 @@ private:
     bool initialized;
     bool ignSecondColumn;
     std::vector<bool> sorted;
-    int64_t p, o;
+    int64_t p, o, s;
     ArrayItr *m_itr;
     uint64_t m_key;
     size_t m_nextKeyIndex;
@@ -65,7 +65,7 @@ private:
     void fillValues();
 
 public:
-    ReOrderItr(PairItr *helper, int idx, Querier *q, int64_t p, int64_t o)
+    ReOrderItr(PairItr *helper, int idx, Querier *q, int64_t p, int64_t o, int64_t s)
         : q(q), helper(helper), idx(idx), nextKeyIndex(0), itr(NULL), initialized(false),
           ignSecondColumn(false), p(p), o(o), m_itr(NULL) {
         initializeConstraints();

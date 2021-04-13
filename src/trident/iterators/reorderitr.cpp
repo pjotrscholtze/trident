@@ -144,6 +144,7 @@ static bool arraySort(KeyValue &v1, KeyValue &v2) {
 }
 
 void ReOrderItr::fillValues() {
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
     google::dense_hash_map<uint64_t, std::shared_ptr<Pairs>> keyToPair;
     keyToPair.set_empty_key(0xFFFFFFFFFFFFFFFF);
     switch(idx) {
@@ -173,9 +174,11 @@ void ReOrderItr::fillValues() {
     // Now sort array, only according to the keys. We'll sort the Pairs when needed.
     std::sort(array.begin(), array.end(), arraySort);
     sorted.resize(array.size());
+    this->q->addMeasurement(idx, s, p, o, std::chrono::system_clock::now() - start, false);
 }
 
 uint64_t ReOrderItr::getCardinality() {
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
     if (! initialized) {
         fillValues();
     }
@@ -184,6 +187,7 @@ uint64_t ReOrderItr::getCardinality() {
         for (size_t i = 0; i < array.size(); i++) {
             sz += array[i].second->size();
         }
+        this->q->addMeasurement(idx, s, p, o, std::chrono::system_clock::now() - start, false);
         return sz;
     }
     for (size_t i = 0; i < array.size(); i++) {
@@ -199,6 +203,7 @@ uint64_t ReOrderItr::getCardinality() {
         it->clear();
         delete it;
     }
+    this->q->addMeasurement(idx, s, p, o, std::chrono::system_clock::now() - start, false);
     return sz;
 }
 
@@ -240,6 +245,8 @@ void ReOrderItr::gotoKey(int64_t newkey) {
 }
 
 void ReOrderItr::next() {
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
+
     if (itr == NULL || ! itr->hasNext()) {
         if (itr != NULL && itr != m_itr) {
             itr->clear();
@@ -266,5 +273,6 @@ void ReOrderItr::next() {
         nextKeyIndex++;
     }
     itr->next();
+    this->q->addMeasurement(idx, s, p, o, std::chrono::system_clock::now() - start, false);
 }
 

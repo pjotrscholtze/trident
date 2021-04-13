@@ -23,6 +23,8 @@
 #ifndef QUERIER_H_
 #define QUERIER_H_
 
+#include <vector>
+
 //#include <trident/iterators/storageitr.h>
 #include <trident/iterators/arrayitr.h>
 #include <trident/iterators/scanitr.h>
@@ -68,6 +70,19 @@ struct MultiLevelCounters {
     MultiLevelCountersStrategy psoStats;
 };
 
+class TripleQueryMeasurement {
+    public:
+        int idx;
+        int64_t s;
+        int64_t p;
+        int64_t o;
+        std::chrono::duration<double> duration;
+        bool termList;
+
+        string asJSON() {
+            return "{\"idx\":" + to_string(idx) + "," + "\"s\":" + to_string(s) + "," + "\"p\":" + to_string(p) + "," + "\"o\":" + to_string(o) + "," + "\"duration\":" + to_string(duration.count() * 1000) + "," + "\"termList\":" + to_string(termList) + "}";
+        }
+};
 
 class Querier {
     private:
@@ -140,6 +155,20 @@ class Querier {
         static int64_t getCard_internal(Querier *q, const int64_t s, const int64_t p, const int64_t o);
 
     public:
+        std::vector<TripleQueryMeasurement> measurements;
+
+        void addMeasurement(const int idx,
+            const int64_t s, const int64_t p, const int64_t o,
+            std::chrono::duration<double> duration, bool termList
+        ) {
+            TripleQueryMeasurement tqm = TripleQueryMeasurement();
+            tqm.s = s;
+            tqm.p = p;
+            tqm.o = o;
+            tqm.duration = duration;
+            tqm.termList = termList;
+            this->measurements.push_back(tqm);
+        }
 
         struct Counters {
             int64_t statsRow;       // Bin table
@@ -320,7 +349,7 @@ class Querier {
             return getIterator(perm, key, fileIdx, mark, strategy, c1, c2, constrain, noAggr);
         }
 
-        PairItr *newItrOnReverse(PairItr *itr, const int64_t v1, const int64_t v2);
+        PairItr *newItrOnReverse(PairItr *itr, const int64_t v1, const int64_t v2, const int idx);
 
         PairItr *getFilePairIterator(const int perm, const int64_t constraint1,
                 const int64_t constraint2,

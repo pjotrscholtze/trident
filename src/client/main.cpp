@@ -314,6 +314,14 @@ string statsToJsonString(QueryStats *info) {
     indexCounter += to_string(info->indexCounter[4]) + ",";
     indexCounter += to_string(info->indexCounter[5]) + "]";
 
+    string measurements = "";
+    for (size_t i = 0; i < info->measurements.size(); ++i) {
+        if (measurements != "") {
+            measurements += ",";
+        }
+        measurements += info->measurements[i];
+    }
+
     return "{\"hash\": " + to_string(info->hash) +"," +
         "\"relativeQueryNumber\": " + to_string(info->relativeQueryNumber) +"," +
         "\"repetition\": " + to_string(info->repetition) +"," +
@@ -334,7 +342,7 @@ string statsToJsonString(QueryStats *info) {
         "\"pos\": " + to_string(info->pos) +"," +
         "\"sop\": " + to_string(info->sop) +"," +
         "\"osp\": " + to_string(info->osp) +"," +
-        "\"pso\": " + to_string(info->pso) +"}";
+        "\"pso\": " + to_string(info->pso) +",\"measurements\":["+measurements+"]}";
 }
 string makeHistogramJson(QueryStats *info, int statsCount, NodeManagerStats nms) {
             // NodeManagerStats nms = NodeManager::getStats();
@@ -362,7 +370,6 @@ string makeHistogramJson(QueryStats *info, int statsCount, NodeManagerStats nms)
     return "{" + files + index + "}";
 }
 
-
 void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info, MultiLevelCounters *mlcStats) {
     // LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY_INDEX: " << queryIndex++;
     // LOG(INFOL) << "BENCHMARK-TRIDENT:QUERY: " << query;
@@ -382,6 +389,9 @@ void doQuery(string query, ProgramArgs vm, string kbDir, QueryStats *info, Multi
     Querier::Counters c = layer.getQuerier()->getCounters();
     MultiLevelCounters *mlc = layer.getQuerier()->getMultiLevelCounters();
 
+    for (size_t i = 0; i < layer.getQuerier()->measurements.size(); ++i) {
+        info->measurements.push_back(layer.getQuerier()->measurements[i].asJSON());
+    }
     mlcStats->spoStats.statsRow     += mlc->spoStats.statsRow;
     mlcStats->spoStats.statsColumn  += mlc->spoStats.statsColumn;
     mlcStats->spoStats.statsCluster += mlc->spoStats.statsCluster;

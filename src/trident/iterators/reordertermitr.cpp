@@ -39,6 +39,7 @@ void ReOrderTermItr::fillValuesP(google::dense_hash_set<uint64_t> &keys) {
 }
 
 void ReOrderTermItr::fillValues() {
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
     google::dense_hash_set<uint64_t> keySet;
     keySet.set_empty_key(0xFFFFFFFFFFFFFFFF);
     switch(idx) {
@@ -62,6 +63,7 @@ void ReOrderTermItr::fillValues() {
     initialized = true;
 
     std::sort(keys.begin(), keys.end());
+    this->q->addMeasurement(idx, -2, -2, -2, std::chrono::system_clock::now() - start, true);
 }
 
 uint64_t ReOrderTermItr::getCardinality() {

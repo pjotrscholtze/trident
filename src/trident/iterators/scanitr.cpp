@@ -144,7 +144,7 @@ void ScanItr::next() {
                 //Need to get reversed table
                 PairItr *itr = q->getIterator(idx - 3, key, file, mark, strategy,
                         -1, -1, false, false);
-                reversedItr = q->newItrOnReverse(itr, -1, -1);
+                reversedItr = q->newItrOnReverse(itr, -1, -1, idx);
                 if (ignseccolumn)
                     reversedItr->ignoreSecondColumn();
                 if (!reversedItr->hasNext()) {
@@ -190,7 +190,7 @@ bool ScanItr::next(int64_t &v1, int64_t &v2, int64_t &v3) {
                 //Need to get reversed table
                 PairItr *itr = q->getIterator(idx - 3, key, file, mark, strategy,
                         -1, -1, false, false);
-                reversedItr = q->newItrOnReverse(itr, -1, -1);
+                reversedItr = q->newItrOnReverse(itr, -1, -1, idx);
                 if (ignseccolumn)
                     reversedItr->ignoreSecondColumn();
                 if (!reversedItr->hasNext()) {

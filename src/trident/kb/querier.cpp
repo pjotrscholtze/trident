@@ -947,7 +947,7 @@ PairItr *Querier::get(const int idx, TermCoordinates &value,
         }
     } else if (idx >= 3 && value.exists(idx - 3)) {
         PairItr *itr = get(idx - 3, value, key, -1, -1, cons);
-        PairItr *itr2 = newItrOnReverse(itr, v1, v2);
+        PairItr *itr2 = newItrOnReverse(itr, v1, v2, idx);
         itr2->setKey(key);
         releaseItr(itr);
         return itr2;
@@ -1281,9 +1281,7 @@ PairItr *Querier::getIterator(const int idx, const int64_t s, const int64_t p, c
 }
 
 PairItr *Querier::getIterator(const int idx, const int64_t s, const int64_t p, const int64_t o) {
-
     // LOG(DEBUGL) << "getIterator(" << idx << ", " << s << ", " << p << ", " << o << ")";
-
     PairItr *itr = getIterator(idx, s, p, o, true);
     if (itr != NULL) {
         return itr;
@@ -1296,11 +1294,43 @@ PairItr *Querier::getIterator(const int idx, const int64_t s, const int64_t p, c
 
     // Now, we have to create an iterator behaving like an iterator over idx.
     // Note: helper may not obey p and/or o, since it probably is a ScanItr.
-
-    return new ReOrderItr(helper, idx, this, p, o);
+    return new ReOrderItr(helper, idx, this, p, o, s);
 }
 
-PairItr *Querier::newItrOnReverse(PairItr * oldItr, const int64_t v1, const int64_t v2) {
+PairItr *Querier::newItrOnReverse(PairItr * oldItr, const int64_t v1, const int64_t v2, const int idx) {
+    
+    int64_t s = -1;
+    int64_t p = -1;
+    int64_t o = -1;
+    switch (idx) {
+        case IDX_SPO:
+            p = v1;
+            o = v2;
+            break;
+        case IDX_OPS:
+            p = v1;
+            s = v2;
+            break;
+        case IDX_POS:
+            o = v1;
+            s = v2;
+            break;
+        case IDX_SOP:
+            o = v1;
+            p = v2;
+            break;
+        case IDX_OSP:
+            s = v1;
+            p = v2;
+            break;
+        case IDX_PSO:
+            s = v1;
+            o = v2;
+            break;
+    }
+
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
+
     std::shared_ptr<Pairs> tmpVector = std::shared_ptr<Pairs>(new Pairs());
     while (oldItr->hasNext()) {
         oldItr->next();
@@ -1315,8 +1345,10 @@ PairItr *Querier::newItrOnReverse(PairItr * oldItr, const int64_t v1, const int6
         std::sort(tmpVector->begin(), tmpVector->end());
         ArrayItr *itr = factory2.get();
         itr->init(tmpVector, v1, v2);
+        this->addMeasurement(idx, s, p, o, std::chrono::system_clock::now() - start, false);
         return itr;
     } else {
+        this->addMeasurement(idx, s, p, o, std::chrono::system_clock::now() - start, false);
         return &emptyItr;
     }
 }

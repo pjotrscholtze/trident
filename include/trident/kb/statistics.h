@@ -23,6 +23,9 @@
 #ifndef _STATS_H
 #define _STATS_H
 
+#include <vector>
+#include <stdio.h>
+#include <string>
 
 class Stats {
 private:
@@ -73,6 +76,7 @@ public:
     bool parseError;
     bool semanticError;
     bool emptyResultKnownEmpty;
+    std::vector<std::string> measurements;
 };
 
 #endif
