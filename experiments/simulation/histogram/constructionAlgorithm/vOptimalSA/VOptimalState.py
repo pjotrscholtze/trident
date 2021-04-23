@@ -16,19 +16,15 @@ class VOptimalState(State):
         cost: float = 0
         prev: int = 0
         for t in self.thresholds:
-            stats = []
-            for i in range(prev, t):
-                stats.append(self.data[i][1])
+            stats = [self.data[i][1] for i in range(prev, t)]
             if len(stats) > 1: cost += len(stats) * statistics.variance(stats)
             prev = t
 
-	# Last bucket.
-        stats = []
+    	# Last bucket.
         max: int = len(self.data)
-        for i in range(prev, max): stats.append(self.data[i][1])
+        stats = [self.data[i][1] for i in range(prev, max)]
         if len(stats) > 1: cost += len(stats) * statistics.variance(stats)
 
         return cost
 
-    def clone(self) -> State:
-        return VOptimalState(self.data, [] + self.thresholds)
+    def clone(self) -> State: return VOptimalState(self.data, [] + self.thresholds)

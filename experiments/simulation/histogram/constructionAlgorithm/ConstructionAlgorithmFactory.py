@@ -8,6 +8,13 @@ from constructionAlgorithm.MaxDiffConstructionAlgorithm import MaxDiffConstructi
 from constructionAlgorithm.VOptimalConstructionAlgorithm import VOptimalConstructionAlgorithm
 from constructionAlgorithm.EquiWidthConstructionAlgorithm import EquiWidthConstructionAlgorithm
 
+
+ALGOS = {
+    PartitionConstraint.maxdiff.value: MaxDiffConstructionAlgorithm,
+    PartitionConstraint.v_optimal.value: VOptimalConstructionAlgorithm,
+    PartitionConstraint.equi_width.value: EquiWidthConstructionAlgorithm
+}
+
 # /**
 #  * @author herald
 #  */
@@ -16,14 +23,8 @@ class ConstructionAlgorithmFactory:
 
     @staticmethod
     def get_algorithm(partitionRule: PartitionRule) -> ConstructionAlgorithm:
-        if partitionRule.partitionConstraint == PartitionConstraint.maxdiff:
-            return MaxDiffConstructionAlgorithm()
+        if partitionRule.partitionConstraint.value not in ALGOS:
+            raise NotImplementedError("Not supported yet!")
+        return ALGOS[partitionRule.partitionConstraint.value]()
 
-        if partitionRule.partitionConstraint == PartitionConstraint.v_optimal:
-            return VOptimalConstructionAlgorithm()
-
-        if partitionRule.partitionConstraint == PartitionConstraint.equi_width:
-            return EquiWidthConstructionAlgorithm()
-
-        raise NotImplementedError("Not supported yet!")
 

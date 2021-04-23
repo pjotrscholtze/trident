@@ -12,5 +12,5 @@ from enum import Enum
 #  * @author herald
 #  */
 class PartitionClass(Enum):
-    serial="serial",
-    end_biased="end_biased"
+    serial = "serial",
+    end_biased = "end_biased"

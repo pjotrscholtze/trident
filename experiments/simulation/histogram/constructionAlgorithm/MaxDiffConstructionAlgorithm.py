@@ -16,7 +16,7 @@ class MaxDiffConstructionAlgorithm(ConstructionAlgorithm):
         diff_queue = PriorityQueue()
         for i in range(0, len(data) - 1):
             d1 = data[i]
-            d2 = data[i]
+            d2 = data[i + 1]
             diff_queue.put((d2[1] - d1[1], i + 1))
 
             if (i >= bucketNum - 1): diff_queue.get()
@@ -30,11 +30,7 @@ class MaxDiffConstructionAlgorithm(ConstructionAlgorithm):
 
         index: int = 0
         for t in thresholdArray:
-            b = Bucket(data[index:t[1]])
-            bucket_list.append(b)
-
+            bucket_list.append(Bucket(data[index:t[1]]))
             index = t[1]
-        b = Bucket(data[index:len(data)])
-        bucket_list.append(b)
 
-        return bucket_list
+        return bucket_list + [Bucket(data[index:len(data)])]

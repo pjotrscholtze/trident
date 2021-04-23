@@ -35,30 +35,30 @@ class SimulatedAnnealing:
         raise NotImplementedError()
 
     def search(self) -> State:
-        bestState: State = self.get_initial()
-        state:State = bestState.clone()
+        best_state: State = self.get_initial()
+        state: State = best_state.clone()
 
-        rand:Random = Random()
+        rand: Random = Random()
 
-        lastBestStep:int = 0
+        last_best_step: int = 0
         for k in range(0, self.max_steps):
-            if k - lastBestStep > self.steps_not_improved_termination: break
+            if k - last_best_step > self.steps_not_improved_termination: break
 
             neighbor: tuple[Transformation, Transformation] = self.get_neighbor(state, rand)
-            cost:float = state.get_cost()
+            cost: float = state.get_cost()
             state = neighbor[0].apply(state)
 
             # Always keep a better state.
-            if bestState.get_cost() > state.get_cost():
-                bestState = state.clone()
-                lastBestStep = k
+            if best_state.get_cost() > state.get_cost():
+                best_state = state.clone()
+                last_best_step = k
             else:
                 # Keep the solution with a probability.
                 if self.propability(cost, state.get_cost(), self.temperature.get_temperature(k)) <= rand.random():
                     # Do not accept the solution.
                     state = neighbor[1].apply(state)
 
-        return bestState
+        return best_state
 
     def propability(self, cost: float, newCost: float, temperature: float) -> float:
         if newCost < cost: return 1.0

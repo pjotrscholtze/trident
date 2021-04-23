@@ -22,15 +22,14 @@ class MinimizeVarianceHistogramScore(HistogramScore):
         stats: List[float] = []
 
         for b in bucketList:
-            bs: List[float] = []
-            for d in b.data:
-                bs.append(d[1])
+            if not b.data: continue
+            bs: List[float] = [d[1] for d in b.data]
+
             if len(bs) == 1:
                 stats.append(bs[0])
                 continue
-            if bs:
-                stats.append(statistics.stdev(bs))
-                continue
+
+            stats.append(statistics.stdev(bs))
 
         if len(stats) == 1: return stats[0]
         return statistics.stdev(stats)

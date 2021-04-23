@@ -21,7 +21,7 @@ class VOptimalConstructionAlgorithm(ConstructionAlgorithm):
 
         if bucketNum < 1: raise AttributeError("Bucket num should be > 0")
 
-        bucketList:List[Bucket] = []
+        bucketList: List[Bucket] = []
 
         # Put everything into 1 bucket.
         if bucketNum == 1: return [Bucket(data)]
@@ -30,10 +30,7 @@ class VOptimalConstructionAlgorithm(ConstructionAlgorithm):
         result: VOptimalState = sa.search()
         index: int = 0
         for t in result.thresholds:
-            b = Bucket(data[index: t])
-            bucketList.append(b)
+            bucketList.append(Bucket(data[index: t]))
             index = t
 
-        b: Bucket = Bucket(data[index:len(data)])
-        bucketList.append(b)
-        return bucketList
+        return bucketList + [Bucket(data[index:len(data)])]

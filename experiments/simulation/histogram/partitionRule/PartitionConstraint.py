@@ -3,7 +3,6 @@
 #  */
 from enum import Enum
 
-
 # /**
 #  * This is a mathematical constraint on the source
 #  * parameter that uniquely identifies a single histogram

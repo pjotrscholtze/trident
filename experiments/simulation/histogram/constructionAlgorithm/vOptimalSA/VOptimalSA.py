@@ -25,8 +25,7 @@ class VOptimalSA(SimulatedAnnealing):
 
         # Initialize thresholds.
         step: int = int(len(self.data) / self.bucket_num)
-        for i in range(0, self.bucket_num):
-            thresholds.append((i + 1) * step)
+        for i in range(0, self.bucket_num): thresholds.append((i + 1) * step)
 
         return VOptimalState(self.data, thresholds)
 
@@ -41,28 +40,20 @@ class VOptimalSA(SimulatedAnnealing):
             leftOffset: int = 0
             rightOffset: int = 0
 
-            if threshold == 0:
-                leftOffset = vos.thresholds[threshold] - 1
-            else:
+            leftOffset = vos.thresholds[threshold] - 1
+            if threshold != 0:
                 leftOffset = vos.thresholds[threshold] - vos.thresholds[threshold - 1] - 1
 
-            if threshold >= self.bucket_num - 2:
-                rightOffset = len(self.data) - vos.thresholds[threshold] - 1
-            else:
+            rightOffset = len(self.data) - vos.thresholds[threshold] - 1
+            if threshold < self.bucket_num - 2:
                 rightOffset = vos.thresholds[threshold + 1] - vos.thresholds[threshold] - 1
 
             if leftOffset > 0 or rightOffset > 0:
                 if rand.randint(0, 1) == 1:
-                    if leftOffset > 0:
-                        offset = -1
-                    else:
-                        offset = 1
+                    offset = 1
+                    if leftOffset > 0: offset = -1
                 else:
-                    if rightOffset > 0:
-                        offset = 1
-                    else:
-                        offset = -1
+                    offset = -1
+                    if rightOffset > 0: offset = 1
                 break
-        t1:Transformation = VOptimalTransformation(threshold, offset)
-        t2:Transformation = VOptimalTransformation(threshold, -offset)
-        return t1, t2
+        return VOptimalTransformation(threshold, offset), VOptimalTransformation(threshold, -offset)

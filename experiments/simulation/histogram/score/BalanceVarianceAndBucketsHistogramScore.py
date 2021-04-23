@@ -12,18 +12,13 @@ from typing import List
 #  */
 class BalanceVarianceAndBucketsHistogramScore(HistogramScore):
 
-
     def __init__(self, a: float): self.a = a
-
 
     def get_score(self, bucketList: List[Bucket]):
         stats = []
         for b in bucketList:
-            bs = []
-            for d in b.data:
-                bs.append(d[1])
-            if not bs: continue
-
+            if not b.data: continue
+            bs = [d[1] for d in b.data]
             val = bs[0]
             if len(bs) > 1: val = statistics.stdev(bs)
             stats.append(val)
