@@ -1,8 +1,7 @@
-from enum import Enum
 # /**
 #  * Copyright MaDgIK Group 2010 - 2015.
 #  */
-# package madgik.exareme.utils.histogram.partitionRule;
+from enum import Enum
 
 
 # /**
@@ -18,7 +17,6 @@ from enum import Enum
 #  *
 #  * @author herald
 #  */
-# public enum PartitionConstraint {
 class PartitionConstraint(Enum):
     equi_width = "equi_width",
     equi_height = "equi_height",
@@ -26,11 +24,3 @@ class PartitionConstraint(Enum):
     v_optimal = "v_optimal",
     maxdiff = "maxdiff",
     compressed = "compressed"
-
-#     equi_width,
-#     equi_height,
-#     equi_sum,
-#     v_optimal,
-#     maxdiff,
-#     compressed
-# }

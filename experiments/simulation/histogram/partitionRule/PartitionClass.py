@@ -1,8 +1,7 @@
-from enum import Enum
 # /**
 #  * Copyright MaDgIK Group 2010 - 2015.
 #  */
-# package madgik.exareme.utils.histogram.partitionRule;
+from enum import Enum
 
 # /**
 #  * This indicates if there are any restrictions on the buckets. Of great importance is the serial
@@ -12,11 +11,6 @@ from enum import Enum
 #  *
 #  * @author herald
 #  */
-# public enum PartitionClass {
 class PartitionClass(Enum):
     serial="serial",
     end_biased="end_biased"
-
-#     serial,
-#     end_biased
-# }

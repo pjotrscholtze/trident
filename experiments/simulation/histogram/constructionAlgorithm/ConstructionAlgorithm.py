@@ -4,16 +4,6 @@ from Bucket import Bucket
 # /**
 #  * Copyright MaDgIK Group 2010 - 2015.
 #  */
-# package madgik.exareme.utils.histogram.constructionAlgorithm;
-
-# import madgik.exareme.utils.association.Pair;
-# import madgik.exareme.utils.histogram.Bucket;
-# import madgik.exareme.utils.histogram.partitionRule.PartitionRule;
-
-# import java.io.Serializable;
-# import java.rmi.RemoteException;
-# import java.util.ArrayList;
-# import java.util.LinkedList;
 
 # /**
 #  * Given a particular partition rule, this is the algorithm
@@ -24,13 +14,7 @@ from Bucket import Bucket
 #  *
 #  * @author herald
 #  */
-# public interface ConstructionAlgorithm extends Serializable {
-
 class ConstructionAlgorithm:
     def createHistogram(self, data: List[tuple[any, float]], bucketNum: int,
         partitionRule: PartitionRule) -> List[Bucket]:
         raise NotImplementedError
-        #  pass# throws RemoteException;
-#     LinkedList<Bucket> createHistogram(ArrayList<Pair<?, Double>> data, int bucketNum,
-#         PartitionRule partitionRule) throws RemoteException;
-# }
