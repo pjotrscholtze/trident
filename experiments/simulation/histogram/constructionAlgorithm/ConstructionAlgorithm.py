@@ -1,9 +1,9 @@
-from typing import List
-from partitionRule.PartitionRule import PartitionRule
-from Bucket import Bucket
 # /**
 #  * Copyright MaDgIK Group 2010 - 2015.
 #  */
+from typing import List
+from partitionRule.PartitionRule import PartitionRule
+from Bucket import Bucket
 
 # /**
 #  * Given a particular partition rule, this is the algorithm
@@ -16,5 +16,4 @@ from Bucket import Bucket
 #  */
 class ConstructionAlgorithm:
     def createHistogram(self, data: List[tuple[any, float]], bucketNum: int,
-        partitionRule: PartitionRule) -> List[Bucket]:
-        raise NotImplementedError
+        partitionRule: PartitionRule) -> List[Bucket]: raise NotImplementedError

@@ -19,10 +19,10 @@ class MinimizeVarianceHistogramScore(HistogramScore):
         return MinimizeVarianceHistogramScore.instance
 
     def getScore(self, bucketList: List[Bucket]) -> float:
-        stats:List[float] = []
+        stats: List[float] = []
 
         for b in bucketList:
-            bs:List[float] = []
+            bs: List[float] = []
             for d in b.data:
                 bs.append(d[1])
             if len(bs) == 1:

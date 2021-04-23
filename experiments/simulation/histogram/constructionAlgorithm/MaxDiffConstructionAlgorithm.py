@@ -6,6 +6,7 @@ from Bucket import Bucket
 from partitionRule.PartitionRule import PartitionRule
 from queue import PriorityQueue
 from typing import List
+
 # /**
 #  * @author herald
 #  */
@@ -21,13 +22,13 @@ class MaxDiffConstructionAlgorithm(ConstructionAlgorithm):
             if (i >= bucketNum - 1): diff_queue.get()
         bucket_list: List[Bucket] = []
 
-#     /* Sort the buckets */
+        # Sort the buckets.
         thresholdArray = []
         while not diff_queue.empty(): thresholdArray.append(diff_queue.get())
         def sorter(o): return o[1]
         thresholdArray.sort(key=sorter)
 
-        index:int = 0
+        index: int = 0
         for t in thresholdArray:
             b = Bucket(data[index:t[1]])
             bucket_list.append(b)

@@ -16,13 +16,13 @@ class ConstructionAlgorithmFactory:
 
     @staticmethod
     def getAlgorithm(partitionRule: PartitionRule) -> ConstructionAlgorithm:
-        if (partitionRule.partitionConstraint == PartitionConstraint.maxdiff):
+        if partitionRule.partitionConstraint == PartitionConstraint.maxdiff:
             return MaxDiffConstructionAlgorithm()
 
-        if (partitionRule.partitionConstraint == PartitionConstraint.v_optimal):
+        if partitionRule.partitionConstraint == PartitionConstraint.v_optimal:
             return VOptimalConstructionAlgorithm()
 
-        if (partitionRule.partitionConstraint == PartitionConstraint.equi_width):
+        if partitionRule.partitionConstraint == PartitionConstraint.equi_width:
             return EquiWidthConstructionAlgorithm()
 
         raise NotImplementedError("Not supported yet!")

@@ -23,24 +23,23 @@ class VOptimalSA(SimulatedAnnealing):
     def getInitial(self) -> State:
         thresholds: List[int] = []
 
-#     /* Initialize thresholds */
-        step:int = int(len(self.data) / self.bucketNum)
+        # Initialize thresholds.
+        step: int = int(len(self.data) / self.bucketNum)
         for i in range(0, self.bucketNum):
             thresholds.append((i + 1) * step)
 
         return VOptimalState(self.data, thresholds)
 
     def getNeighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
-        vos:VOptimalState = state
-
-        threshold:int = 0
-        offset:int = 0
+        vos: VOptimalState = state
+        threshold: int = 0
+        offset: int = 0
 
         while True:
-#       /* Peek a random threshold */
+            # /* Peek a random threshold */
             threshold = rand.randint(0, self.bucketNum - 1)
-            leftOffset:int = 0
-            rightOffset:int = 0
+            leftOffset: int = 0
+            rightOffset: int = 0
 
             if threshold == 0:
                 leftOffset = vos.thresholds[threshold] - 1

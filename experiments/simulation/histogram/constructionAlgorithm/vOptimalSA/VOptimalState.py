@@ -22,11 +22,10 @@ class VOptimalState(State):
             if len(stats) > 1: cost += len(stats) * statistics.variance(stats)
             prev = t
 
-# 	/* last bucket */
+	# Last bucket.
         stats = []
-        max:int = len(self.data)
-        for i in range(prev, max):
-            stats.append(self.data[i][1])
+        max: int = len(self.data)
+        for i in range(prev, max): stats.append(self.data[i][1])
         if len(stats) > 1: cost += len(stats) * statistics.variance(stats)
 
         return cost

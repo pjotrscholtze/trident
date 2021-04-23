@@ -23,17 +23,17 @@ class VOptimalConstructionAlgorithm(ConstructionAlgorithm):
 
         bucketList:List[Bucket] = []
 
-#         // Put everything into 1 bucket.
+        # Put everything into 1 bucket.
         if bucketNum == 1: return [Bucket(data)]
 
         sa = VOptimalSA(10000, 1000, LogarithmicTemperature(1.0), data, bucketNum)
         result: VOptimalState = sa.search()
-        index:int = 0
+        index: int = 0
         for t in result.thresholds:
             b = Bucket(data[index: t])
             bucketList.append(b)
             index = t
 
-        b:Bucket = Bucket(data[index:len(data)])
+        b: Bucket = Bucket(data[index:len(data)])
         bucketList.append(b)
         return bucketList

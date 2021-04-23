@@ -3,6 +3,7 @@
 #  */
 import math
 from simulatedAnnealing.Temperature import Temperature
+
 # /**
 #  * @author herald
 #  */

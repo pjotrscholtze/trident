@@ -19,16 +19,20 @@ class SimulatedAnnealing:
         self.stepsNotImprovedTermination = stepsNotImprovedTermination
         self.temperature = temperature
 
-#     /* return: initial state */
-    def getInitial(self) -> State: raise NotImplementedError()
+    def getInitial(self) -> State:
+        """
+        :return: Initial state.
+        """
+        raise NotImplementedError()
 
-#     /*
-#      * return: a pair with two transformations A and B with
-#      * the following properties:
-#      *  A: A(state) -> new state
-#      *  B: B(A(state)) -> state
-#      */
-    def getNeighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]: raise NotImplementedError()
+    def getNeighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+        """
+        :return: A pair with two transformations A and B with the following
+                properties:
+                - A: A(state) -> new state
+                - B: B(A(state)) -> state
+        """
+        raise NotImplementedError()
 
     def search(self) -> State:
         bestState: State = self.getInitial()
@@ -44,14 +48,14 @@ class SimulatedAnnealing:
             cost:float = state.getCost()
             state = neighbor[0].apply(state)
 
-#       /* Always keep a better state */
+            # Always keep a better state.
             if bestState.getCost() > state.getCost():
                 bestState = state.clone()
                 lastBestStep = k
             else:
-#         /* Keep the solution with a probability */
+                # Keep the solution with a probability.
                 if self.propability(cost, state.getCost(), self.temperature.getTemperature(k)) <= rand.random():
-#           /* do not accept the solution */
+                    # Do not accept the solution.
                     state = neighbor[1].apply(state)
 
         return bestState
