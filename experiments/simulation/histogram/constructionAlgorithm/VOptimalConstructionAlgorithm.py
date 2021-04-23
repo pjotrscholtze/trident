@@ -16,7 +16,7 @@ from simulatedAnnealing.LogarithmicTemperature import LogarithmicTemperature
 #  */
 class VOptimalConstructionAlgorithm(ConstructionAlgorithm):
 
-    def createHistogram(self, data: List[tuple[any,float]], bucketNum: int,
+    def create_histogram(self, data: List[tuple[any,float]], bucketNum: int,
         partitionRule: PartitionRule) -> List[Bucket]:
 
         if bucketNum < 1: raise AttributeError("Bucket num should be > 0")

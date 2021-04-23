@@ -14,30 +14,30 @@ from random import Random
 
 class VOptimalSA(SimulatedAnnealing):
 
-    def __init__(self, maxSteps:int, stepsNotImprovedTermination:int, temperature: Temperature,
-        data: List[tuple[any,float]], bucketNum:int):
-        super(VOptimalSA, self).__init__(maxSteps,stepsNotImprovedTermination, temperature)
+    def __init__(self, max_steps: int, steps_not_improved_termination: int, temperature: Temperature,
+        data: List[tuple[any, float]], bucket_num: int):
+        super(VOptimalSA, self).__init__(max_steps,steps_not_improved_termination, temperature)
         self.data = data
-        self.bucketNum = bucketNum
+        self.bucket_num = bucket_num
 
-    def getInitial(self) -> State:
+    def get_initial(self) -> State:
         thresholds: List[int] = []
 
         # Initialize thresholds.
-        step: int = int(len(self.data) / self.bucketNum)
-        for i in range(0, self.bucketNum):
+        step: int = int(len(self.data) / self.bucket_num)
+        for i in range(0, self.bucket_num):
             thresholds.append((i + 1) * step)
 
         return VOptimalState(self.data, thresholds)
 
-    def getNeighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+    def get_neighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
         vos: VOptimalState = state
         threshold: int = 0
         offset: int = 0
 
         while True:
             # /* Peek a random threshold */
-            threshold = rand.randint(0, self.bucketNum - 1)
+            threshold = rand.randint(0, self.bucket_num - 1)
             leftOffset: int = 0
             rightOffset: int = 0
 
@@ -46,7 +46,7 @@ class VOptimalSA(SimulatedAnnealing):
             else:
                 leftOffset = vos.thresholds[threshold] - vos.thresholds[threshold - 1] - 1
 
-            if threshold >= self.bucketNum - 2:
+            if threshold >= self.bucket_num - 2:
                 rightOffset = len(self.data) - vos.thresholds[threshold] - 1
             else:
                 rightOffset = vos.thresholds[threshold + 1] - vos.thresholds[threshold] - 1

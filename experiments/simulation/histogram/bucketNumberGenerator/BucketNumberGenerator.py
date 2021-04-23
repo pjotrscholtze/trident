@@ -6,6 +6,6 @@
 #  * @author herald
 #  */
 class BucketNumberGenerator:
-    def hasNext(self) -> bool: raise NotImplementedError()
+    def has_next(self) -> bool: raise NotImplementedError()
 
-    def getNext(self) -> int: raise NotImplementedError()
+    def get_next(self) -> int: raise NotImplementedError()

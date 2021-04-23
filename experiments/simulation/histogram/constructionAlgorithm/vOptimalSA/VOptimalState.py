@@ -12,7 +12,7 @@ class VOptimalState(State):
         self.data = data
         self.thresholds = thresholds
 
-    def getCost(self) -> float:
+    def get_cost(self) -> float:
         cost: float = 0
         prev: int = 0
         for t in self.thresholds:

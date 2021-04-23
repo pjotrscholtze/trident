@@ -6,4 +6,4 @@
 #  * @author herald
 #  */
 class Temperature:
-    def getTemperature(self, step: int) -> float: raise NotImplementedError()
+    def get_temperature(self, step: int) -> float: raise NotImplementedError()

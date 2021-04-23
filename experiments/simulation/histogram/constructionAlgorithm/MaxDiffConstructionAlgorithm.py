@@ -11,7 +11,7 @@ from typing import List
 #  * @author herald
 #  */
 class MaxDiffConstructionAlgorithm(ConstructionAlgorithm):
-    def createHistogram(self, data: List[tuple[any,float]], bucketNum: int,
+    def create_histogram(self, data: List[tuple[any,float]], bucketNum: int,
         partitionRule: PartitionRule) -> List[Bucket]:
         diff_queue = PriorityQueue()
         for i in range(0, len(data) - 1):

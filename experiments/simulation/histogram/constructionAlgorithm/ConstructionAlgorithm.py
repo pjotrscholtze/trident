@@ -15,5 +15,5 @@ from Bucket import Bucket
 #  * @author herald
 #  */
 class ConstructionAlgorithm:
-    def createHistogram(self, data: List[tuple[any, float]], bucketNum: int,
+    def create_histogram(self, data: List[tuple[any, float]], bucketNum: int,
         partitionRule: PartitionRule) -> List[Bucket]: raise NotImplementedError

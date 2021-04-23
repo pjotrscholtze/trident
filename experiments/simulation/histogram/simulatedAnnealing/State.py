@@ -9,4 +9,4 @@ class State:
 
     def clone(self) -> any: raise NotImplementedError()
 
-    def getCost(self) -> float: raise NotImplementedError()
+    def get_cost(self) -> float: raise NotImplementedError()

@@ -24,9 +24,9 @@ class Histogram:
 
     def __init__(self, partition_rule: PartitionRule):
         self.partition_rule = partition_rule
-        self.algorithm: ConstructionAlgorithm = ConstructionAlgorithmFactory.getAlgorithm(partition_rule)
+        self.algorithm: ConstructionAlgorithm = ConstructionAlgorithmFactory.get_algorithm(partition_rule)
 
-    def createHistogram(self, data: List[tuple[any,float]],
+    def create_histogram(self, data: List[tuple[any,float]],
         bucketNum: int = None, score: HistogramScore = None,
         generator: BucketNumberGenerator= None) -> List[Bucket]:
         """
@@ -38,19 +38,19 @@ class Histogram:
                  score (option 2).
         """
         if bucketNum is not None:
-            return self.algorithm.createHistogram(data, bucketNum, self.partition_rule)
+            return self.algorithm.create_histogram(data, bucketNum, self.partition_rule)
 
         best: List[Bucket] = None
         bestScore: float = 0
-        while generator.hasNext():
-            next: int = generator.getNext()
+        while generator.has_next():
+            next: int = generator.get_next()
             if best is None:
-                best = self.algorithm.createHistogram(data, next, self.partition_rule)
-                bestScore = score.getScore(best)
+                best = self.algorithm.create_histogram(data, next, self.partition_rule)
+                bestScore = score.get_score(best)
                 continue
 
-            h: List[Bucket] = self.algorithm.createHistogram(data, next, self.partition_rule)
-            s: float = score.getScore(h)
+            h: List[Bucket] = self.algorithm.create_histogram(data, next, self.partition_rule)
+            s: float = score.get_score(h)
 
             logging.debug(str(bestScore) + "(" + str(len(best)) + ")" + " >=? " + str(s) + "(" + str(next) + ")")
 
@@ -64,14 +64,14 @@ class Histogram:
 if __name__ == "__main__":
     import json
     hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.maxdiff))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
         [100, 1],
     ], 2)
     print(json.dumps([e.data for e in test], indent=2))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     ], score= MinimizeVarianceHistogramScore(),
         generator= LinearBucketNumberGenerator(0, 1, 10))
     print(json.dumps([e.data for e in test], indent=2))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
@@ -93,14 +93,14 @@ if __name__ == "__main__":
     print("----")
 
     hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.equi_width))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
         [100, 1],
     ], 2)
     print(json.dumps([e.data for e in test], indent=2))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     ], score= MinimizeVarianceHistogramScore(),
         generator= LinearBucketNumberGenerator(1, 1, 10))
     print(json.dumps([e.data for e in test], indent=2))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
@@ -121,14 +121,14 @@ if __name__ == "__main__":
     print("----")
 
     hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.v_optimal))
-    test = hist.createHistogram([
+    test = hist.create_histogram([
         [1, 2],
         [1, 2],
         [10, 2],
         [100, 1],
     ], 2)
     print(json.dumps([e.data for e in test], indent=2))
-    # test = hist.createHistogram([
+    # test = hist.create_histogram([
     #     [1,2],
     #     [1,2],
     #     [10,2],
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     # ], score= MinimizeVarianceHistogramScore(),
     #     generator= LinearBucketNumberGenerator(1, 1, 10))
     # print(json.dumps([e.data for e in test], indent=2))
-    # test = hist.createHistogram([
+    # test = hist.create_histogram([
     #     [1,2],
     #     [1,2],
     #     [10,2],

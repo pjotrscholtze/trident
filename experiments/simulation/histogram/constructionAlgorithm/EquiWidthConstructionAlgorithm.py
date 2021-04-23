@@ -13,7 +13,7 @@ from typing import List
 #  */
 class EquiWidthConstructionAlgorithm(ConstructionAlgorithm):
 
-    def createHistogram(self, data: List[tuple[any, float]], bucketNum:int,
+    def create_histogram(self, data: List[tuple[any, float]], bucketNum:int,
         partitionRule: PartitionRule) -> List[Bucket]:
         if not data:
             bucket_list = []

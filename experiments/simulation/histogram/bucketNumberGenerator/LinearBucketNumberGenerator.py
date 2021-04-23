@@ -16,9 +16,9 @@ class LinearBucketNumberGenerator(BucketNumberGenerator):
         self.max = max
         self.current = start
 
-    def hasNext(self) -> bool: return self.current <= self.max
+    def has_next(self) -> bool: return self.current <= self.max
 
-    def getNext(self) -> int:
+    def get_next(self) -> int:
         ret: int = self.current
         self.current += self.step
         return ret

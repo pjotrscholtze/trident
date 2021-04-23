@@ -18,6 +18,9 @@ from enum import Enum
 #  * @author herald
 #  */
 class PartitionConstraint(Enum):
-    equi_width = "equi_width", equi_height = "equi_height",
-    equi_sum = "equi_sum", v_optimal = "v_optimal", maxdiff = "maxdiff",
+    equi_width = "equi_width",
+    equi_height = "equi_height",
+    equi_sum = "equi_sum",
+    v_optimal = "v_optimal",
+    maxdiff = "maxdiff",
     compressed = "compressed"

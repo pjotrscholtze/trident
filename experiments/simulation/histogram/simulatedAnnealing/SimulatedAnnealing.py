@@ -13,19 +13,19 @@ import math
 #  */
 class SimulatedAnnealing:
 
-    def __init__(self, maxSteps: int, stepsNotImprovedTermination: int,
+    def __init__(self, max_steps: int, steps_not_improved_termination: int,
         temperature: Temperature):
-        self.maxSteps = maxSteps
-        self.stepsNotImprovedTermination = stepsNotImprovedTermination
+        self.max_steps = max_steps
+        self.steps_not_improved_termination = steps_not_improved_termination
         self.temperature = temperature
 
-    def getInitial(self) -> State:
+    def get_initial(self) -> State:
         """
         :return: Initial state.
         """
         raise NotImplementedError()
 
-    def getNeighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+    def get_neighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
         """
         :return: A pair with two transformations A and B with the following
                 properties:
@@ -35,26 +35,26 @@ class SimulatedAnnealing:
         raise NotImplementedError()
 
     def search(self) -> State:
-        bestState: State = self.getInitial()
+        bestState: State = self.get_initial()
         state:State = bestState.clone()
 
         rand:Random = Random()
 
         lastBestStep:int = 0
-        for k in range(0, self.maxSteps):
-            if k - lastBestStep > self.stepsNotImprovedTermination: break
+        for k in range(0, self.max_steps):
+            if k - lastBestStep > self.steps_not_improved_termination: break
 
-            neighbor: tuple[Transformation, Transformation] = self.getNeighbor(state, rand)
-            cost:float = state.getCost()
+            neighbor: tuple[Transformation, Transformation] = self.get_neighbor(state, rand)
+            cost:float = state.get_cost()
             state = neighbor[0].apply(state)
 
             # Always keep a better state.
-            if bestState.getCost() > state.getCost():
+            if bestState.get_cost() > state.get_cost():
                 bestState = state.clone()
                 lastBestStep = k
             else:
                 # Keep the solution with a probability.
-                if self.propability(cost, state.getCost(), self.temperature.getTemperature(k)) <= rand.random():
+                if self.propability(cost, state.get_cost(), self.temperature.get_temperature(k)) <= rand.random():
                     # Do not accept the solution.
                     state = neighbor[1].apply(state)
 

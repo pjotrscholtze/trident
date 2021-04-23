@@ -9,5 +9,5 @@ from typing import List
 #  * @author herald
 #  */
 class HistogramScore:
-    def getScore(self, bucketList: List[Bucket]): raise NotImplementedError()
+    def get_score(self, bucketList: List[Bucket]): raise NotImplementedError()
 

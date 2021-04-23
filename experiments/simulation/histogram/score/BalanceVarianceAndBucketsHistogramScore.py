@@ -16,7 +16,7 @@ class BalanceVarianceAndBucketsHistogramScore(HistogramScore):
     def __init__(self, a: float): self.a = a
 
 
-    def getScore(self, bucketList: List[Bucket]):
+    def get_score(self, bucketList: List[Bucket]):
         stats = []
         for b in bucketList:
             bs = []

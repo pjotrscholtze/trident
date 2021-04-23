@@ -15,7 +15,7 @@ class ConstructionAlgorithmFactory:
     def __init__(self): raise Exception("No constructor for this class!")
 
     @staticmethod
-    def getAlgorithm(partitionRule: PartitionRule) -> ConstructionAlgorithm:
+    def get_algorithm(partitionRule: PartitionRule) -> ConstructionAlgorithm:
         if partitionRule.partitionConstraint == PartitionConstraint.maxdiff:
             return MaxDiffConstructionAlgorithm()
 

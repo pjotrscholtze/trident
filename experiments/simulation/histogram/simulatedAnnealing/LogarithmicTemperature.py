@@ -11,7 +11,7 @@ class LogarithmicTemperature(Temperature):
 
     def __init__(self, d: float): self.d = d
 
-    def getTemperature(self, step: int) -> float:
+    def get_temperature(self, step: int) -> float:
         try:
             return self.d / math.log(float(step))
         except ValueError: return -float("inf") # because Java does not handle these border cases: https://www.geeksforgeeks.org/java-math-log-method-example/
