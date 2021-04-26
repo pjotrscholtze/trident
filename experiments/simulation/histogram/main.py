@@ -21,6 +21,7 @@ import json
 import random
 import py7zr
 import os
+import sys
 
 # /**
 #  * @author herald
@@ -81,21 +82,14 @@ def get_buckets() -> Dict[str, int]:
             block = fp.read(size)
             if not block: break
             yield block
-        # res[resline_path] = len(archive.read(archive.list()[0].filename)[archive.list()[0].filename].readlines())
         archive.close()
 
     res = {}
-    # MATCHER = bytes("\n", 'utf-8')
     files = glob("/storage/wdps/trident/experiments/results/acquiremeasurements/acquire_measurements_sample.7z/acquire_measurements_sample-*/res.json.lines.7z")
     for i, resline_path in enumerate(sorted(files)):
         logging.info("Processing: (%.1f procent) %s" % ((i/len(files)) * 100, resline_path))
-        # for s in _(resline_path):
-        #     print(s.count(b'\n'))
         res[resline_path] =  sum([s.count(b'\n') for s in _(resline_path)])
         logging.info("Found %d queries" % res[resline_path])
-        # archive = py7zr.SevenZipFile(resline_path, mode='r')
-        # res[resline_path] = len(archive.read(archive.list()[0].filename)[archive.list()[0].filename].readlines())
-        # archive.close()
     with open(CACHE_PATH, "w")as f:
         json.dump(res, f)
     return res
@@ -104,7 +98,6 @@ class QueryPicker:
     def __init__(self, seed):
         self._buckets = get_buckets()
         self._rnd = random.Random()
-        # self._rnd.randint
         self._rnd.seed(seed)
 
     def get_single(self):
@@ -116,13 +109,6 @@ class QueryPicker:
         for i in range(0, amount):
             yield self.get_single()
     
-    # def get(self, amount):
-    #     res = {}
-    #     for path, index in self.get_bunch(amount):
-    #         if path not in res: res[path] = []
-    #         res[path].append(index)
-    #     return res
-
 def get_data(filepath: str, index: List) -> List[Dict[str, any]]:
     filepath = "/storage/wdps/trident/experiments" + filepath[1:]
     archive = py7zr.SevenZipFile(filepath, mode='r')
@@ -135,26 +121,10 @@ def get_data(filepath: str, index: List) -> List[Dict[str, any]]:
         if i in index:
             index.pop(index.index(i))
             if len(line) > 1024 * 1024 * 100: continue
-            # line = b"," + line[line.index(b"measurements\":[")+15:-3]
-            # measurements = []
-            # while line.endswith(b"}"):
-            #     # print(line)
-            #     if b"},{" in line:
-            #         current = line[:line.index(b"},{")+1][1:].decode("utf-8")
-            #         line = line[line.index(b"},{")+1:]
-            #     else:
-            #         current = line[1:].decode("utf-8")
-            #         line = b"a"
-            #         pass
-            #     measurements.append(json.loads(current))
-                
-                # a=1
-            yield i, json.loads(line)#["measurements"]
+            yield i, json.loads(line)
         i += 1
         line = fp.readline()
         
-    # print(archive.list()[0].filename)
-    # # archive.extractall(path="/tmp")
     archive.close()
 
 
@@ -173,23 +143,33 @@ def get_buckets_locations(amount, training_ratio, seed):
 def path_to_int(path): return int(path[89:].split("/")[0])
 
 def load_queries(with_buckets):
-    # raw_queries = {}
-
     logging.info("Start loading query data")
     for i, path in enumerate(with_buckets):
         logging.info("Loading query data chunk @%d/%d (%.2f perc) with %d queries" % (i, len(with_buckets), (i/len(with_buckets)) * 100, len(with_buckets[path])))
-        # raw_queries[path_to_int(path)] = {}
         for index, q in get_data(path, with_buckets[path]):
             yield path_to_int(path), index, q
-            # raw_queries[path_to_int(path)][index] = q
     logging.info("Finished loading query data")
-    # return raw_queries
 
-def get_histogram(data, bucket_count):
-    hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.equi_width))
+def get_histogram(data, bucket_count, histogram_type):
+    # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.equi_width))
     # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.v_optimal))
     # hist = Histogram(PartitionRule(PartitionClass.serial, PartitionConstraint.maxdiff))
-    return  hist.create_histogram(data, bucket_count)
+    # test = hist.create_histogram(training_measurements, BUCKET_COUNT)
+
+    hist = Histogram(PartitionRule(PartitionClass.end_biased, histogram_type))#PartitionConstraint.equi_width))
+    # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.v_optimal))
+    # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.maxdiff))
+    if bucket_count > 0: 
+        return hist.create_histogram(data, bucket_count)
+    elif bucket_count == -1:
+        return hist.create_histogram(data,
+            score=MinimizeVarianceHistogramScore(),
+            generator=LinearBucketNumberGenerator(1, 1, 3))
+    elif bucket_count == -2:
+        return hist.create_histogram(data,
+            score=BalanceVarianceAndBucketsHistogramScore(1),
+            generator=LinearBucketNumberGenerator(1, 1, 3))
+    raise Exception("Invalid option given!")
 
 def get_histogram_breakpoint(histogram):
     bucket_count = len(histogram)
@@ -197,14 +177,6 @@ def get_histogram_breakpoint(histogram):
     index_breakpoint = math.ceil(bucket_count * 0.2)
     min_values = [e[1] for e in histogram[index_breakpoint].data]
     max_values = [e[1] for e in histogram[index_breakpoint-1].data]
-    # print("min_values", min_values)
-    # print("max_values", max_values)
-    # print("avg1", sum(min_values + max_values) / (len(min_values)+ len(max_values)))
-    # print("avg2", (max(min_values) + min(max_values)) / 2)
-    # print("avg3", (max(min_values)*1.99 + min(max_values)*0.01) / 2)
-    # print(max(min_values))
-    # # for bucket in histogram
-    # pass
     return (max(min_values) + min(max_values)) / 2
 
 def measurement_hash(measurement):
@@ -212,12 +184,26 @@ def measurement_hash(measurement):
 
 
 if __name__ == "__main__":
-    AMOUNT = 1500
-    TRAINING_RATIO = 0.2
-    SEED = 10
-    BUCKET_COUNT = 2
-    with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
-    raw_queries = None
+    logging.info("arguments: " + json.dumps(sys.argv))
+    logging.info("arguments: " + json.dumps(len(sys.argv)))
+    if len(sys.argv) != 6:
+        print("All arguments are required!")
+        print("arguments: <amount> <training_ratio> <seed> <bucket_count> <histogram_type>")
+        print("  amount: positive number")
+        print("  training_ratio: between 0.0 and 1.0")
+        print("  seed: any integer")
+        print("  bucket_count: -1, -2 for dynamic options or 0> for fixed number")
+        print("  histogram_type: equi_width, v_optimal, or maxdiff")
+        sys.exit(0)
+    AMOUNT = int(sys.argv[1])
+    TRAINING_RATIO = float(sys.argv[2])
+    SEED = int(sys.argv[3])
+    BUCKET_COUNT = int(sys.argv[4])
+    HISTOGRAM_TYPE = {
+        "equi_width": PartitionConstraint.equi_width,
+        "v_optimal": PartitionConstraint.v_optimal,
+        "maxdiff": PartitionConstraint.maxdiff,
+    }[sys.argv[5]]
 
     stats = {
         "eval_query_count": 0,
@@ -232,11 +218,18 @@ if __name__ == "__main__":
             "training_ratio": TRAINING_RATIO,
             "seed": SEED,
             "histogram_bucket_count": BUCKET_COUNT,
+            "histogram_type": HISTOGRAM_TYPE.value,
         },
         "cache_hashes": [],
         "eval_table_generations_skipped_queries": []
     }
+    logging.info("arguments: " + json.dumps(sys.argv))
+    logging.info("Running with config:")
+    logging.info(json.dumps(stats["config"], indent=2))
+    stats["config"]["histogram_type"] = HISTOGRAM_TYPE
 
+    with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
+    raw_queries = None
 
     training_count = int(AMOUNT * TRAINING_RATIO)
     logging.info("Start training on %d queries" % (training_count))
@@ -252,38 +245,14 @@ if __name__ == "__main__":
     training_measurements = []
     tmp = {k: [e for e in traing_buckets[k]] for k in traing_buckets}
     for chunk_id, index, q in load_queries(tmp):
-        # if chunk_id in training_paths and index in training_paths[chunk_id]:
-        # metrics = raw_queries[path][str(index)]
         for measurement in q["measurements"]:
             if measurement["duration"] == 0: continue
             training_measurements.append([1, measurement["duration"], measurement])
 
-    # import sys
-    # sys.exit(0)
-    # with open("/tmp/temp_with_buckets15000.json", "w") as f:
-    #     json.dump(load_queries(with_buckets), f)
-    # with open("/tmp/temp_with_buckets15000.json", "r") as f:
-    #     raw_queries = json.load(f)
-
-    # training_count = int(AMOUNT * TRAINING_RATIO)
-    # logging.info("Start training on %d queries" % (training_count))
-    # training_measurements = []
-    # for i in range(0, training_count):
-    #     path, index = ordered_query_locations[i]
-    #     if str(index) not in raw_queries[path]: continue
-    #     metrics = raw_queries[path][str(index)]
-    #     for measurement in metrics["measurements"]:
-    #         training_measurements.append([1, int(measurement["duration"])])
     logging.info("Building histogram")
 
-    # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.equi_width))
-    # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.v_optimal))
-    # hist = Histogram(PartitionRule(PartitionClass.serial, PartitionConstraint.maxdiff))
-    # test = hist.create_histogram(training_measurements, BUCKET_COUNT)
-    test  = get_histogram(training_measurements, BUCKET_COUNT)
-    # print(json.dumps([e.data for e in test], indent=2))
+    test  = get_histogram(training_measurements, BUCKET_COUNT, HISTOGRAM_TYPE)
     breakpoint = get_histogram_breakpoint(test)
-    # print("breakpoint", breakpoint)
     logging.info("using breakpoint value of %.3f" %breakpoint)
 
     cache = []
@@ -295,23 +264,7 @@ if __name__ == "__main__":
             if hash not in cache: cache.append(hash)
     stats["cache_hashes"] = [] + cache
 
-    # tmp = {}
-    # tmp = {k: [e for e in traing_buckets[k]] for k in traing_buckets}
-    # for chunk_id, index, q in load_queries(tmp):
-    #     print(q)
-    #     pass
-
-    # for i in range(0, training_count):
-    #     path, index = ordered_query_locations[i]
-    #     if str(index) not in raw_queries[path]: continue
-    #     metrics = raw_queries[path][str(index)]
-    #     for measurement in metrics["measurements"]:
-    #         if int(measurement["duration"]) >= breakpoint:
-    #             hash = measurement_hash(measurement)
-    #             # hash = "idx%ds%dp%do%dtermList%d" % (measurement["idx"], measurement["s"], measurement["p"], measurement["o"], measurement["termList"])
-    #             if hash not in cache: cache.append(hash)
     logging.info("Selected %d items for caching" % len(cache))
-
 
     eval_buckets = {}
     for i in range(training_count, AMOUNT - 1):
@@ -328,8 +281,6 @@ if __name__ == "__main__":
         stats["eval_table_generations_all"] += len(q["measurements"])
         stats["eval_table_generations_all_time"] += sum([m["duration"] for m in q["measurements"]])
         
-        # if chunk_id in training_paths and index in training_paths[chunk_id]:
-        # metrics = raw_queries[path][str(index)]
         for measurement in q["measurements"]:
             if measurement["duration"] < breakpoint: continue
             if measurement_hash(measurement) not in cache: continue
@@ -338,44 +289,10 @@ if __name__ == "__main__":
         if q["measurements"]:
             stats["eval_table_generations_skipped_queries"].append({"chunk_id": chunk_id, "index": index})
 
+    stats["config"]["histogram_type"] = stats["config"]["histogram_type"].value
     print(json.dumps(stats, indent=2))
 
 
-    # cache_hits_hashes = []
-    # cache_hits_queries = []
-    # for i in range(training_count, AMOUNT-1):
-    #     path, index = ordered_query_locations[i]
-    #     if str(index) not in raw_queries[path]: continue
-    #     metrics = raw_queries[path][str(index)]
-    #     # print(metrics["measurements"])
-    #     for measurement in metrics["measurements"]:
-    #         if measurement_hash(measurement) in cache:
-    #             print(measurement)
-    #         training_measurements.append([1, int(measurement["duration"] * 1000 * 1000)])
-
-    # training_count = int(AMOUNT * TRAINING_RATIO)
-    # logging.info("Start training on %d queries" % (training_count))
-    # for i in range(0, training_count):
-    #     path, index = ordered_query_locations[i]
-    #     print(raw_queries[path][index])
-    a=1
-    # training_data = []
-    # testing_data = []
-    # training_data_threshold = TRAINING_RATIO * AMOUNT
-    # training_phase = True
-    # i = 0
-    # for path, index in qp.get_bunch(AMOUNT):
-    #     print(path,index)
-        # logging.info("%d perc" % ((i / AMOUNT) * 100))
-        # data_single = get_data(path, index)
-        # if training_phase:
-        #     training_phase = i <= training_data_threshold
-        #     if not training_phase:
-        #         logging.info("Finished gathering training data!")
-        #         logging.info("Loading testing data")
-        #     training_data.append(data_single)
-        # else: testing_data.append(data_single)
-        # i += 1
 
     # import json
     # hist = Histogram(PartitionRule(PartitionClass.end_biased, PartitionConstraint.maxdiff))
