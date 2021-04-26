@@ -1,0 +1,947 @@
+[
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-0",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-1",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-2",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 equi_width"
+    ]
+  },
+  {
+    "name": "simulation-hist-3",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-4",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-5",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 v_optimal"
+    ]
+  },
+  {
+    "name": "simulation-hist-6",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-7",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 maxdiff"
+    ]
+  },
+  {
+    "name": "simulation-hist-8",
+    "description": "Using different histogram approaches for index selection.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 maxdiff"
+    ]
+  }
+]
