@@ -70,7 +70,8 @@ class Histogram:
 logging.basicConfig(level=logging.INFO)
 
 def get_buckets() -> Dict[str, int]:
-    CACHE_PATH = "/tmp/trident_get_buckets.tmp"
+    CACHE_PATH = "/home/pse740/trident/trident_get_buckets.tmp"
+    # CACHE_PATH = "/tmp/trident_get_buckets.tmp"
     if os.path.exists(CACHE_PATH):
         with open(CACHE_PATH, "r")as f:
             return json.load(f)
@@ -110,7 +111,9 @@ class QueryPicker:
             yield self.get_single()
     
 def get_data(filepath: str, index: List) -> List[Dict[str, any]]:
-    filepath = "/storage/wdps/trident/experiments" + filepath[1:]
+    # filepath = "/storage/wdps/trident/experiments" + filepath[1:]
+    filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
+
     archive = py7zr.SevenZipFile(filepath, mode='r')
 
     fp = archive.read(archive.list()[0].filename)[archive.list()[0].filename]
