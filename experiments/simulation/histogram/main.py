@@ -233,7 +233,8 @@ if __name__ == "__main__":
             "seed": SEED,
             "histogram_bucket_count": BUCKET_COUNT,
         },
-        "cache_hashes": []
+        "cache_hashes": [],
+        "eval_table_generations_skipped_queries": []
     }
 
 
@@ -334,6 +335,8 @@ if __name__ == "__main__":
             if measurement_hash(measurement) not in cache: continue
             stats["eval_table_generations_skipped"] += 1
             stats["eval_table_generations_skipped_time"] += measurement["duration"]
+        if q["measurements"]:
+            stats["eval_table_generations_skipped_queries"].append({"chunk_id": chunk_id, "index": index})
 
     print(json.dumps(stats, indent=2))
 
