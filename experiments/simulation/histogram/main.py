@@ -32,7 +32,10 @@ class Histogram:
         self.partition_rule = partition_rule
         self.algorithm: ConstructionAlgorithm = ConstructionAlgorithmFactory.get_algorithm(partition_rule)
 
-    def create_histogram(self, data: List[tuple[any,float]],
+    # def create_histogram(self, data: List[tuple[any,float]],
+    #     bucketNum: int = None, score: HistogramScore = None,
+    #     generator: BucketNumberGenerator= None) -> List[Bucket]:
+    def create_histogram(self, data: List,
         bucketNum: int = None, score: HistogramScore = None,
         generator: BucketNumberGenerator= None) -> List[Bucket]:
         """

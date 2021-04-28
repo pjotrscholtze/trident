@@ -31,7 +31,8 @@ class VOptimalSA(SimulatedAnnealing):
 
         return VOptimalState(self.data, thresholds)
 
-    def get_neighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+    # def get_neighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+    def get_neighbor(self, state: State, rand: Random):
         vos: VOptimalState = state
         threshold: int = 0
         offset: int = 0

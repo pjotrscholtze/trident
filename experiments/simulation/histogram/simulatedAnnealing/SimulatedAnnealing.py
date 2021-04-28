@@ -25,7 +25,8 @@ class SimulatedAnnealing:
         """
         raise NotImplementedError()
 
-    def get_neighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+    # def get_neighbor(self, state: State, rand: Random) -> tuple[Transformation, Transformation]:
+    def get_neighbor(self, state: State, rand: Random):
         """
         :return: A pair with two transformations A and B with the following
                 properties:
@@ -44,7 +45,8 @@ class SimulatedAnnealing:
         for k in range(0, self.max_steps):
             if k - last_best_step > self.steps_not_improved_termination: break
 
-            neighbor: tuple[Transformation, Transformation] = self.get_neighbor(state, rand)
+            # neighbor: tuple[Transformation, Transformation] = self.get_neighbor(state, rand)
+            neighbor = self.get_neighbor(state, rand)
             cost: float = state.get_cost()
             state = neighbor[0].apply(state)
 
@@ -63,3 +65,4 @@ class SimulatedAnnealing:
     def propability(self, cost: float, newCost: float, temperature: float) -> float:
         if newCost < cost: return 1.0
         return math.pow(math.e, -(1) / temperature)
+
