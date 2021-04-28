@@ -39,8 +39,8 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
         cmd = cmd.replace("SEED", str(seed))
         data = json.loads(base_raw)
         data["name"] = data["name"] % i
-        data["script"][5] = "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt"
-        data["script"][6] = "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
+        data["script"][5] = "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt"
+        data["script"][6] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
         res.append(data)
         i+=1
 

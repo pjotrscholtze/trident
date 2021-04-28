@@ -10,8 +10,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 equi_width"
     ]
   },
   {
@@ -25,8 +25,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 equi_width"
     ]
   },
   {
@@ -40,8 +40,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 equi_width"
     ]
   },
   {
@@ -55,8 +55,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 v_optimal"
     ]
   },
   {
@@ -70,8 +70,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 v_optimal"
     ]
   },
   {
@@ -85,8 +85,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 v_optimal"
     ]
   },
   {
@@ -100,8 +100,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 maxdiff"
     ]
   },
   {
@@ -115,8 +115,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 maxdiff"
     ]
   },
   {
@@ -130,8 +130,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 maxdiff"
     ]
   },
   {
@@ -145,8 +145,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 equi_width"
     ]
   },
   {
@@ -160,8 +160,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 equi_width"
     ]
   },
   {
@@ -175,8 +175,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 equi_width"
     ]
   },
   {
@@ -190,8 +190,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 v_optimal"
     ]
   },
   {
@@ -205,8 +205,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 v_optimal"
     ]
   },
   {
@@ -220,8 +220,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 v_optimal"
     ]
   },
   {
@@ -235,8 +235,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 maxdiff"
     ]
   },
   {
@@ -250,8 +250,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 maxdiff"
     ]
   },
   {
@@ -265,8 +265,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 maxdiff"
     ]
   },
   {
@@ -280,8 +280,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 equi_width"
     ]
   },
   {
@@ -295,8 +295,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 equi_width"
     ]
   },
   {
@@ -310,8 +310,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 equi_width"
     ]
   },
   {
@@ -325,8 +325,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 v_optimal"
     ]
   },
   {
@@ -340,8 +340,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 v_optimal"
     ]
   },
   {
@@ -355,8 +355,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 v_optimal"
     ]
   },
   {
@@ -370,8 +370,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 maxdiff"
     ]
   },
   {
@@ -385,8 +385,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 maxdiff"
     ]
   },
   {
@@ -400,8 +400,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 maxdiff"
     ]
   },
   {
@@ -415,8 +415,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 equi_width"
     ]
   },
   {
@@ -430,8 +430,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 equi_width"
     ]
   },
   {
@@ -445,8 +445,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 equi_width"
     ]
   },
   {
@@ -460,8 +460,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 v_optimal"
     ]
   },
   {
@@ -475,8 +475,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 v_optimal"
     ]
   },
   {
@@ -490,8 +490,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 v_optimal"
     ]
   },
   {
@@ -505,8 +505,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 maxdiff"
     ]
   },
   {
@@ -520,8 +520,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 maxdiff"
     ]
   },
   {
@@ -535,8 +535,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 maxdiff"
     ]
   },
   {
@@ -550,8 +550,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 equi_width"
     ]
   },
   {
@@ -565,8 +565,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 equi_width"
     ]
   },
   {
@@ -580,8 +580,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 equi_width"
     ]
   },
   {
@@ -595,8 +595,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 v_optimal"
     ]
   },
   {
@@ -610,8 +610,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 v_optimal"
     ]
   },
   {
@@ -625,8 +625,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 v_optimal"
     ]
   },
   {
@@ -640,8 +640,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 maxdiff"
     ]
   },
   {
@@ -655,8 +655,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 maxdiff"
     ]
   },
   {
@@ -670,8 +670,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 maxdiff"
     ]
   },
   {
@@ -685,8 +685,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 equi_width"
     ]
   },
   {
@@ -700,8 +700,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 equi_width"
     ]
   },
   {
@@ -715,8 +715,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 equi_width"
     ]
   },
   {
@@ -730,8 +730,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 v_optimal"
     ]
   },
   {
@@ -745,8 +745,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 v_optimal"
     ]
   },
   {
@@ -760,8 +760,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 v_optimal"
     ]
   },
   {
@@ -775,8 +775,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 maxdiff"
     ]
   },
   {
@@ -790,8 +790,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 maxdiff"
     ]
   },
   {
@@ -805,8 +805,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 maxdiff"
     ]
   },
   {
@@ -820,8 +820,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 equi_width"
     ]
   },
   {
@@ -835,8 +835,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 equi_width"
     ]
   },
   {
@@ -850,8 +850,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 equi_width"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 equi_width"
     ]
   },
   {
@@ -865,8 +865,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 v_optimal"
     ]
   },
   {
@@ -880,8 +880,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 v_optimal"
     ]
   },
   {
@@ -895,8 +895,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 v_optimal"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 v_optimal"
     ]
   },
   {
@@ -910,8 +910,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 maxdiff"
     ]
   },
   {
@@ -925,8 +925,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 maxdiff"
     ]
   },
   {
@@ -940,8 +940,8 @@
       "#SBATCH -p longq",
       "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
-      "pip install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
-      "python $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 maxdiff"
+      "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 maxdiff"
     ]
   }
 ]
