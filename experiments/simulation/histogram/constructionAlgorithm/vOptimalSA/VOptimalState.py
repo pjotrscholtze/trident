@@ -8,7 +8,8 @@ import statistics, math
 from typing import List
 
 class VOptimalState(State):
-    def __init__(self, data: List[tuple[any,float]], thresholds: List[int]):
+    # def __init__(self, data: List[tuple[any,float]], thresholds: List[int]):
+    def __init__(self, data: List, thresholds: List[int]):
         self.data = data
         self.thresholds = thresholds
 
