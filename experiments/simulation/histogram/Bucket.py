@@ -8,6 +8,7 @@ from typing import List
 #  */
 class Bucket:
 
-    def __init__(self, data: List[tuple[any, float]]): self.data = data
+    def __init__(self, data: List): self.data = data
+    # def __init__(self, data: List[tuple[any, float]]): self.data = data
 
     def clone(self): return Bucket([] + self.data)

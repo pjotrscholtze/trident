@@ -14,8 +14,10 @@ from random import Random
 
 class VOptimalSA(SimulatedAnnealing):
 
+    # def __init__(self, max_steps: int, steps_not_improved_termination: int, temperature: Temperature,
+    #     data: List[tuple[any, float]], bucket_num: int):
     def __init__(self, max_steps: int, steps_not_improved_termination: int, temperature: Temperature,
-        data: List[tuple[any, float]], bucket_num: int):
+        data: List, bucket_num: int):
         super(VOptimalSA, self).__init__(max_steps,steps_not_improved_termination, temperature)
         self.data = data
         self.bucket_num = bucket_num
