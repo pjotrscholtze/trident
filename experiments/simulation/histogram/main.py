@@ -192,7 +192,7 @@ def measurement_hash(measurement):
 if __name__ == "__main__":
     logging.info("arguments: " + json.dumps(sys.argv))
     logging.info("arguments: " + json.dumps(len(sys.argv)))
-    if len(sys.argv) != 6:
+    if len(sys.argv) < 6:
         print("All arguments are required!")
         print("arguments: <amount> <training_ratio> <seed> <bucket_count> <histogram_type>")
         print("  amount: positive number")
@@ -201,15 +201,19 @@ if __name__ == "__main__":
         print("  bucket_count: -1, -2 for dynamic options or 0> for fixed number")
         print("  histogram_type: equi_width, v_optimal, or maxdiff")
         sys.exit(0)
-    AMOUNT = int(sys.argv[1])
-    TRAINING_RATIO = float(sys.argv[2])
-    SEED = int(sys.argv[3])
-    BUCKET_COUNT = int(sys.argv[4])
+    argv = sys.argv
+    if len(argv) > 6:
+        argv = argv[-6:]
+
+    AMOUNT = int(argv[1])
+    TRAINING_RATIO = float(argv[2])
+    SEED = int(argv[3])
+    BUCKET_COUNT = int(argv[4])
     HISTOGRAM_TYPE = {
         "equi_width": PartitionConstraint.equi_width,
         "v_optimal": PartitionConstraint.v_optimal,
         "maxdiff": PartitionConstraint.maxdiff,
-    }[sys.argv[5]]
+    }[argv[5]]
 
     stats = {
         "eval_query_count": 0,
