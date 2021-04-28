@@ -12,6 +12,7 @@ base_raw = """
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
         "__REPLACED_BELOW__",
+        "__REPLACED_BELOW__",
         "__REPLACED_BELOW__"
     ]
 }
@@ -39,8 +40,10 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
         cmd = cmd.replace("SEED", str(seed))
         data = json.loads(base_raw)
         data["name"] = data["name"] % i
-        data["script"][5] = "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt"
-        data["script"][6] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
+        # python/3.6.0
+        data["script"][5] = "module load python/3.6.0"
+        data["script"][6] = "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt"
+        data["script"][7] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
         res.append(data)
         i+=1
 
