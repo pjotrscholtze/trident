@@ -43,7 +43,7 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
         data["name"] = data["name"] % i
         # python/3.6.0
         data["script"][5] = "module load python/3.6.0"
-        data["script"][6] = "python3 -m venv venv; source ./venv/bin/activate"
+        data["script"][6] = "python3 -m venv venv; source ./venv/bin/activate; pip install --upgrade pip"
         data["script"][7] = "pip3 install -r $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/requirements.txt"
         data["script"][8] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
         res.append(data)
