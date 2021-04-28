@@ -7,7 +7,7 @@ base_raw = """
     "github_checkout": "master",
     "script": [
         "#!/bin/bash -e",
-        "#SBATCH -t 60:00 -N 1 -n 8 --mem=64000M",
+        "#SBATCH -t 480:00 -N 1 -n 8 --mem=64000M",
         "#SBATCH -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
