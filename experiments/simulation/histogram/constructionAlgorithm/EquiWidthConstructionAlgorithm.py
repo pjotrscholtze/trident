@@ -27,7 +27,7 @@ class EquiWidthConstructionAlgorithm(ConstructionAlgorithm):
 
         for d in data:
             b: int = int((d[1] - min) / step)
-            if b == bucketNum: b -= 1
+            if b >= bucketNum: b = bucketNum - 1
             buckets[b].data.append(d)
 
         return buckets
