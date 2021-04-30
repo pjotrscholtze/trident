@@ -44,7 +44,7 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
         data["script"][5] = "module load python/3.6.0"
         data["script"][6] = "source $BUILD_CACHE_PATH/venv/bin/activate"
         data["script"][7] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
-        if i not in reruns: res.append(data)
+        if i in reruns: res.append(data)
         i+=1
 
 
