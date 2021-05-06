@@ -57,7 +57,7 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
     data["script"][7] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py %s" % cmd
     # if i in reruns:
     res.append(data)
-    # i+=1
+    i+=1
 
 
     with open("projects/get_project_hashes.json", "w") as f:
