@@ -73,9 +73,10 @@ class Histogram:
 logging.basicConfig(level=logging.INFO)
 
 def get_buckets() -> Dict[str, int]:
-    CACHE_PATH = "/home/pse740/trident/trident_get_buckets.tmp"
-    # CACHE_PATH = "/tmp/trident_get_buckets.tmp"
+    # CACHE_PATH = "/home/pse740/trident/trident_get_buckets.tmp"
+    CACHE_PATH = "/tmp/trident_get_buckets.tmp"
     if os.path.exists(CACHE_PATH):
+        print("bucket cache not found: ", CACHE_PATH)
         with open(CACHE_PATH, "r")as f:
             return json.load(f)
 
@@ -114,8 +115,8 @@ class QueryPicker:
             yield self.get_single()
     
 def get_data(filepath: str, index: List) -> List[Dict[str, any]]:
-    # filepath = "/storage/wdps/trident/experiments" + filepath[1:]
-    filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
+    filepath = "/storage/wdps/trident/experiments" + filepath[1:]
+    # filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
 
     archive = py7zr.SevenZipFile(filepath, mode='r')
 
@@ -190,9 +191,13 @@ def measurement_hash(measurement):
 
 
 if __name__ == "__main__":
-    logging.info("arguments: " + json.dumps(sys.argv))
-    logging.info("arguments: " + json.dumps(len(sys.argv)))
-    if len(sys.argv) < 6:
+    argv = sys.argv
+    while argv[0].startswith("python") or argv[0].endswith(".py"):
+        argv = argv[1:]
+
+    logging.info("arguments: " + json.dumps(argv))
+    logging.info("arguments: " + json.dumps(len(argv)))
+    if len(argv) < 6:
         print("All arguments are required!")
         print("arguments: <amount> <training_ratio> <seed> <bucket_count> <histogram_type>")
         print("  amount: positive number")
@@ -200,20 +205,20 @@ if __name__ == "__main__":
         print("  seed: any integer")
         print("  bucket_count: -1, -2 for dynamic options or 0> for fixed number")
         print("  histogram_type: equi_width, v_optimal, or maxdiff")
+        print("  simulation_type: full, or query_selection. Default: full")
         sys.exit(0)
-    argv = sys.argv
-    if len(argv) > 6:
-        argv = argv[-6:]
 
-    AMOUNT = int(argv[1])
-    TRAINING_RATIO = float(argv[2])
-    SEED = int(argv[3])
-    BUCKET_COUNT = int(argv[4])
+    AMOUNT = int(argv[0])
+    TRAINING_RATIO = float(argv[1])
+    SEED = int(argv[2])
+    BUCKET_COUNT = int(argv[3])
     HISTOGRAM_TYPE = {
         "equi_width": PartitionConstraint.equi_width,
         "v_optimal": PartitionConstraint.v_optimal,
         "maxdiff": PartitionConstraint.maxdiff,
-    }[argv[5]]
+    }[argv[4]]
+    SIMULATION_TYPE = argv[5]
+    if SIMULATION_TYPE not in ["full", "query_selection"]: raise ValueError("Unkown simulation type")
 
     stats = {
         "eval_query_count": 0,
@@ -229,6 +234,7 @@ if __name__ == "__main__":
             "seed": SEED,
             "histogram_bucket_count": BUCKET_COUNT,
             "histogram_type": HISTOGRAM_TYPE.value,
+            "simulation_type": SIMULATION_TYPE,
         },
         "cache_hashes": [],
         "eval_table_generations_skipped_queries": []
@@ -240,6 +246,12 @@ if __name__ == "__main__":
 
     with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
     raw_queries = None
+
+    if SIMULATION_TYPE == "query_selection":
+        logging.info("hah")
+        res = [q for _,_, q in load_queries(with_buckets)]
+        print(json.dumps(ordered_query_locations))
+        sys.exit(0)
 
     training_count = int(AMOUNT * TRAINING_RATIO)
     logging.info("Start training on %d queries" % (training_count))
