@@ -35,7 +35,7 @@ for options in todo.keys():
     algo = parts[1]
     seed = parts[2]
 
-    cmd = "python main.py 25000 RATIO SEED 2 ALGO".replace("RATIO", str(ratio)).replace("SEED", seed).replace("ALGO", algo)
+    cmd = "python main.py 25000 RATIO SEED 2 ALGO full".replace("RATIO", str(ratio)).replace("SEED", seed).replace("ALGO", algo)
     data = json.loads(base_raw)
     data["name"] = data["name"] % i
     # python/3.6.0
