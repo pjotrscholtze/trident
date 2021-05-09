@@ -12,7 +12,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 v_optimal"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 v_optimal full"
     ]
   },
   {
@@ -28,7 +28,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 v_optimal"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 v_optimal full"
     ]
   },
   {
@@ -44,7 +44,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 v_optimal"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 v_optimal full"
     ]
   },
   {
@@ -60,7 +60,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 equi_width"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 equi_width full"
     ]
   }
 ]
