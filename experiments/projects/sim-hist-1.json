@@ -1,0 +1,1010 @@
+[
+  {
+    "name": "sim-hist-1-0",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-1",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-2",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-3",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-4",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-5",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-6",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 10 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-7",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 10 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-8",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 10 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-9",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-10",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-11",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-12",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-13",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-14",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-15",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 4156 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-16",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 4156 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-17",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 4156 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-18",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-19",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-20",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-21",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-22",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-23",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-24",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2536 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-25",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2536 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-26",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2536 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-27",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-28",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-29",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-30",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-31",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-32",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-33",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 2123 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-34",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 2123 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-35",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 2123 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-36",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-37",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-38",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-39",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-40",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-41",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-42",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 7058 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-43",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 7058 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-44",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 7058 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-45",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-46",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-47",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-48",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-49",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-50",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-51",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 1087 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-52",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 1087 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-53",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 1087 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-54",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-55",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-56",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 equi_width full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-57",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-58",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-59",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 v_optimal full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-60",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.1 8306 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-61",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.2 8306 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  },
+  {
+    "name": "sim-hist-1-62",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 1440:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main.py python main.py 25000 0.3 8306 2 maxdiff full $PROJECT_PATH/sim_stats.json"
+    ]
+  }
+]
