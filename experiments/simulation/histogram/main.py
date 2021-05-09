@@ -198,15 +198,16 @@ if __name__ == "__main__":
 
     logging.info("arguments: " + json.dumps(argv))
     logging.info("arguments: " + json.dumps(len(argv)))
-    if len(argv) < 6:
+    if len(argv) < 7:
         print("All arguments are required!")
-        print("arguments: <amount> <training_ratio> <seed> <bucket_count> <histogram_type>")
+        print("arguments: <amount> <training_ratio> <seed> <bucket_count> <histogram_type> <output_path>")
         print("  amount: positive number")
         print("  training_ratio: between 0.0 and 1.0")
         print("  seed: any integer")
         print("  bucket_count: -1, -2 for dynamic options or 0> for fixed number")
         print("  histogram_type: equi_width, v_optimal, or maxdiff")
         print("  simulation_type: full, or query_selection. Default: full")
+        print("  output_path: Path to the output file.")
         sys.exit(0)
 
     AMOUNT = int(argv[0])
@@ -220,6 +221,7 @@ if __name__ == "__main__":
     }[argv[4]]
     SIMULATION_TYPE = argv[5]
     if SIMULATION_TYPE not in ["full", "query_selection"]: raise ValueError("Unkown simulation type")
+    OUTPUT_PATH = argv[6]
 
     stats = {
         "eval_query_count": 0,
@@ -297,23 +299,42 @@ if __name__ == "__main__":
 
     logging.info("Evaluating")
     tmp = {k: [e for e in eval_buckets[k]] for k in eval_buckets}
+    stats["eval_encountered_cache"] = {}
+    stats["eval_sim_queries"] = {}
     for chunk_id, index, q in load_queries(tmp):
         stats["eval_time_all"] += q["totalexec"]
         stats["eval_query_count"] += 1
         stats["eval_queries_with_table_generation"] += int(len(q["measurements"]) != 0)
         stats["eval_table_generations_all"] += len(q["measurements"])
         stats["eval_table_generations_all_time"] += sum([m["duration"] for m in q["measurements"]])
-        
+
+        stats["eval_sim_queries"][q["hash"]] = {
+            "worst_ms": [],
+            "simul_ms": [],
+            "cid": chunk_id,
+            "ln": index, # Line Number
+        }
+
+        # Does not learn after learning phase!
         for measurement in q["measurements"]:
+            stats["eval_sim_queries"][q["hash"]]["worst_ms"].append(measurement["duration"])
             if measurement["duration"] < breakpoint: continue
-            if measurement_hash(measurement) not in cache: continue
+            current_measurement_hash = measurement_hash(measurement)
+            if current_measurement_hash not in cache: continue
+            if current_measurement_hash not in stats["eval_encountered_cache"]:
+                stats["eval_encountered_cache"][current_measurement_hash] = []
+            stats["eval_encountered_cache"][current_measurement_hash].append(measurement["duration"])
             stats["eval_table_generations_skipped"] += 1
             stats["eval_table_generations_skipped_time"] += measurement["duration"]
+            stats["eval_sim_queries"][q["hash"]]["simul_ms"].append(measurement["duration"])
+
         if q["measurements"]:
             stats["eval_table_generations_skipped_queries"].append({"chunk_id": chunk_id, "index": index})
 
     stats["config"]["histogram_type"] = stats["config"]["histogram_type"].value
-    print(json.dumps(stats, indent=2))
+    with open(OUTPUT_PATH, "w") as f:
+        json.dump(stats, f, separators=(',',':') )
+    # print(json.dumps(stats, separators=(',',':')))
 
 
 
