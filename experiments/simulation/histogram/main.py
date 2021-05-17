@@ -311,6 +311,9 @@ if __name__ == "__main__":
         stats["eval_sim_queries"][q["hash"]] = {
             "worst_ms": [],
             "simul_ms": [],
+            "opti_totalexec": q["totalexec"],
+            "opti_queryexec": q["queryexec"],
+            "opti_queryopti": q["queryopti"],
             "cid": chunk_id,
             "ln": index, # Line Number
         }
