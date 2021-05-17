@@ -2,7 +2,7 @@ import json
 base_raw = """
 {
     "name": "sim-hist-2-%d",
-    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics.",
+    "description": "Using different histogram approaches for index selection. Index out of bounds error in equiwidth and not enought time for voptimal. Out of time issues. Added more details for statistics. And optimal performance overall stats",
     "github_url": "https://github.com/pjotrscholtze/trident.git",
     "github_checkout": "master",
     "script": [
