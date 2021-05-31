@@ -4,8 +4,8 @@ from glob import glob
 logging.basicConfig(level=logging.INFO)
 
 def get_buckets() -> Dict[str, int]:
-    # CACHE_PATH = "/home/pse740/trident/trident_get_buckets.tmp"
-    CACHE_PATH = "/tmp/trident_get_buckets.tmp"
+    CACHE_PATH = "/home/pse740/trident/trident_get_buckets.tmp"
+    # CACHE_PATH = "/tmp/trident_get_buckets.tmp"
     if os.path.exists(CACHE_PATH):
         print("bucket cache not found: ", CACHE_PATH)
         with open(CACHE_PATH, "r")as f:
@@ -21,8 +21,8 @@ def get_buckets() -> Dict[str, int]:
         archive.close()
 
     res = {}
-    files = glob("/storage/wdps/trident/experiments/results/acquiremeasurements/acquire_measurements_sample.7z/acquire_measurements_sample-*/res.json.lines.7z")
-    # files = glob("/var/scratch/pse740/acquire_measurements_full-*/res.json.lines.7z")
+    # files = glob("/storage/wdps/trident/experiments/results/acquiremeasurements/acquire_measurements_sample.7z/acquire_measurements_sample-*/res.json.lines.7z")
+    files = glob("/var/scratch/pse740/acquire_measurements_full-*/res.json.lines.7z")
     for i, resline_path in enumerate(sorted(files)):
         logging.info("Processing: (%.1f procent) %s" % ((i/len(files)) * 100, resline_path))
         res[resline_path] =  sum([s.count(b'\n') for s in _(resline_path)])
@@ -68,8 +68,8 @@ def load_queries(with_buckets):
 def path_to_int(path): return int(path[89:].split("/")[0])
 
 def get_data(filepath: str, index: List) -> List[Dict[str, any]]:
-    filepath = "/storage/wdps/trident/experiments" + filepath[1:]
-    # filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
+    # filepath = "/storage/wdps/trident/experiments" + filepath[1:]
+    filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
 
     archive = py7zr.SevenZipFile(filepath, mode='r')
 
