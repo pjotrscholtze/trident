@@ -35,10 +35,11 @@ def load_table_sizes(path):
 def load_data(path):
     # "/storage/wdps/trident/experiments/results/query_sets/25000_10.json"
     with open(path) as f:
-        tmp = json.load(f)
-        t = tmp[:512]
-        np.random.shuffle(t)
-        return t
+        return json.load(f)
+        # tmp = json.load(f)
+        # t = tmp[:512]
+        # np.random.shuffle(t)
+        # return t
 
 class Observation:
     @staticmethod
@@ -145,7 +146,8 @@ class MyEnv(Environment):
         self._raw_data = []
         self._raw_data_m = []
 
-        self._table_sizes = load_table_sizes("/storage/wdps/trident/experiments/get_tablesizes/results.json")
+        # self._table_sizes = load_table_sizes("/storage/wdps/trident/experiments/get_tablesizes/results.json")
+        self._table_sizes = load_table_sizes("/var/scratch/pse740/cache/table_size.json")
         # /storage/wdps/trident/experiments/get_tablesizes/results.json
 
 

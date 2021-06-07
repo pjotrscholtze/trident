@@ -9,11 +9,13 @@ import numpy as np
 from deer.default_parser import process_args
 from deer.agent import NeuralAgent
 from deer.learning_algos.q_net_keras import MyQNetwork
-from Toy_env import MyEnv as Toy_env, Settings, Observation
+from Toy_env import MyEnv as Toy_env, Settings, Observation, load_data
 import deer.experiment.base_controllers as bc
 from deer.policies import EpsilonGreedyPolicy
 
 logging.basicConfig(level=logging.INFO)
+
+
 
 class Defaults:
     # ----------------------
@@ -150,39 +152,47 @@ def start_experiment(settings):
 
 
 
-# argv = sys.argv
-# while len(argv) > 0 and (argv[0].startswith("python") or argv[0].endswith(".py")):
-#     argv = argv[1:]
+argv = sys.argv
+while len(argv) > 0 and (argv[0].startswith("python") or argv[0].endswith(".py")):
+    argv = argv[1:]
 
-# logging.info("arguments: " + json.dumps(argv))
-# logging.info("arguments: " + json.dumps(len(argv)))
-# if len(argv) < 4:
-#     print("All arguments are required!")
-#     print("arguments: <history_size> <caches_size> <data_path> <mask_nr>")
-#     print("  history_size: positive number")
-#     print("  caches_size: The number of items in the cache")
-#     print("  data_path: path to the queryset")
-#     print("  mask_nr: number which binary representation denotes which features are on and off")
-#     sys.exit(0)
-
-
-# # print(sys.argv)
-# # history_size = 1
-# history_size = int(argv[0])
-# caches_size = int(argv[1])
-# data_path = argv[2]
-# mask_nr = int(argv[3])
-
-history_size = 6
-caches_size = 10000
-data_path = "/storage/wdps/trident/experiments/results/query_sets/25000_10.json"
-mask_nr = 1010
+logging.info("arguments: " + json.dumps(argv))
+logging.info("arguments: " + json.dumps(len(argv)))
+if len(argv) < 4:
+    print("All arguments are required!")
+    print("arguments: <history_size> <caches_size> <data_path> <mask_nr>")
+    print("  history_size: positive number")
+    print("  caches_size: The number of items in the cache")
+    print("  data_path: path to the queryset")
+    print("  mask_nr: number which binary representation denotes which features are on and off")
+    sys.exit(0)
 
 
-print({"history_size": history_size,
-"caches_size": caches_size,
-"data_path": data_path,
-"mask_nr": mask_nr})
+# print(sys.argv)
+# history_size = 1
+history_size = int(argv[0])
+caches_size = int(argv[1])
+data_path = argv[2]
+mask_nr = int(argv[3])
+
+# history_size = 6
+# caches_size = 10000
+# data_path = "/storage/wdps/trident/experiments/results/query_sets/25000_10.json"
+# mask_nr = 1010
+
+total_measurements = 0
+for sample in load_data(data_path):
+    total_measurements += len(sample["q"]["measurements"])
+
+Defaults.STEPS_PER_TEST = int(total_measurements / 2) - 1
+Defaults.STEPS_PER_EPOCH = int(total_measurements / 2) - 1
+Defaults.EPOCHS = 50
+
+
+# print({"history_size": history_size,
+# "caches_size": caches_size,
+# "data_path": data_path,
+# "mask_nr": mask_nr})
 
 # print(json.dumps({
 #     "field_count": len(Observation.blank().to_list()),
@@ -198,7 +208,10 @@ setup = {
     "total_field_count": len(Observation.blank().to_list()),
     "total_field_names": list(Observation.blank().__dict__.keys()),
     "enabled_field_names": [],
-    "disabled_field_names": []
+    "disabled_field_names": [],
+    "STEPS_PER_TEST": Defaults.STEPS_PER_TEST,
+    "STEPS_PER_EPOCH": Defaults.STEPS_PER_EPOCH,
+    "EPOCHS": Defaults.EPOCHS,
 }
 
 # # settings = Settings(data_path, caches_size, Observation.blank(), history_size)

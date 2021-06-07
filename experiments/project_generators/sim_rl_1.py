@@ -28,7 +28,9 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
         for history_size in [1, 6]:
             for _ in range(0, 25):
                 data = json.loads(base_raw)
-                cmd = "%d %d /storage/wdps/trident/experiments/results/query_sets/25000_%s.json %d" % (history_size, cache_size, seed, mask)
+                # /var/scratch/pse740/cache/query_sets/25000_
+                cmd = "%d %d /var/scratch/pse740/cache/query_sets/25000_%s.json %d" % (history_size, cache_size, seed, mask)
+                # cmd = "%d %d /storage/wdps/trident/experiments/results/query_sets/25000_%s.json %d" % (history_size, cache_size, seed, mask)
                 data["name"] = data["name"] % i
                 # python/3.6.0
                 data["script"][5] = "module load python/3.6.0"
