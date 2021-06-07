@@ -1,0 +1,11 @@
+deer
+numpy
+# numpy>=1.19
+joblib
+# joblib>=0.16
+# matplotlib>=3.3.2
+matplotlib
+# tensorflow==2.1.0
+tensorflow
+# keras>=2.1.1
+keras
