@@ -10,7 +10,7 @@ base_raw = """
         "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
         "#SBATCH -C gpunode",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
-        "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+        "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && conda activate&& du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
         "# __REPLACED_BELOW__",
         "# __REPLACED_BELOW__",
         "__REPLACED_BELOW__"
