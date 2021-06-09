@@ -34,7 +34,7 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
                 data["name"] = data["name"] % i
                 # python/3.6.0
                 data["script"][5] = "module load python/3.6.0"
-                # data["script"][6] = "source $BUILD_CACHE_PATH/venv_rl/bin/activate"
+                data["script"][6] = "source $BUILD_CACHE_PATH/venv_rl/bin/activate"
                 # python3 run_toy_env_multi.py 6 1000 /storage/wdps/trident/experiments/results/query_sets/25000_10.json 1001
                 data["script"][7] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py %s" % cmd
                 res.append(data)
