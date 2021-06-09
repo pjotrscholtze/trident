@@ -33,7 +33,7 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
                 # cmd = "%d %d /storage/wdps/trident/experiments/results/query_sets/25000_%s.json %d" % (history_size, cache_size, seed, mask)
                 data["name"] = data["name"] % i
                 # python/3.6.0
-                data["script"][5] = "conda create tensorflow==2.5.0 keras==2.4.3"
+                data["script"][5] = "conda create --name rl tensorflow==2.5.0 keras==2.4.3"
                 data["script"][6] = "pip list"
                 # data["script"][6] = "source $BUILD_CACHE_PATH/venv_rl/bin/activate"
                 # python3 run_toy_env_multi.py 6 1000 /storage/wdps/trident/experiments/results/query_sets/25000_10.json 1001
