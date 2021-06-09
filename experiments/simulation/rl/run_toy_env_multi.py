@@ -1,6 +1,8 @@
 """Toy environment launcher. See the docs for more details about this environment.
 
 """
+import os
+os.environ["SM_FRAMEWORK"] = "tf.keras"
 
 import sys
 import logging, json
