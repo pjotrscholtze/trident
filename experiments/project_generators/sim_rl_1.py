@@ -10,7 +10,7 @@ base_raw = """
         "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
         "#SBATCH -C gpunode",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
-        "source /home/pse740/.bashrc && conda activate && module load tensorflow/python3.x/gpu/r1.1.0-py3 && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+        "source /home/pse740/.bashrc && conda activate base && module load tensorflow/python3.x/gpu/r1.1.0-py3 && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
         "# __REPLACED_BELOW__",
         "# __REPLACED_BELOW__",
         "__REPLACED_BELOW__"
@@ -33,8 +33,8 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
                 # cmd = "%d %d /storage/wdps/trident/experiments/results/query_sets/25000_%s.json %d" % (history_size, cache_size, seed, mask)
                 data["name"] = data["name"] % i
                 # python/3.6.0
-                data["script"][5] = "conda create --name rl_%d tensorflow==2.5.0 keras==2.4.3 numpy " % i
-                data["script"][6] = "pip install deer==0.4.3  && pip list"
+                # data["script"][5] = "conda create --name rl_%d tensorflow==2.5.0 keras==2.4.3 numpy " % i
+                # data["script"][6] = "pip install deer==0.4.3  && pip list"
                 # data["script"][6] = "source $BUILD_CACHE_PATH/venv_rl/bin/activate"
                 # python3 run_toy_env_multi.py 6 1000 /storage/wdps/trident/experiments/results/query_sets/25000_10.json 1001
                 data["script"][7] = "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py %s" % cmd
