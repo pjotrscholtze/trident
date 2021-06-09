@@ -26,7 +26,7 @@ for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
     mask = 1
     for cache_size in [2, 2000, 2000*1000]:
         for history_size in [1, 6]:
-            for _ in range(0, 25):
+            for _ in range(0, 24):
                 data = json.loads(base_raw)
                 # /var/scratch/pse740/cache/query_sets/25000_
                 cmd = "%d %d /var/scratch/pse740/cache/query_sets/25000_%s.json %d" % (history_size, cache_size, seed, mask)
