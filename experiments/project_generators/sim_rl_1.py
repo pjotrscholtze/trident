@@ -8,7 +8,7 @@ base_raw = """
     "script": [
         "#!/bin/bash -e",
         "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
-        "#SBATCH -C gpunode",
+        "#SBATCH -p longq",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
         "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
         "# __REPLACED_BELOW__",
