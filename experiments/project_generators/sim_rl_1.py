@@ -10,7 +10,7 @@ base_raw = """
         "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
         "#SBATCH -C gpunode",
         "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
-        "source /home/pse740/.bashrc && module load tensorflow/python3.x/gpu/r1.1.0-py3 && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+        "source /home/pse740/.bashrc && conda activate && module load tensorflow/python3.x/gpu/r1.1.0-py3 && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
         "# __REPLACED_BELOW__",
         "# __REPLACED_BELOW__",
         "__REPLACED_BELOW__"
