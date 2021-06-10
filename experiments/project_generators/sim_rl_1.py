@@ -22,9 +22,9 @@ base_raw = """
 res = []
 i = 0
 # for i in range(0, int(9128 * 0.15)): # sample
-for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
+for seed in [10]:#, 4156, 2536, 2123, 7058, 1087, 8306]:
     mask = 1
-    for cache_size in [2, 2000, 2000*1000]:
+    for cache_size in [2, 2000]:
         for history_size in [1, 6]:
             for _ in range(0, 24):
                 data = json.loads(base_raw)

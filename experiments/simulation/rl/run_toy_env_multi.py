@@ -186,7 +186,8 @@ total_measurements = 0
 for sample in load_data(data_path):
     total_measurements += len(sample["q"]["measurements"])
 
-Defaults.EPOCHS = 50
+# Defaults.EPOCHS = 50
+Defaults.EPOCHS = 20
 Defaults.STEPS_PER_TEST = int((total_measurements / 2) / Defaults.EPOCHS) - 1
 Defaults.STEPS_PER_EPOCH = int((total_measurements / 2) / Defaults.EPOCHS) - 1
 
