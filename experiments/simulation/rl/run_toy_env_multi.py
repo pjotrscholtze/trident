@@ -186,9 +186,9 @@ total_measurements = 0
 for sample in load_data(data_path):
     total_measurements += len(sample["q"]["measurements"])
 
-Defaults.STEPS_PER_TEST = int(total_measurements / 2) - 1
-Defaults.STEPS_PER_EPOCH = int(total_measurements / 2) - 1
 Defaults.EPOCHS = 50
+Defaults.STEPS_PER_TEST = int((total_measurements / 2) / Defaults.EPOCHS) - 1
+Defaults.STEPS_PER_EPOCH = int((total_measurements / 2) / Defaults.EPOCHS) - 1
 
 
 # print({"history_size": history_size,
