@@ -305,7 +305,7 @@ class MyEnv(Environment):
         self._exec_time_before.append(self._exec_time_before[len(self._exec_time_before)-1] + query["totalexec"])
         self._cached_tables_count.append(self._cache_size)
 
-        print("action", ACTION_TO_TEXT[action], "cache_size", self._cache_size, "original_time",self.current_signal[self._counter], "improved", query["totalexec"] - self._get_duration(query))
+        # print("action", ACTION_TO_TEXT[action], "cache_size", self._cache_size, "original_time",self.current_signal[self._counter], "improved", query["totalexec"] - self._get_duration(query))
         m = self._raw_data_m[self._counter]
         # for m in query["measurements"]:
         # time = self._get_duration(query)
