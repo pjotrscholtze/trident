@@ -28,6 +28,7 @@ ACTION_NO_CHANGE = 1
 ACTION_ADD_TO_CACHE = 2
 
 def load_table_sizes(path):
+    path = "/storage/wdps/trident/experiments/get_tablesizes/results.json"
     # /storage/wdps/trident/experiments/get_tablesizes/results.json
     with open(path) as f:
         return json.load(f)
@@ -387,17 +388,17 @@ class MyEnv(Environment):
         -----------
             test_data_set
         """
-        observations = test_data_set.observations()
-        def np_arr_to_list(nparr):
-            res = []
-            for v in nparr:
-                if isinstance(v, np.ndarray):
-                    v = np_arr_to_list(v)
-                else: v = float(v)
-                res.append(v)
-            return res
+        # observations = test_data_set.observations()
+        # def np_arr_to_list(nparr):
+        #     res = []
+        #     for v in nparr:
+        #         if isinstance(v, np.ndarray):
+        #             v = np_arr_to_list(v)
+        #         else: v = float(v)
+        #         res.append(v)
+        #     return res
 
-        w = np_arr_to_list(list(args[0].q_vals.get_weights()))
+        # w = np_arr_to_list(list(args[0].q_vals.get_weights()))
         # for v in list(args[0].q_vals.get_weights()):
         #     w2 = []
         #     for v2 in list(v):
@@ -423,22 +424,23 @@ class MyEnv(Environment):
             "cached_tables_count": self._cached_tables_count,
             "cache_size": self._cache_size,
 
-            "q_vals": w,
-            "input_dimensions": args[0]._input_dimensions,
-            "n_actions": args[0]._n_actions,
+            # "q_vals": w,
+            # "input_dimensions": args[0]._input_dimensions,
+            # "n_actions": args[0]._n_actions,
 
-            "duration": [float(o) for o in observations[0]],
-            "action": [float(o) for o in observations[1]],
+            # "duration": [float(o) for o in observations[0]],
+            # "action": [float(o) for o in observations[1]],
 
 
         }
-        print("### RESULTS ###", json.dumps(results))
+        print("### RESULTS ###", json.dumps(results), flush=True)
+        print("---")
         # args[0].q_vals
         # args[0]._input_dimensions
         # args[0]._n_actions
 
-        duration = list(observations[0])
-        action = list(observations[1])
+        # duration = list(observations[0])
+        # action = list(observations[1])
 
         # kwargs['train_data_set'].n_elems
 

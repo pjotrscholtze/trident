@@ -151,6 +151,7 @@ def start_experiment(settings):
         
     # --- Run the experiment ---
     agent.run(parameters.epochs, parameters.steps_per_epoch)
+    env.summarizePerformance(False)
 
 
 
@@ -187,9 +188,9 @@ for sample in load_data(data_path):
     total_measurements += len(sample["q"]["measurements"])
 
 # Defaults.EPOCHS = 50
-Defaults.EPOCHS = 5
-Defaults.STEPS_PER_TEST = int((total_measurements / 2) / 50) - 1
-Defaults.STEPS_PER_EPOCH = int((total_measurements / 2) / 50) - 1
+Defaults.EPOCHS = 2
+Defaults.STEPS_PER_TEST = int((total_measurements / 2) / 250) - 1
+Defaults.STEPS_PER_EPOCH = int((total_measurements / 2) / 250) - 1
 
 
 # print({"history_size": history_size,
