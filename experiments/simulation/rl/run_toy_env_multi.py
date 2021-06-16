@@ -161,13 +161,14 @@ while len(argv) > 0 and (argv[0].startswith("python") or argv[0].endswith(".py")
 
 logging.info("arguments: " + json.dumps(argv))
 logging.info("arguments: " + json.dumps(len(argv)))
-if len(argv) < 4:
+if len(argv) < 5:
     print("All arguments are required!")
     print("arguments: <history_size> <caches_size> <data_path> <mask_nr>")
     print("  history_size: positive number")
     print("  caches_size: The number of items in the cache")
     print("  data_path: path to the queryset")
     print("  mask_nr: number which binary representation denotes which features are on and off")
+    print("  job_result_path: path_to save the results to")
     sys.exit(0)
 
 
@@ -177,6 +178,7 @@ history_size = int(argv[0])
 caches_size = int(argv[1])
 data_path = argv[2]
 mask_nr = int(argv[3])
+job_result_path = argv[4]
 
 # history_size = 6
 # caches_size = 10000
@@ -207,7 +209,8 @@ setup = {
         "history_size": history_size,
         "caches_size": caches_size,
         "data_path": data_path,
-        "mask_nr": mask_nr
+        "mask_nr": mask_nr,
+        "job_result_path": job_result_path,
     },
     "total_field_count": len(Observation.blank().to_list()),
     "total_field_names": list(Observation.blank().__dict__.keys()),
@@ -220,7 +223,7 @@ setup = {
 
 # # settings = Settings(data_path, caches_size, Observation.blank(), history_size)
 settings = Settings.generate_settings(data_path, caches_size, mask_nr,
-                history_size)
+                history_size, job_result_path)
 
 for field in settings.observation_mask.__dict__:
     if settings.observation_mask.__getattribute__(field) == 1:

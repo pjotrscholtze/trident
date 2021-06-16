@@ -99,7 +99,7 @@ class Settings:
         return Observation.__init__.__code__.co_argcount - 1
 
     @staticmethod
-    def generate_settings(data_path: str, cache_size_limit: int, mask_nr: int, history_size: int):
+    def generate_settings(data_path: str, cache_size_limit: int, mask_nr: int, history_size: int, job_result_path: str):
         if mask_nr >= 2**Settings.count_observation_features() or mask_nr < 0:
             raise ValueError
         pass
@@ -110,18 +110,19 @@ class Settings:
             args.append(tmp % 2)
             tmp = int(tmp / 2)
         
-        return Settings(data_path, cache_size_limit, Observation(*args), history_size)
+        return Settings(data_path, cache_size_limit, Observation(*args), history_size, job_result_path)
 
     def to_dict(self):
         res = self.__dict__
         res["observation_mask"] = self.observation_mask.__dict__
         return res
 
-    def __init__(self, data_path: str, cache_size_limit: int, observation_mask: Observation, history_size: int):
+    def __init__(self, data_path: str, cache_size_limit: int, observation_mask: Observation, history_size: int, job_result_path: str):
         self.data_path = data_path
         self.cache_size_limit = cache_size_limit
         self.observation_mask = observation_mask
         self.history_size = history_size
+        self.job_result_path = job_result_path
 
     def apply_observation_mask(self, observation: Observation):
         for key in observation.__dict__:
@@ -430,9 +431,10 @@ class MyEnv(Environment):
 
             # "duration": [float(o) for o in observations[0]],
             # "action": [float(o) for o in observations[1]],
-
-
         }
+        with open(self.settings.job_result_path, "w") as f:
+            json.dump(results, f)
+        # self.settings.job_result_path
         print("### RESULTS ###", json.dumps(results), flush=True)
         print("---")
         # args[0].q_vals

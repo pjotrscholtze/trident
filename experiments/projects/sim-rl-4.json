@@ -1,0 +1,1538 @@
+[
+  {
+    "name": "sim-rl-4-0",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 1 /var/scratch/pse740/rl_results/0.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-1",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 2 /var/scratch/pse740/rl_results/1.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-2",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 4 /var/scratch/pse740/rl_results/2.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-3",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 8 /var/scratch/pse740/rl_results/3.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-4",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 16 /var/scratch/pse740/rl_results/4.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-5",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 32 /var/scratch/pse740/rl_results/5.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-6",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 64 /var/scratch/pse740/rl_results/6.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-7",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 128 /var/scratch/pse740/rl_results/7.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-8",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 256 /var/scratch/pse740/rl_results/8.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-9",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 512 /var/scratch/pse740/rl_results/9.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-10",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 1024 /var/scratch/pse740/rl_results/10.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-11",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 2048 /var/scratch/pse740/rl_results/11.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-12",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 4096 /var/scratch/pse740/rl_results/12.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-13",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 8192 /var/scratch/pse740/rl_results/13.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-14",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 16384 /var/scratch/pse740/rl_results/14.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-15",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 32768 /var/scratch/pse740/rl_results/15.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-16",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 65536 /var/scratch/pse740/rl_results/16.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-17",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 131072 /var/scratch/pse740/rl_results/17.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-18",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 262144 /var/scratch/pse740/rl_results/18.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-19",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 524288 /var/scratch/pse740/rl_results/19.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-20",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 1048576 /var/scratch/pse740/rl_results/20.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-21",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 2097152 /var/scratch/pse740/rl_results/21.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-22",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 4194304 /var/scratch/pse740/rl_results/22.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-23",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2 /var/scratch/pse740/cache/query_sets/25000_10.json 8388608 /var/scratch/pse740/rl_results/23.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-24",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 1 /var/scratch/pse740/rl_results/24.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-25",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 2 /var/scratch/pse740/rl_results/25.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-26",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 4 /var/scratch/pse740/rl_results/26.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-27",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 8 /var/scratch/pse740/rl_results/27.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-28",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 16 /var/scratch/pse740/rl_results/28.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-29",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 32 /var/scratch/pse740/rl_results/29.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-30",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 64 /var/scratch/pse740/rl_results/30.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-31",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 128 /var/scratch/pse740/rl_results/31.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-32",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 256 /var/scratch/pse740/rl_results/32.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-33",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 512 /var/scratch/pse740/rl_results/33.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-34",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 1024 /var/scratch/pse740/rl_results/34.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-35",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 2048 /var/scratch/pse740/rl_results/35.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-36",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 4096 /var/scratch/pse740/rl_results/36.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-37",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 8192 /var/scratch/pse740/rl_results/37.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-38",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 16384 /var/scratch/pse740/rl_results/38.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-39",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 32768 /var/scratch/pse740/rl_results/39.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-40",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 65536 /var/scratch/pse740/rl_results/40.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-41",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 131072 /var/scratch/pse740/rl_results/41.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-42",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 262144 /var/scratch/pse740/rl_results/42.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-43",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 524288 /var/scratch/pse740/rl_results/43.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-44",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 1048576 /var/scratch/pse740/rl_results/44.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-45",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 2097152 /var/scratch/pse740/rl_results/45.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-46",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 4194304 /var/scratch/pse740/rl_results/46.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-47",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2 /var/scratch/pse740/cache/query_sets/25000_10.json 8388608 /var/scratch/pse740/rl_results/47.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-48",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 1 /var/scratch/pse740/rl_results/48.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-49",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 2 /var/scratch/pse740/rl_results/49.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-50",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 4 /var/scratch/pse740/rl_results/50.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-51",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 8 /var/scratch/pse740/rl_results/51.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-52",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 16 /var/scratch/pse740/rl_results/52.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-53",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 32 /var/scratch/pse740/rl_results/53.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-54",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 64 /var/scratch/pse740/rl_results/54.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-55",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 128 /var/scratch/pse740/rl_results/55.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-56",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 256 /var/scratch/pse740/rl_results/56.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-57",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 512 /var/scratch/pse740/rl_results/57.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-58",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 1024 /var/scratch/pse740/rl_results/58.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-59",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 2048 /var/scratch/pse740/rl_results/59.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-60",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 4096 /var/scratch/pse740/rl_results/60.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-61",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 8192 /var/scratch/pse740/rl_results/61.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-62",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 16384 /var/scratch/pse740/rl_results/62.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-63",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 32768 /var/scratch/pse740/rl_results/63.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-64",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 65536 /var/scratch/pse740/rl_results/64.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-65",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 131072 /var/scratch/pse740/rl_results/65.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-66",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 262144 /var/scratch/pse740/rl_results/66.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-67",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 524288 /var/scratch/pse740/rl_results/67.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-68",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 1048576 /var/scratch/pse740/rl_results/68.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-69",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 2097152 /var/scratch/pse740/rl_results/69.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-70",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 4194304 /var/scratch/pse740/rl_results/70.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-71",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 8388608 /var/scratch/pse740/rl_results/71.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-72",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 1 /var/scratch/pse740/rl_results/72.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-73",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 2 /var/scratch/pse740/rl_results/73.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-74",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 4 /var/scratch/pse740/rl_results/74.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-75",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 8 /var/scratch/pse740/rl_results/75.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-76",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 16 /var/scratch/pse740/rl_results/76.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-77",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 32 /var/scratch/pse740/rl_results/77.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-78",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 64 /var/scratch/pse740/rl_results/78.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-79",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 128 /var/scratch/pse740/rl_results/79.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-80",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 256 /var/scratch/pse740/rl_results/80.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-81",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 512 /var/scratch/pse740/rl_results/81.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-82",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 1024 /var/scratch/pse740/rl_results/82.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-83",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 2048 /var/scratch/pse740/rl_results/83.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-84",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 4096 /var/scratch/pse740/rl_results/84.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-85",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 8192 /var/scratch/pse740/rl_results/85.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-86",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 16384 /var/scratch/pse740/rl_results/86.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-87",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 32768 /var/scratch/pse740/rl_results/87.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-88",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 65536 /var/scratch/pse740/rl_results/88.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-89",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 131072 /var/scratch/pse740/rl_results/89.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-90",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 262144 /var/scratch/pse740/rl_results/90.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-91",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 524288 /var/scratch/pse740/rl_results/91.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-92",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 1048576 /var/scratch/pse740/rl_results/92.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-93",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 2097152 /var/scratch/pse740/rl_results/93.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-94",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 4194304 /var/scratch/pse740/rl_results/94.json"
+    ]
+  },
+  {
+    "name": "sim-rl-4-95",
+    "description": "RL setup with deer, first batch. Fixed missing results display.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000 /var/scratch/pse740/cache/query_sets/25000_10.json 8388608 /var/scratch/pse740/rl_results/95.json"
+    ]
+  }
+]
