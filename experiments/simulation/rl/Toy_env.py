@@ -28,7 +28,7 @@ ACTION_NO_CHANGE = 1
 ACTION_ADD_TO_CACHE = 2
 
 def load_table_sizes(path):
-    path = "/storage/wdps/trident/experiments/get_tablesizes/results.json"
+    # path = "/storage/wdps/trident/experiments/get_tablesizes/results.json"
     # /storage/wdps/trident/experiments/get_tablesizes/results.json
     with open(path) as f:
         return json.load(f)
