@@ -270,10 +270,17 @@ class MyEnv(Environment):
         cached_time = 0
 
         for m in q["measurements"]:
-            if self._is_in_cache(m["idx"], m["s"], m["p"], m["o"]):
+            if not self._is_in_cache(m["idx"], m["s"], m["p"], m["o"]):
                 cached_time += m['duration']
 
-        return max(0, q["totalexec"] - cached_time)
+        return cached_time #max(0, q["totalexec"] - cached_time)
+    def _get_duration_orig(self, q):
+        tot_time = 0
+
+        for m in q["measurements"]:
+            tot_time += m['duration']
+
+        return tot_time
     
 
     def act(self, action):
@@ -304,7 +311,8 @@ class MyEnv(Environment):
             handler = self._del_from_cache
 
         self._exec_time.append(self._exec_time[len(self._exec_time)-1] + self._get_duration(query))
-        self._exec_time_before.append(self._exec_time_before[len(self._exec_time_before)-1] + query["totalexec"])
+        
+        self._exec_time_before.append(self._exec_time[len(self._exec_time)-1] + self._get_duration_orig(query))
         self._cached_tables_count.append(self._cache_size)
 
         # print("action", ACTION_TO_TEXT[action], "cache_size", self._cache_size, "original_time",self.current_signal[self._counter], "improved", query["totalexec"] - self._get_duration(query))
