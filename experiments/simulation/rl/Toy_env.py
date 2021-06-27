@@ -24,8 +24,9 @@ ACTION_TO_TEXT = {
     2: "ADD_TO_CACHE"
 }
 ACTION_REMOVE_FROM_CACHE = 0
-ACTION_NO_CHANGE = 1
 ACTION_ADD_TO_CACHE = 2
+# ACTION_NO_CHANGE = 1
+# ACTION_ADD_TO_CACHE = 2
 
 def load_table_sizes(path):
     # path = "/storage/wdps/trident/experiments/get_tablesizes/results.json"
@@ -46,37 +47,50 @@ class Observation:
     @staticmethod
     def blank():
         return Observation(*([0]* (Observation.__init__.__code__.co_argcount -1)))
-    def __init__(self, table_generation_time, action, no_measurements, cache_size,
-            in_cache, idx, query_duration, queries_per_second, cache_usage_ratio,
-            query_optimization_time, table_size, spo_touch, ops_touch,
-            pos_touch, sop_touch, osp_touch, pso_touch, n_resulting_rows,
-            finished, stats_row, stats_column, stats_cluster, aggr_indices,
-            not_aggr_indices, cache_indices):
+    # def __init__(self, table_generation_time, action, no_measurements, cache_size,
+    #         in_cache, idx, query_duration, queries_per_second, cache_usage_ratio,
+    #         query_optimization_time, table_size, spo_touch, ops_touch,
+    #         pos_touch, sop_touch, osp_touch, pso_touch, n_resulting_rows,
+    #         finished, stats_row, stats_column, stats_cluster, aggr_indices,
+    #         not_aggr_indices, cache_indices):
+    def __init__(self, table_generation_time, no_measurements, in_cache,
+        query_duration, queries_per_second, cache_usage_ratio,
+        query_optimization_time, table_size):
         self.table_generation_time = table_generation_time
-        self.action = action
         self.no_measurements = no_measurements
-        self.cache_size = cache_size
         self.in_cache = in_cache
-        self.idx = idx
         self.query_duration = query_duration
         self.queries_per_second = queries_per_second
         self.cache_usage_ratio = cache_usage_ratio
         self.query_optimization_time = query_optimization_time
         self.table_size = table_size
-        self.spo_touch = spo_touch
-        self.ops_touch = ops_touch
-        self.pos_touch = pos_touch
-        self.sop_touch = sop_touch
-        self.osp_touch = osp_touch
-        self.pso_touch = pso_touch
-        self.n_resulting_rows = n_resulting_rows
-        self.finished = finished
-        self.stats_row = stats_row
-        self.stats_column = stats_column
-        self.stats_cluster = stats_cluster
-        self.aggr_indices = aggr_indices
-        self.not_aggr_indices = not_aggr_indices
-        self.cache_indices = cache_indices
+
+
+        # self.table_generation_time = table_generation_time
+        # self.action = action
+        # self.no_measurements = no_measurements
+        # self.cache_size = cache_size
+        # self.in_cache = in_cache
+        # self.idx = idx
+        # self.query_duration = query_duration
+        # self.queries_per_second = queries_per_second
+        # self.cache_usage_ratio = cache_usage_ratio
+        # self.query_optimization_time = query_optimization_time
+        # self.table_size = table_size
+        # self.spo_touch = spo_touch
+        # self.ops_touch = ops_touch
+        # self.pos_touch = pos_touch
+        # self.sop_touch = sop_touch
+        # self.osp_touch = osp_touch
+        # self.pso_touch = pso_touch
+        # self.n_resulting_rows = n_resulting_rows
+        # self.finished = finished
+        # self.stats_row = stats_row
+        # self.stats_column = stats_column
+        # self.stats_cluster = stats_cluster
+        # self.aggr_indices = aggr_indices
+        # self.not_aggr_indices = not_aggr_indices
+        # self.cache_indices = cache_indices
 
         # self._last_ponctual_observation[0] = self.current_signal[self._counter]
         # self._last_ponctual_observation[1] = action
@@ -304,11 +318,11 @@ class MyEnv(Environment):
         
         query = self._raw_data[self._offset + self._counter]["q"]
 
-        handler = lambda idx, s, p, o: 1
+        handler = handler = self._del_from_cache #lambda idx, s, p, o: 1
         if action == ACTION_ADD_TO_CACHE:
             handler = self._add_to_cache
-        elif action == ACTION_REMOVE_FROM_CACHE:
-            handler = self._del_from_cache
+        # elif action == ACTION_REMOVE_FROM_CACHE:
+            
 
         self._exec_time.append(self._exec_time[len(self._exec_time)-1] + self._get_duration(query))
         
@@ -322,30 +336,30 @@ class MyEnv(Environment):
         obs = Observation.blank()
 
         obs.table_generation_time = self.current_signal[self._counter]
-        obs.action = action
+        # obs.action = action
         obs.no_measurements = len(query["measurements"])
-        obs.cache_size = self._cache_size
+        # obs.cache_size = self._cache_size
         obs.in_cache = self._is_in_cache(m["idx"], m["s"], m["p"], m["o"])
-        obs.idx = m["idx"]
+        # obs.idx = m["idx"]
         obs.table_size = self.get_table_size(m["s"], m["p"], m["o"])
 
         obs.query_duration = query['totalexec']
         obs.query_optimization_time = query['queryopti']
-        obs.spo_touch = query["spo"]
-        obs.ops_touch = query["ops"]
-        obs.pos_touch = query["pos"]
-        obs.sop_touch = query["sop"]
-        obs.osp_touch = query["osp"]
-        obs.pso_touch = query["pso"]
+        # obs.spo_touch = query["spo"]
+        # obs.ops_touch = query["ops"]
+        # obs.pos_touch = query["pos"]
+        # obs.sop_touch = query["sop"]
+        # obs.osp_touch = query["osp"]
+        # obs.pso_touch = query["pso"]
 
-        obs.n_resulting_rows = query['nResultingRows']
-        obs.finished = query["finished"]
-        obs.stats_row = query["statsRow"]
-        obs.stats_column = query["statsColumn"]
-        obs.stats_cluster = query["statsCluster"]
-        obs.aggr_indices = query["aggrIndices"]
-        obs.not_aggr_indices = query["notAggrIndices"]
-        obs.cache_indices = query["cacheIndices"]
+        # obs.n_resulting_rows = query['nResultingRows']
+        # obs.finished = query["finished"]
+        # obs.stats_row = query["statsRow"]
+        # obs.stats_column = query["statsColumn"]
+        # obs.stats_cluster = query["statsCluster"]
+        # obs.aggr_indices = query["aggrIndices"]
+        # obs.not_aggr_indices = query["notAggrIndices"]
+        # obs.cache_indices = query["cacheIndices"]
 
 
 
@@ -536,6 +550,7 @@ class MyEnv(Environment):
 
 
     def nActions(self):
+        return 2                # The environment allows two different actions to be taken at each time step
         return 3                # The environment allows two different actions to be taken at each time step
 
 
