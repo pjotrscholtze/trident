@@ -21,7 +21,7 @@ base_raw = """
 
 res = []
 i = 0
-BASE_MASK = (2**24) - 1
+BASE_MASK = (2**7) - 1
 # for i in range(0, int(9128 * 0.15)): # sample
 for seed in [10]:#, 4156, 2536, 2123, 7058, 1087, 8306]:
     # 2**Settings.count_observation_features()

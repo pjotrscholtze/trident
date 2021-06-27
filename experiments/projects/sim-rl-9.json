@@ -12,7 +12,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777215 /var/scratch/pse740/rl_results/sim-rl-9_0.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-9_0.json"
     ]
   },
   {
@@ -28,7 +28,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777214 /var/scratch/pse740/rl_results/sim-rl-9_1.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 126 /var/scratch/pse740/rl_results/sim-rl-9_1.json"
     ]
   },
   {
@@ -44,7 +44,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777213 /var/scratch/pse740/rl_results/sim-rl-9_2.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 125 /var/scratch/pse740/rl_results/sim-rl-9_2.json"
     ]
   },
   {
@@ -60,7 +60,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777211 /var/scratch/pse740/rl_results/sim-rl-9_3.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 123 /var/scratch/pse740/rl_results/sim-rl-9_3.json"
     ]
   },
   {
@@ -76,7 +76,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777207 /var/scratch/pse740/rl_results/sim-rl-9_4.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 119 /var/scratch/pse740/rl_results/sim-rl-9_4.json"
     ]
   },
   {
@@ -92,7 +92,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777199 /var/scratch/pse740/rl_results/sim-rl-9_5.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 111 /var/scratch/pse740/rl_results/sim-rl-9_5.json"
     ]
   },
   {
@@ -108,7 +108,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777183 /var/scratch/pse740/rl_results/sim-rl-9_6.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 95 /var/scratch/pse740/rl_results/sim-rl-9_6.json"
     ]
   },
   {
@@ -124,7 +124,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777151 /var/scratch/pse740/rl_results/sim-rl-9_7.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 63 /var/scratch/pse740/rl_results/sim-rl-9_7.json"
     ]
   },
   {
@@ -140,7 +140,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777215 /var/scratch/pse740/rl_results/sim-rl-9_8.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-9_8.json"
     ]
   },
   {
@@ -156,7 +156,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777214 /var/scratch/pse740/rl_results/sim-rl-9_9.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 126 /var/scratch/pse740/rl_results/sim-rl-9_9.json"
     ]
   },
   {
@@ -172,7 +172,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777213 /var/scratch/pse740/rl_results/sim-rl-9_10.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 125 /var/scratch/pse740/rl_results/sim-rl-9_10.json"
     ]
   },
   {
@@ -188,7 +188,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777211 /var/scratch/pse740/rl_results/sim-rl-9_11.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 123 /var/scratch/pse740/rl_results/sim-rl-9_11.json"
     ]
   },
   {
@@ -204,7 +204,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777207 /var/scratch/pse740/rl_results/sim-rl-9_12.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 119 /var/scratch/pse740/rl_results/sim-rl-9_12.json"
     ]
   },
   {
@@ -220,7 +220,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777199 /var/scratch/pse740/rl_results/sim-rl-9_13.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 111 /var/scratch/pse740/rl_results/sim-rl-9_13.json"
     ]
   },
   {
@@ -236,7 +236,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777183 /var/scratch/pse740/rl_results/sim-rl-9_14.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 95 /var/scratch/pse740/rl_results/sim-rl-9_14.json"
     ]
   },
   {
@@ -252,7 +252,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777151 /var/scratch/pse740/rl_results/sim-rl-9_15.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 63 /var/scratch/pse740/rl_results/sim-rl-9_15.json"
     ]
   },
   {
@@ -268,7 +268,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777215 /var/scratch/pse740/rl_results/sim-rl-9_16.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-9_16.json"
     ]
   },
   {
@@ -284,7 +284,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777214 /var/scratch/pse740/rl_results/sim-rl-9_17.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 126 /var/scratch/pse740/rl_results/sim-rl-9_17.json"
     ]
   },
   {
@@ -300,7 +300,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777213 /var/scratch/pse740/rl_results/sim-rl-9_18.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 125 /var/scratch/pse740/rl_results/sim-rl-9_18.json"
     ]
   },
   {
@@ -316,7 +316,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777211 /var/scratch/pse740/rl_results/sim-rl-9_19.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 123 /var/scratch/pse740/rl_results/sim-rl-9_19.json"
     ]
   },
   {
@@ -332,7 +332,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777207 /var/scratch/pse740/rl_results/sim-rl-9_20.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 119 /var/scratch/pse740/rl_results/sim-rl-9_20.json"
     ]
   },
   {
@@ -348,7 +348,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777199 /var/scratch/pse740/rl_results/sim-rl-9_21.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 111 /var/scratch/pse740/rl_results/sim-rl-9_21.json"
     ]
   },
   {
@@ -364,7 +364,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777183 /var/scratch/pse740/rl_results/sim-rl-9_22.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 95 /var/scratch/pse740/rl_results/sim-rl-9_22.json"
     ]
   },
   {
@@ -380,7 +380,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777151 /var/scratch/pse740/rl_results/sim-rl-9_23.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 63 /var/scratch/pse740/rl_results/sim-rl-9_23.json"
     ]
   },
   {
@@ -396,7 +396,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777215 /var/scratch/pse740/rl_results/sim-rl-9_24.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-9_24.json"
     ]
   },
   {
@@ -412,7 +412,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777214 /var/scratch/pse740/rl_results/sim-rl-9_25.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 126 /var/scratch/pse740/rl_results/sim-rl-9_25.json"
     ]
   },
   {
@@ -428,7 +428,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777213 /var/scratch/pse740/rl_results/sim-rl-9_26.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 125 /var/scratch/pse740/rl_results/sim-rl-9_26.json"
     ]
   },
   {
@@ -444,7 +444,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777211 /var/scratch/pse740/rl_results/sim-rl-9_27.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 123 /var/scratch/pse740/rl_results/sim-rl-9_27.json"
     ]
   },
   {
@@ -460,7 +460,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777207 /var/scratch/pse740/rl_results/sim-rl-9_28.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 119 /var/scratch/pse740/rl_results/sim-rl-9_28.json"
     ]
   },
   {
@@ -476,7 +476,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777199 /var/scratch/pse740/rl_results/sim-rl-9_29.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 111 /var/scratch/pse740/rl_results/sim-rl-9_29.json"
     ]
   },
   {
@@ -492,7 +492,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777183 /var/scratch/pse740/rl_results/sim-rl-9_30.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 95 /var/scratch/pse740/rl_results/sim-rl-9_30.json"
     ]
   },
   {
@@ -508,7 +508,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777151 /var/scratch/pse740/rl_results/sim-rl-9_31.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 63 /var/scratch/pse740/rl_results/sim-rl-9_31.json"
     ]
   },
   {
@@ -524,7 +524,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777215 /var/scratch/pse740/rl_results/sim-rl-9_32.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-9_32.json"
     ]
   },
   {
@@ -540,7 +540,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777214 /var/scratch/pse740/rl_results/sim-rl-9_33.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 126 /var/scratch/pse740/rl_results/sim-rl-9_33.json"
     ]
   },
   {
@@ -556,7 +556,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777213 /var/scratch/pse740/rl_results/sim-rl-9_34.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 125 /var/scratch/pse740/rl_results/sim-rl-9_34.json"
     ]
   },
   {
@@ -572,7 +572,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777211 /var/scratch/pse740/rl_results/sim-rl-9_35.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 123 /var/scratch/pse740/rl_results/sim-rl-9_35.json"
     ]
   },
   {
@@ -588,7 +588,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777207 /var/scratch/pse740/rl_results/sim-rl-9_36.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 119 /var/scratch/pse740/rl_results/sim-rl-9_36.json"
     ]
   },
   {
@@ -604,7 +604,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777199 /var/scratch/pse740/rl_results/sim-rl-9_37.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 111 /var/scratch/pse740/rl_results/sim-rl-9_37.json"
     ]
   },
   {
@@ -620,7 +620,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777183 /var/scratch/pse740/rl_results/sim-rl-9_38.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 95 /var/scratch/pse740/rl_results/sim-rl-9_38.json"
     ]
   },
   {
@@ -636,7 +636,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777151 /var/scratch/pse740/rl_results/sim-rl-9_39.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 63 /var/scratch/pse740/rl_results/sim-rl-9_39.json"
     ]
   },
   {
@@ -652,7 +652,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777215 /var/scratch/pse740/rl_results/sim-rl-9_40.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-9_40.json"
     ]
   },
   {
@@ -668,7 +668,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777214 /var/scratch/pse740/rl_results/sim-rl-9_41.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 126 /var/scratch/pse740/rl_results/sim-rl-9_41.json"
     ]
   },
   {
@@ -684,7 +684,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777213 /var/scratch/pse740/rl_results/sim-rl-9_42.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 125 /var/scratch/pse740/rl_results/sim-rl-9_42.json"
     ]
   },
   {
@@ -700,7 +700,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777211 /var/scratch/pse740/rl_results/sim-rl-9_43.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 123 /var/scratch/pse740/rl_results/sim-rl-9_43.json"
     ]
   },
   {
@@ -716,7 +716,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777207 /var/scratch/pse740/rl_results/sim-rl-9_44.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 119 /var/scratch/pse740/rl_results/sim-rl-9_44.json"
     ]
   },
   {
@@ -732,7 +732,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777199 /var/scratch/pse740/rl_results/sim-rl-9_45.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 111 /var/scratch/pse740/rl_results/sim-rl-9_45.json"
     ]
   },
   {
@@ -748,7 +748,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777183 /var/scratch/pse740/rl_results/sim-rl-9_46.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 95 /var/scratch/pse740/rl_results/sim-rl-9_46.json"
     ]
   },
   {
@@ -764,7 +764,7 @@
       "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "# __REPLACED_BELOW__",
       "pip list",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 16777151 /var/scratch/pse740/rl_results/sim-rl-9_47.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 6 2000000000000 /var/scratch/pse740/cache/query_sets/25000_10.json 63 /var/scratch/pse740/rl_results/sim-rl-9_47.json"
     ]
   }
 ]
