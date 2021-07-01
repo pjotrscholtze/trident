@@ -191,8 +191,8 @@ for sample in load_data(data_path):
 
 # Defaults.EPOCHS = 50
 Defaults.EPOCHS = 2
-Defaults.STEPS_PER_TEST = int((total_measurements) / 5) - 1
-Defaults.STEPS_PER_EPOCH = int((total_measurements / 2) / 25) - 1
+Defaults.STEPS_PER_TEST = int((total_measurements) / 25) - 1
+Defaults.STEPS_PER_EPOCH = int((total_measurements) / 25) - 1
 
 
 # print({"history_size": history_size,
