@@ -146,7 +146,7 @@ def start_experiment(settings, training_ratio):
         id=0, 
         epoch_length=parameters.steps_per_test, 
         periodicity=1, 
-        show_score=True,0
+        show_score=True,
         summarize_every=parameters.period_btw_summary_perfs))
         
     # --- Run the experiment ---
