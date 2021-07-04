@@ -1,0 +1,18 @@
+[
+  {
+    "name": "sim-rl-11-0",
+    "description": "RL setup with deer. Reduced the number of features to 8, and gave it two actions. Reduced to see if this is the way to change test, validate.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 16 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "module load cuda10.0/toolkit && module load cuDNN/cuda10.0 && source /home/pse740/.bashrc && activate && du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "# __REPLACED_BELOW__",
+      "pip list",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/rl/run_toy_env_multi.py 1 2000000 /var/scratch/pse740/cache/query_sets/25000_10.json 127 /var/scratch/pse740/rl_results/sim-rl-11_0.json"
+    ]
+  }
+]
