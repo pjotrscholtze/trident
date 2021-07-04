@@ -193,8 +193,8 @@ for sample in load_data(data_path):
 training_ratio = 0.2
 # Defaults.EPOCHS = 50
 Defaults.EPOCHS = 2
-Defaults.STEPS_PER_EPOCH = int(training_ratio * ((total_measurements) / 40)) - 1
-Defaults.STEPS_PER_TEST = int((1 - training_ratio) * ((total_measurements) / 40)) - 1
+Defaults.STEPS_PER_EPOCH = int(training_ratio * ((total_measurements) / 10)) - 1
+Defaults.STEPS_PER_TEST = int((1 - training_ratio) * ((total_measurements) / 10)) - 1
 
 
 # print({"history_size": history_size,
