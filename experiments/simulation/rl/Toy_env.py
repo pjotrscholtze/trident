@@ -339,7 +339,7 @@ class MyEnv(Environment):
         # time = self._get_duration(query)
         obs = Observation.blank()
 
-        obs.table_generation_time = self.current_signal[self._counter]
+        obs.table_generation_time = self.current_signal[self._offset]
         # obs.action = action
         obs.no_measurements = len(query["measurements"])
         # obs.cache_size = self._cache_size
@@ -380,6 +380,7 @@ class MyEnv(Environment):
         # With action: perf diff 0.14046897492989455
 
         self._counter += 1
+        self._offset += 1
         before = self._get_duration(query)
         handler(m["idx"], m["s"], m["p"], m["o"])
 
