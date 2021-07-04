@@ -234,7 +234,8 @@ class MyEnv(Environment):
             self._offset = len(self._signal_train)
         
         self._last_ponctual_observation = self._new_last_ponctual_observation()#
-        self._last_ponctual_observation[0] = self.current_signal[0]
+        if self.current_signal:
+            self._last_ponctual_observation[0] = self.current_signal[0]
         self._avg_queries_per_second = None
         # [self.current_signal[0], 0, 0]
 
