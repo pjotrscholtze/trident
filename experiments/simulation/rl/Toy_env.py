@@ -193,8 +193,8 @@ class MyEnv(Environment):
 
         print("training_ratio", training_ratio)
        
-        self._signal_train = _price_signal[:len(_price_signal)//int(1 / training_ratio)]
-        self._signal_valid = _price_signal[len(_price_signal)//int(1 / (1 - training_ratio)):]
+        self._signal_train = _price_signal[:int(len(_price_signal) * training_ratio)]
+        self._signal_valid = _price_signal[int(len(_price_signal) * training_ratio):]
         # self._prices = None
         self._counter = 1
         self._offset = 0
@@ -232,11 +232,9 @@ class MyEnv(Environment):
         else:
             self.current_signal = self._signal_valid
             self._offset = len(self._signal_train)
-            self._offset = 0
         
         self._last_ponctual_observation = self._new_last_ponctual_observation()#
-        if self.current_signal:
-            self._last_ponctual_observation[0] = self.current_signal[0]
+        self._last_ponctual_observation[0] = self.current_signal[0]
         self._avg_queries_per_second = None
         # [self.current_signal[0], 0, 0]
 
@@ -339,7 +337,7 @@ class MyEnv(Environment):
         # time = self._get_duration(query)
         obs = Observation.blank()
 
-        obs.table_generation_time = self.current_signal[self._offset]
+        obs.table_generation_time = self.current_signal[self._counter]
         # obs.action = action
         obs.no_measurements = len(query["measurements"])
         # obs.cache_size = self._cache_size
@@ -380,7 +378,6 @@ class MyEnv(Environment):
         # With action: perf diff 0.14046897492989455
 
         self._counter += 1
-        self._offset += 1
         before = self._get_duration(query)
         handler(m["idx"], m["s"], m["p"], m["o"])
 
