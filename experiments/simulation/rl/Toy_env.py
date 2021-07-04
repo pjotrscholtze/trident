@@ -232,6 +232,7 @@ class MyEnv(Environment):
         else:
             self.current_signal = self._signal_valid
             self._offset = len(self._signal_train)
+            self._offset = 0
         
         self._last_ponctual_observation = self._new_last_ponctual_observation()#
         if self.current_signal:
