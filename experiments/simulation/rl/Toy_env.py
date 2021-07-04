@@ -193,8 +193,8 @@ class MyEnv(Environment):
 
         print("training_ratio", training_ratio)
        
-        self._signal_train = _price_signal[:len(_price_signal)//(1 / training_ratio)]
-        self._signal_valid = _price_signal[len(_price_signal)//(1 / (1 - training_ratio)):]
+        self._signal_train = _price_signal[:len(_price_signal)//int(1 / training_ratio)]
+        self._signal_valid = _price_signal[len(_price_signal)//int(1 / (1 - training_ratio)):]
         # self._prices = None
         self._counter = 1
         self._offset = 0
