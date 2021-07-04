@@ -56,7 +56,7 @@ class Defaults:
     DETERMINISTIC = True
 
 
-def start_experiment(settings):
+def start_experiment(settings, training_ratio):
     logging.basicConfig(level=logging.INFO)
     
     # --- Parse parameters ---
@@ -68,7 +68,7 @@ def start_experiment(settings):
         rng = np.random.RandomState()
     
     # --- Instantiate environment ---
-    env = Toy_env(rng, settings)
+    env = Toy_env(rng, settings, training_ratio)
 
     # --- Instantiate qnetwork ---
     qnetwork = MyQNetwork(
@@ -146,7 +146,7 @@ def start_experiment(settings):
         id=0, 
         epoch_length=parameters.steps_per_test, 
         periodicity=1, 
-        show_score=True,
+        show_score=True,0
         summarize_every=parameters.period_btw_summary_perfs))
         
     # --- Run the experiment ---
@@ -189,10 +189,12 @@ total_measurements = 0
 for sample in load_data(data_path):
     total_measurements += len(sample["q"]["measurements"])
 
+
+training_ratio = 0.2
 # Defaults.EPOCHS = 50
 Defaults.EPOCHS = 2
-Defaults.STEPS_PER_TEST = int((total_measurements) / 40) - 1
-Defaults.STEPS_PER_EPOCH = int((total_measurements) / 40) - 1
+Defaults.STEPS_PER_EPOCH = int(training_ratio * ((total_measurements) / 40)) - 1
+Defaults.STEPS_PER_TEST = int((1 - training_ratio) * ((total_measurements) / 40)) - 1
 
 
 # print({"history_size": history_size,
@@ -234,4 +236,4 @@ for field in settings.observation_mask.__dict__:
 print("### SETUP ###", json.dumps(setup))
 
 
-start_experiment(settings)
+start_experiment(settings, training_ratio)

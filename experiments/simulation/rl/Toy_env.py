@@ -148,7 +148,7 @@ class MyEnv(Environment):
         return Observation.blank().to_list() #[0, 0, 0, 0, 0]
     # def _new_last_ponctual_observation(self): return [0, 0, 0, 0, 0, 0]
 
-    def __init__(self, rng, settings = None):
+    def __init__(self, rng, settings = None, training_ratio=0.5):
         """ Initialize environment.
 
         Parameters
@@ -190,9 +190,11 @@ class MyEnv(Environment):
         self._cache = {}
         self._cache_size = 0
         self._cache_size_limit = self.settings.cache_size_limit
+
+        print("training_ratio", training_ratio)
        
-        self._signal_train = _price_signal[:len(_price_signal)//2]
-        self._signal_valid = _price_signal[len(_price_signal)//2:]
+        self._signal_train = _price_signal[:len(_price_signal)//(1 / training_ratio)]
+        self._signal_valid = _price_signal[len(_price_signal)//(1 / (1 - training_ratio)):]
         # self._prices = None
         self._counter = 1
         self._offset = 0
@@ -260,7 +262,7 @@ class MyEnv(Environment):
         self._cache[idx][s][p].remove(o)
 
     def _add_to_cache(self, idx, s, p, o):
-        if self._cache_size >= self._cache_size_limit: return
+        if self._cache_size + self.get_table_size(s, p, o) >= self._cache_size_limit: return
         if idx not in self._cache:
             self._cache[idx] = {}
         if s not in self._cache[idx]:
