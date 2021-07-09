@@ -221,7 +221,6 @@ if __name__ == "__main__":
         print("  output_path: Path to the output file.")
         sys.exit(0)
 
-    AMOUNT = int(argv[0])
     TRAINING_RATIO = float(argv[1])
     SEED = int(argv[2])
     BUCKET_COUNT = int(argv[3])
@@ -233,6 +232,11 @@ if __name__ == "__main__":
     SIMULATION_TYPE = argv[5]
     if SIMULATION_TYPE not in ["full", "query_selection"]: raise ValueError("Unkown simulation type")
     OUTPUT_PATH = argv[6]
+
+    query_set = load_data("/storage/wdps/trident/experiments/results/query_sets/25000_%d.json" % SEED)
+    # query_set = load_data("/var/scratch/pse740/cache/query_sets/25000_%d.json" % SEED)
+    # AMOUNT = int(argv[0])
+    AMOUNT = len(query_set)
 
     stats = {
         "eval_query_count": 0,
@@ -258,18 +262,17 @@ if __name__ == "__main__":
     logging.info(json.dumps(stats["config"], indent=2))
     stats["config"]["histogram_type"] = HISTOGRAM_TYPE
 
-    with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
+    # with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
     raw_queries = None
 
     if SIMULATION_TYPE == "query_selection":
         logging.info("hah")
-        res = [q for _,_, q in load_queries(with_buckets)]
-        print(json.dumps(ordered_query_locations))
+        # res = [q for _,_, q in load_queries(with_buckets)]
+        # print(json.dumps(ordered_query_locations))
         sys.exit(0)
 
     logging.info("Loading query set")
     # 
-    query_set = load_data("/var/scratch/pse740/cache/query_sets/25000_%d.json" % SEED)
 
     training_count = int(AMOUNT * TRAINING_RATIO)
     logging.info("Start training on %d queries" % (training_count))
@@ -285,7 +288,12 @@ if __name__ == "__main__":
     training_measurements = []
 
     for i in range(0, training_count):
-        training_measurements.append(query_set[i])
+        q = query_set[i]["q"]
+        # print(q)
+        for measurement in q["measurements"]:
+            if measurement["duration"] == 0: continue
+            training_measurements.append([1, measurement["duration"], measurement])
+        # training_measurements.append(query_set[i])
     # tmp = {k: [e for e in traing_buckets[k]] for k in traing_buckets}
     # for chunk_id, index, q in load_queries(tmp):
     #     for measurement in q["measurements"]:
@@ -299,7 +307,8 @@ if __name__ == "__main__":
     logging.info("using breakpoint value of %.3f" %breakpoint)
 
 
-    table_sizes = load_table_sizes("/var/scratch/pse740/cache/table_size.json")
+    table_sizes = load_table_sizes("/storage/wdps/trident/experiments/get_tablesizes/results.json")
+    # table_sizes = load_table_sizes("/var/scratch/pse740/cache/table_size.json")
 
     def get_table_size(s, p, o):
         return table_sizes[str(s)][str(p)][str(o)]
@@ -316,7 +325,7 @@ if __name__ == "__main__":
                 cache_size_base += get_table_size(measurement["s"], measurement["p"], measurement["o"])
     stats["cache_hashes"] = [] + cache
 
-    logging.info("Selected %d items for caching" % len(cache))
+    logging.info("Selected %d tables for caching, totaling in size: %d" % (len(cache), cache_size_base))
 
     # eval_buckets = {}
     # for i in range(training_count, AMOUNT - 1):
@@ -341,9 +350,12 @@ if __name__ == "__main__":
     stats["round2_dynamic_slim_start_histogram_tables"] = []
     stats["round2_dynamic_slim_start_histogram_tables_size"] = [0]
 
-
     for i in range(training_count, AMOUNT):
-        q = query_set[i]
+        q = query_set[i]["q"]
+        # print(query_set[i])
+        
+        index = query_set[i]["qid"]
+        chunk_id = query_set[i]["path"]
 
         # for chunk_id, index, q in load_queries(tmp):
         stats["eval_time_all"] += q["totalexec"]
@@ -358,8 +370,8 @@ if __name__ == "__main__":
             "opti_totalexec": q["totalexec"],
             "opti_queryexec": q["queryexec"],
             "opti_queryopti": q["queryopti"],
-            "cid": -1, #chunk_id,
-            "ln": -1, #index, # Line Number
+            "cid": chunk_id,
+            "ln": index, # Line Number
         }
 
 
