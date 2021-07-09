@@ -233,8 +233,8 @@ if __name__ == "__main__":
     if SIMULATION_TYPE not in ["full", "query_selection"]: raise ValueError("Unkown simulation type")
     OUTPUT_PATH = argv[6]
 
-    query_set = load_data("/storage/wdps/trident/experiments/results/query_sets/25000_%d.json" % SEED)
-    # query_set = load_data("/var/scratch/pse740/cache/query_sets/25000_%d.json" % SEED)
+    # query_set = load_data("/storage/wdps/trident/experiments/results/query_sets/25000_%d.json" % SEED)
+    query_set = load_data("/var/scratch/pse740/cache/query_sets/25000_%d.json" % SEED)
     # AMOUNT = int(argv[0])
     AMOUNT = len(query_set)
 
@@ -307,8 +307,8 @@ if __name__ == "__main__":
     logging.info("using breakpoint value of %.3f" %breakpoint)
 
 
-    table_sizes = load_table_sizes("/storage/wdps/trident/experiments/get_tablesizes/results.json")
-    # table_sizes = load_table_sizes("/var/scratch/pse740/cache/table_size.json")
+    # table_sizes = load_table_sizes("/storage/wdps/trident/experiments/get_tablesizes/results.json")
+    table_sizes = load_table_sizes("/var/scratch/pse740/cache/table_size.json")
 
     def get_table_size(s, p, o):
         return table_sizes[str(s)][str(p)][str(o)]
