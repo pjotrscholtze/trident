@@ -28,6 +28,10 @@ def load_table_sizes(path):
     # /storage/wdps/trident/experiments/get_tablesizes/results.json
     with open(path) as f:
         return json.load(f)
+def load_data(path):
+    # "/storage/wdps/trident/experiments/results/query_sets/25000_10.json"
+    with open(path) as f:
+        return json.load(f)
 
 
 # /**
@@ -263,23 +267,30 @@ if __name__ == "__main__":
         print(json.dumps(ordered_query_locations))
         sys.exit(0)
 
+    logging.info("Loading query set")
+    # 
+    query_set = load_data("/var/scratch/pse740/cache/query_sets/25000_%d.json" % SEED)
+
     training_count = int(AMOUNT * TRAINING_RATIO)
     logging.info("Start training on %d queries" % (training_count))
-    training_paths = {}
-    traing_buckets = {}
-    for i in range(0, training_count):
-        path, index = ordered_query_locations[i]
-        if path_to_int(path) not in training_paths:
-            training_paths[path_to_int(path)] = []
-        if path not in traing_buckets: traing_buckets[path] = []
-        traing_buckets[path].append(index)
-        training_paths[path_to_int(path)].append(index)
+    # training_paths = {}
+    # traing_buckets = {}
+    # for i in range(0, training_count):
+    #     path, index = ordered_query_locations[i]
+    #     if path_to_int(path) not in training_paths:
+    #         training_paths[path_to_int(path)] = []
+    #     if path not in traing_buckets: traing_buckets[path] = []
+    #     traing_buckets[path].append(index)
+    #     training_paths[path_to_int(path)].append(index)
     training_measurements = []
-    tmp = {k: [e for e in traing_buckets[k]] for k in traing_buckets}
-    for chunk_id, index, q in load_queries(tmp):
-        for measurement in q["measurements"]:
-            if measurement["duration"] == 0: continue
-            training_measurements.append([1, measurement["duration"], measurement])
+
+    for i in range(0, training_count):
+        training_measurements.append(query_set[i])
+    # tmp = {k: [e for e in traing_buckets[k]] for k in traing_buckets}
+    # for chunk_id, index, q in load_queries(tmp):
+    #     for measurement in q["measurements"]:
+    #         if measurement["duration"] == 0: continue
+    #         training_measurements.append([1, measurement["duration"], measurement])
 
     logging.info("Building histogram")
 
@@ -307,16 +318,16 @@ if __name__ == "__main__":
 
     logging.info("Selected %d items for caching" % len(cache))
 
-    eval_buckets = {}
-    for i in range(training_count, AMOUNT - 1):
-        path, index = ordered_query_locations[i]
-        if path not in eval_buckets: eval_buckets[path] = []
-        eval_buckets[path].append(index)
+    # eval_buckets = {}
+    # for i in range(training_count, AMOUNT - 1):
+    #     path, index = ordered_query_locations[i]
+    #     if path not in eval_buckets: eval_buckets[path] = []
+    #     eval_buckets[path].append(index)
 
 
 
     logging.info("Evaluating")
-    tmp = {k: [e for e in eval_buckets[k]] for k in eval_buckets}
+    # tmp = {k: [e for e in eval_buckets[k]] for k in eval_buckets}
     stats["eval_encountered_cache"] = {}
     stats["eval_sim_queries"] = {}
     stats["round2_slowest_table_generations_time"] = 0
@@ -331,7 +342,10 @@ if __name__ == "__main__":
     stats["round2_dynamic_slim_start_histogram_tables_size"] = [0]
 
 
-    for chunk_id, index, q in load_queries(tmp):
+    for i in range(training_count, AMOUNT):
+        q = query_set[i]
+
+        # for chunk_id, index, q in load_queries(tmp):
         stats["eval_time_all"] += q["totalexec"]
         stats["eval_query_count"] += 1
         stats["eval_queries_with_table_generation"] += int(len(q["measurements"]) != 0)
@@ -344,8 +358,8 @@ if __name__ == "__main__":
             "opti_totalexec": q["totalexec"],
             "opti_queryexec": q["queryexec"],
             "opti_queryopti": q["queryopti"],
-            "cid": chunk_id,
-            "ln": index, # Line Number
+            "cid": -1, #chunk_id,
+            "ln": -1, #index, # Line Number
         }
 
 
@@ -384,7 +398,8 @@ if __name__ == "__main__":
             stats["eval_sim_queries"][q["hash"]]["simul_ms"].append(measurement["duration"])
 
         if q["measurements"]:
-            stats["eval_table_generations_skipped_queries"].append({"chunk_id": chunk_id, "index": index})
+            stats["eval_table_generations_skipped_queries"].append(q)
+            # stats["eval_table_generations_skipped_queries"].append({"chunk_id": chunk_id, "index": index})
 
     stats["config"]["histogram_type"] = stats["config"]["histogram_type"].value
     with open(OUTPUT_PATH, "w") as f:
