@@ -385,15 +385,23 @@ if __name__ == "__main__":
             if current_measurement_hash not in stats["round2_static_histogram_tables"]:
                 stats["round2_static_histogram_table_generations_time"].append(stats["round2_static_histogram_table_generations_time"][-1] + measurement["duration"])
 
-            if current_measurement_hash not in stats["round2_dynamic_histogram_tables"] and measurement["duration"] < breakpoint:
-                stats["round2_dynamic_histogram_tables"].append(current_measurement_hash)
-                stats["round2_dynamic_histogram_table_generations_time"].append(stats["round2_dynamic_histogram_table_generations_time"][-1] + measurement["duration"])
-                stats["round2_dynamic_histogram_tables_size"].append(stats["round2_dynamic_histogram_tables_size"][-1] + table_size)
+            if current_measurement_hash not in stats["round2_dynamic_histogram_tables"]:
+                add_size = 0
+                if measurement["duration"] >= breakpoint:
+                    stats["round2_dynamic_histogram_tables"].append(current_measurement_hash)
+                    add_size = table_size
 
-            if current_measurement_hash not in stats["round2_dynamic_slim_start_histogram_tables"] and measurement["duration"] < breakpoint:
-                stats["round2_dynamic_slim_start_histogram_tables"].append(current_measurement_hash)
+                stats["round2_dynamic_histogram_table_generations_time"].append(stats["round2_dynamic_histogram_table_generations_time"][-1] + measurement["duration"])
+                stats["round2_dynamic_histogram_tables_size"].append(stats["round2_dynamic_histogram_tables_size"][-1] + add_size)
+
+            if current_measurement_hash not in stats["round2_dynamic_slim_start_histogram_tables"]:
+                add_size = 0
+                if measurement["duration"] >= breakpoint:
+                    stats["round2_dynamic_slim_start_histogram_tables"].append(current_measurement_hash)
+                    add_size = table_size
+
                 stats["round2_dynamic_slim_start_histogram_table_generations_time"].append(stats["round2_dynamic_slim_start_histogram_table_generations_time"][-1] + measurement["duration"])
-                stats["round2_dynamic_slim_start_histogram_tables_size"].append(stats["round2_dynamic_slim_start_histogram_tables_size"][-1] + table_size)
+                stats["round2_dynamic_slim_start_histogram_tables_size"].append(stats["round2_dynamic_slim_start_histogram_tables_size"][-1] + add_size)
 
 
 

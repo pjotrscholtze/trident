@@ -28,31 +28,31 @@ class Defaults:
     STEPS_PER_TEST = 89 #int(1345/2-1)
     PERIOD_BTW_SUMMARY_PERFS = 10
 
-    # ----------------------
-    # Environment Parameters
-    # ----------------------
-    FRAME_SKIP = 1
+    # # ----------------------
+    # # Environment Parameters
+    # # ----------------------
+    # FRAME_SKIP = 1
 
     # ----------------------
     # DQN Agent parameters:
     # ----------------------
-    UPDATE_RULE = 'rmsprop'
+    # UPDATE_RULE = 'rmsprop'
     LEARNING_RATE = 0.005
     LEARNING_RATE_DECAY = 1.
     DISCOUNT = 0.9
     DISCOUNT_INC = 1.
     DISCOUNT_MAX = 0.99
-    RMS_DECAY = 0.9
-    RMS_EPSILON = 0.0001
-    MOMENTUM = 0
+    # RMS_DECAY = 0.9
+    # RMS_EPSILON = 0.0001
+    # MOMENTUM = 0
     CLIP_NORM = 1.0
     EPSILON_START = 1.0
     EPSILON_MIN = .1
     EPSILON_DECAY = 10000
-    UPDATE_FREQUENCY = 1
+    UPDATE_FREQUENCY = 10
     REPLAY_MEMORY_SIZE = 1000000
-    BATCH_SIZE = 32
-    FREEZE_INTERVAL = 1000
+    # BATCH_SIZE = 32
+    # FREEZE_INTERVAL = 1000
     DETERMINISTIC = True
 
 
@@ -71,16 +71,20 @@ def start_experiment(settings, training_ratio):
     env = Toy_env(rng, settings, training_ratio)
 
     # --- Instantiate qnetwork ---
+    # qnetwork = MyQNetwork(
+    #     env,
+    #     parameters.rms_decay,
+    #     parameters.rms_epsilon,
+    #     parameters.momentum,
+    #     parameters.clip_norm,
+    #     parameters.freeze_interval,
+    #     parameters.batch_size,
+    #     parameters.update_rule,
+    #     rng)
     qnetwork = MyQNetwork(
-        env,
-        parameters.rms_decay,
-        parameters.rms_epsilon,
-        parameters.momentum,
-        parameters.clip_norm,
-        parameters.freeze_interval,
-        parameters.batch_size,
-        parameters.update_rule,
-        rng)
+    environment=env,
+    random_state=rng)
+
     
     train_policy = EpsilonGreedyPolicy(qnetwork, env.nActions(), rng, 0.1)
     test_policy = EpsilonGreedyPolicy(qnetwork, env.nActions(), rng, 0.)
