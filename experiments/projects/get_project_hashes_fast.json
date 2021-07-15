@@ -1,0 +1,114 @@
+[
+  {
+    "name": "get_project_hashes_fast-0",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 10 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  },
+  {
+    "name": "get_project_hashes_fast-1",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 4156 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  },
+  {
+    "name": "get_project_hashes_fast-2",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 2536 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  },
+  {
+    "name": "get_project_hashes_fast-3",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 2123 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  },
+  {
+    "name": "get_project_hashes_fast-4",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 7058 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  },
+  {
+    "name": "get_project_hashes_fast-5",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 1087 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  },
+  {
+    "name": "get_project_hashes_fast-6",
+    "description": "Get the hashes for the queries used in the different simulations.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/histogram/main_2.py 25000 0.1 8306 2 equi_width query_selection OUTPUT_PATH"
+    ]
+  }
+]

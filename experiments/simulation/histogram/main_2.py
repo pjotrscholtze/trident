@@ -128,7 +128,8 @@ class QueryPicker:
     
 def get_data(filepath: str, index: List) -> List[Dict[str, any]]:
     # filepath = "/storage/wdps/trident/experiments" + filepath[1:]
-    filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
+    # filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full"))
+    filepath = "/var/scratch/pse740/" + (filepath[61:].replace("acquire_measurements_sample", "acquire_measurements_full-fast"))
 
     archive = py7zr.SevenZipFile(filepath, mode='r')
 
@@ -262,13 +263,14 @@ if __name__ == "__main__":
     logging.info(json.dumps(stats["config"], indent=2))
     stats["config"]["histogram_type"] = HISTOGRAM_TYPE
 
-    # with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
     raw_queries = None
 
     if SIMULATION_TYPE == "query_selection":
+        logging.info("---")
+        with_buckets, ordered_query_locations = get_buckets_locations(AMOUNT, TRAINING_RATIO, SEED)
         logging.info("hah")
-        # res = [q for _,_, q in load_queries(with_buckets)]
-        # print(json.dumps(ordered_query_locations))
+        res = [q for _,_, q in load_queries(with_buckets)]
+        print(json.dumps(ordered_query_locations))
         sys.exit(0)
 
     logging.info("Loading query set")
