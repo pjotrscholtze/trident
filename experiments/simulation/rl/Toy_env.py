@@ -255,32 +255,30 @@ class MyEnv(Environment):
         return self._table_sizes[str(s)][str(p)][str(o)]
 
     def _del_from_cache(self, idx, s, p, o):
-        if idx not in self._cache or s not in self._cache[idx] or \
-            p not in self._cache[idx][s] or o not in self._cache[idx][s][p]:
+        if s not in self._cache or p not in self._cache[s] or \
+            o not in self._cache[s][p]:
             return
         self._cache_size -= self.get_table_size(s, p, o)
-        self._cache[idx][s][p].remove(o)
+        self._cache[s][p].remove(o)
 
     def _add_to_cache(self, idx, s, p, o):
         if self._cache_size + self.get_table_size(s, p, o) >= self._cache_size_limit: return
-        if idx not in self._cache:
-            self._cache[idx] = {}
-        if s not in self._cache[idx]:
-            self._cache[idx][s] = {}
-        if p not in self._cache[idx][s]:
-            self._cache[idx][s][p] = []
-        self._cache[idx][s][p].append(o)
+        # if idx not in self._cache:
+        #     self._cache[idx] = {}
+        if s not in self._cache:
+            self._cache[s] = {}
+        if p not in self._cache[s]:
+            self._cache[s][p] = []
+        self._cache[s][p].append(o)
         # self._cache_size += 1
         self._cache_size += self.get_table_size(s, p, o)
 
     def _is_in_cache(self, idx, s, p, o):
         if idx not in self._cache:
             return False
-        if s not in self._cache[idx]:
+        if p not in self._cache[s]:
             return False
-        if p not in self._cache[idx][s]:
-            return False
-        return o in self._cache[idx][s][p]
+        return o in self._cache[s][p]
 
     def _get_duration(self, q):
         cached_time = 0
@@ -328,7 +326,7 @@ class MyEnv(Environment):
 
         self._exec_time.append(self._exec_time[len(self._exec_time)-1] + self._get_duration(query))
         
-        self._exec_time_before.append(self._exec_time[len(self._exec_time)-1] + self._get_duration_orig(query))
+        self._exec_time_before.append(self._exec_time_before[len(self._exec_time_before)-1] + self._get_duration_orig(query))
         self._cached_tables_count.append(self._cache_size)
 
         # print("action", ACTION_TO_TEXT[action], "cache_size", self._cache_size, "original_time",self.current_signal[self._counter], "improved", query["totalexec"] - self._get_duration(query))
