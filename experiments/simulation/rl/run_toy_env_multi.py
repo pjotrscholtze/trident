@@ -31,7 +31,7 @@ class Defaults:
     # # ----------------------
     # # Environment Parameters
     # # ----------------------
-    # FRAME_SKIP = 1
+    FRAME_SKIP = 1
 
     # ----------------------
     # DQN Agent parameters:
