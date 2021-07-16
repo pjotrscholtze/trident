@@ -274,7 +274,7 @@ class MyEnv(Environment):
         self._cache_size += self.get_table_size(s, p, o)
 
     def _is_in_cache(self, idx, s, p, o):
-        if idx not in self._cache:
+        if s not in self._cache:
             return False
         if p not in self._cache[s]:
             return False
