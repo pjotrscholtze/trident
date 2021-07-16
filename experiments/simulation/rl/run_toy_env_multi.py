@@ -36,23 +36,23 @@ class Defaults:
     # ----------------------
     # DQN Agent parameters:
     # ----------------------
-    # UPDATE_RULE = 'rmsprop'
+    UPDATE_RULE = 'rmsprop'
     LEARNING_RATE = 0.005
     LEARNING_RATE_DECAY = 1.
     DISCOUNT = 0.9
     DISCOUNT_INC = 1.
     DISCOUNT_MAX = 0.99
-    # RMS_DECAY = 0.9
-    # RMS_EPSILON = 0.0001
-    # MOMENTUM = 0
+    RMS_DECAY = 0.9
+    RMS_EPSILON = 0.0001
+    MOMENTUM = 0
     CLIP_NORM = 1.0
     EPSILON_START = 1.0
     EPSILON_MIN = .1
     EPSILON_DECAY = 10000
     UPDATE_FREQUENCY = 10
     REPLAY_MEMORY_SIZE = 1000000
-    # BATCH_SIZE = 32
-    # FREEZE_INTERVAL = 1000
+    BATCH_SIZE = 32
+    FREEZE_INTERVAL = 1000
     DETERMINISTIC = True
 
 
