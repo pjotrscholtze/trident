@@ -1,0 +1,114 @@
+[
+  {
+    "name": "get_sample_set_fast-0",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 10 $BUILD_CACHE_PATH/query_sets/25000_10.json"
+    ]
+  },
+  {
+    "name": "get_sample_set_fast-1",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 4156 $BUILD_CACHE_PATH/query_sets/25000_4156.json"
+    ]
+  },
+  {
+    "name": "get_sample_set_fast-2",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 2536 $BUILD_CACHE_PATH/query_sets/25000_2536.json"
+    ]
+  },
+  {
+    "name": "get_sample_set_fast-3",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 2123 $BUILD_CACHE_PATH/query_sets/25000_2123.json"
+    ]
+  },
+  {
+    "name": "get_sample_set_fast-4",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 7058 $BUILD_CACHE_PATH/query_sets/25000_7058.json"
+    ]
+  },
+  {
+    "name": "get_sample_set_fast-5",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 1087 $BUILD_CACHE_PATH/query_sets/25000_1087.json"
+    ]
+  },
+  {
+    "name": "get_sample_set_fast-6",
+    "description": "Get a sample queries set from the total queries set, saves some time later on.",
+    "github_url": "https://github.com/pjotrscholtze/trident.git",
+    "github_checkout": "master",
+    "script": [
+      "#!/bin/bash -e",
+      "#SBATCH -t 720:00 -N 1 -n 8 --mem=64000M",
+      "#SBATCH -p longq",
+      "#SBATCH --output=$PROJECT_PATH/slurm_%j.out",
+      "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
+      "module load python/3.6.0",
+      "source $BUILD_CACHE_PATH/venv/bin/activate",
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 8306 $BUILD_CACHE_PATH/query_sets/25000_8306.json"
+    ]
+  }
+]
