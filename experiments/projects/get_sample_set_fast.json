@@ -12,7 +12,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 10 $BUILD_CACHE_PATH/query_sets/25000_10.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 10 $BUILD_CACHE_PATH/query_sets/25000_10_fast.json"
     ]
   },
   {
@@ -28,7 +28,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 4156 $BUILD_CACHE_PATH/query_sets/25000_4156.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 4156 $BUILD_CACHE_PATH/query_sets/25000_4156_fast.json"
     ]
   },
   {
@@ -44,7 +44,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 2536 $BUILD_CACHE_PATH/query_sets/25000_2536.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 2536 $BUILD_CACHE_PATH/query_sets/25000_2536_fast.json"
     ]
   },
   {
@@ -60,7 +60,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 2123 $BUILD_CACHE_PATH/query_sets/25000_2123.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 2123 $BUILD_CACHE_PATH/query_sets/25000_2123_fast.json"
     ]
   },
   {
@@ -76,7 +76,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 7058 $BUILD_CACHE_PATH/query_sets/25000_7058.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 7058 $BUILD_CACHE_PATH/query_sets/25000_7058_fast.json"
     ]
   },
   {
@@ -92,7 +92,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 1087 $BUILD_CACHE_PATH/query_sets/25000_1087.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 1087 $BUILD_CACHE_PATH/query_sets/25000_1087_fast.json"
     ]
   },
   {
@@ -108,7 +108,7 @@
       "du -h -d0 $DATABASE_PATH/dbpedia-times-details-nindices-1",
       "module load python/3.6.0",
       "source $BUILD_CACHE_PATH/venv/bin/activate",
-      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 8306 $BUILD_CACHE_PATH/query_sets/25000_8306.json"
+      "python3 $BUILD_CACHE_PATH/trident/experiments/simulation/get_sample_set_fast.py 25000 0.1 8306 $BUILD_CACHE_PATH/query_sets/25000_8306_fast.json"
     ]
   }
 ]

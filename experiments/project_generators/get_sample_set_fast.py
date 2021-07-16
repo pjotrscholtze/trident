@@ -25,7 +25,7 @@ i = 0
 # for i in range(0, int(9128 * 0.15)): # sample
 for seed in [10, 4156, 2536, 2123, 7058, 1087, 8306]:
     for cmd in [
-        "25000 0.1 SEED $BUILD_CACHE_PATH/query_sets/25000_SEED.json",
+        "25000 0.1 SEED $BUILD_CACHE_PATH/query_sets/25000_SEED_fast.json",
         ]:
         cmd = cmd.replace("SEED", str(seed))
         data = json.loads(base_raw)
