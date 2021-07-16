@@ -28,9 +28,9 @@ class Defaults:
     STEPS_PER_TEST = 89 #int(1345/2-1)
     PERIOD_BTW_SUMMARY_PERFS = 10
 
-    # # ----------------------
-    # # Environment Parameters
-    # # ----------------------
+    # ----------------------
+    # Environment Parameters
+    # ----------------------
     FRAME_SKIP = 1
 
     # ----------------------
@@ -49,7 +49,7 @@ class Defaults:
     EPSILON_START = 1.0
     EPSILON_MIN = .1
     EPSILON_DECAY = 10000
-    UPDATE_FREQUENCY = 10
+    UPDATE_FREQUENCY = 1
     REPLAY_MEMORY_SIZE = 1000000
     BATCH_SIZE = 32
     FREEZE_INTERVAL = 1000
