@@ -324,15 +324,23 @@ class MyEnv(Environment):
         # elif action == ACTION_REMOVE_FROM_CACHE:
             
 
-        self._exec_time.append(self._exec_time[len(self._exec_time)-1] + self._get_duration(query))
-        
-        self._exec_time_before.append(self._exec_time_before[len(self._exec_time_before)-1] + self._get_duration_orig(query))
-        self._cached_tables_count.append(self._cache_size)
 
         # print("action", ACTION_TO_TEXT[action], "cache_size", self._cache_size, "original_time",self.current_signal[self._counter], "improved", query["totalexec"] - self._get_duration(query))
         m = self._raw_data_m[self._counter]
         # for m in query["measurements"]:
         # time = self._get_duration(query)
+
+
+        m_time = m['duration']
+        self._exec_time_before.append(self._exec_time_before[len(self._exec_time_before)-1] + m_time)
+        if self._is_in_cache(m["idx"], m["s"], m["p"], m["o"]):
+            m_time = 0
+        self._exec_time.append(self._exec_time[len(self._exec_time)-1] + m_time)
+        self._cached_tables_count.append(self._cache_size)
+
+
+
+
         obs = Observation.blank()
 
         obs.table_generation_time = self.current_signal[self._counter]
